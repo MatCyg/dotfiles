@@ -1,0 +1,42 @@
+# Easier navigation: .., ..., ...., ..... and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+alias cd..='cd ..'
+
+
+export USER_HOME=C:/Users/$USERNAME
+export PROJECTS=$USER_HOME/Projects
+export DOWNLOADS=$USER_HOME/Downloads
+export THIRD_PARTY=$USER_HOME/Documents/3rdparty
+export DESKTOP=$USER_HOME/Desktop
+
+# Shortcuts
+alias dl="cd $DOWNLOADS"
+alias dt="cd $DESKTOP"
+alias pd="cd $PROJECTS"
+alias g="git"
+alias h="history"
+alias tp="cd $THIRD_PARTY"
+
+
+alias psg="ps -ef | grep"
+alias psgj="psg java"
+alias subl="C:/Program\ Files/Sublime\ Text\ 3/subl.exe"
+alias start_simple_server="python -m SimpleHTTPServer 8000"
+
+alias ff='find . -type f -name'
+alias fd='find . -type d -name'
+alias k9='kill -9'
+alias c='clear'
+alias o='less +F'
+#alias l='ls -oga'
+#alias ll='ls -og'
+
+# Set auto completion to be case insensitive
+set completion-ignore-case on
+
+# Display completion matches immediately instead of ringing a bell and delaying you
+set show-all-if-ambiguous on

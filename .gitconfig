@@ -1,0 +1,76 @@
+[user]
+	name = Mateusz Cygert
+	email = 
+[http]
+	sslVerify = false
+[push]
+	default = current
+[core]
+	trustctime = false
+	editor = vim
+	filemode = false
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=3600
+[merge]
+	tool = vimdiff
+[mergetool]
+	keeptemporaries = false
+	keepbackups = false
+	prompt = false
+	trustexitcode = false
+[alias]
+	# basic aliases
+	cp = cherry-pick
+	co = checkout
+	cl = clone
+	ci = commit
+	cia = commit -a --amend -C HEAD
+	st = status -sb
+	br = branch
+	unstage = reset HEAD --
+
+	# add interactive
+	ai=add -i
+
+	# stash operation
+	sl = !git --no-pager stash list
+	sa = stash apply
+	sp = stash pop
+	# Add name in ""
+	ss = stash save
+
+	# List all aliases
+	la = !git config -l | grep --color=auto alias | cut -c 7-
+	# search codebase for a string (add -l to only list files containing the names)
+	searchcodebase = grep --color=auto -Ii 
+	# file log shows changes to the file commit by commit
+	fl = log -u
+	# Finding a file in repo - combine it with fl!
+	f = !git ls-files | grep --color=auto -i
+	# Show diff with staged files
+	dc=diff --cached
+	# Show diff last commit
+	dlc = diff --cached HEAD^
+	# Show modified files in last commit
+	dl = ll -1
+	# List commits in short form with collors and branch tags annotations
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	# Ls last 10 without pager
+	lsn = !git --no-pager ls -n 10
+	# List commits and changed files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	# List oneline without colors for chaining with Unix pipes
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	# List oneline commits showing dates
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	# List oneline commits showing relative date
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+
+	# Checkout what you did before scrum
+	scrumlog=log --since 3.days --author '!git config user.email' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+	# Show detailed info about last commit
+	last= !git --no-pager log -1 --stat
+	b = branch
