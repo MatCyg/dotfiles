@@ -28,7 +28,7 @@
 	ci = commit
 	cia = commit -a --amend -C HEAD
 	st = status -sb
-	br = branch
+	b = branch
 	unstage = reset HEAD --
 
 	# add interactive
@@ -43,11 +43,11 @@
 
 	# List all aliases
 	la = !git config -l | grep --color=auto alias | cut -c 7-
-	# search codebase for a string (add -l to only list files containing the names)
+	# search codebase for a string (add -l to only list files containing the string)
 	searchcodebase = grep --color=auto -Ii 
 	# file log shows changes to the file commit by commit
 	fl = log -u
-	# Finding a file in repo - combine it with fl!
+	# Search for a file in repo - combine it with fl!
 	f = !git ls-files | grep --color=auto -i
 	# Show diff with staged files
 	dc=diff --cached
@@ -65,7 +65,7 @@
 	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 	# List oneline commits showing dates
 	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	# List oneline commits showing relative date
+	# List oneline commits showing relative dates
 	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
 
 	# Checkout what you did before scrum
@@ -73,4 +73,3 @@
 	lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	# Show detailed info about last commit
 	last= !git --no-pager log -1 --stat
-	b = branch
