@@ -30,7 +30,9 @@
 	st = status -sb
 	b = branch
 	unstage = reset HEAD --
-
+	
+	# Undo last commit
+	undocommit=reset --soft HEAD~
 	# add interactive
 	ai=add -i
 
