@@ -8,9 +8,9 @@ alias cd..='cd ..'
 
 
 export USER_HOME=C:/Users/$USERNAME
+export UH=$USER_HOME
 export PROJECTS=$USER_HOME/Projects
 export DOWNLOADS=$USER_HOME/Downloads
-export THIRD_PARTY=$USER_HOME/Documents/3rdparty
 export DESKTOP=$USER_HOME/Desktop
 
 # Shortcuts
@@ -18,8 +18,8 @@ alias dl="cd $DOWNLOADS"
 alias dt="cd $DESKTOP"
 alias pd="cd $PROJECTS"
 alias g="git"
+alias dr="docker"
 alias h="history"
-alias tp="cd $THIRD_PARTY"
 
 
 alias psg="ps -ef | grep"
@@ -31,7 +31,8 @@ alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias k9='kill -9'
 alias kw='taskkill /pid'
-alias c='clear'
+#alias c='clear'
+alias c="echo -ne '\033c'"
 alias o='less +F'
 #alias l='ls -oga'
 #alias ll='ls -og'
