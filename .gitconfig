@@ -1,6 +1,6 @@
 [user]
-	name = 
-	email = 
+	name =
+    email =
 [http]
 	sslVerify = false
 [push]
@@ -9,6 +9,8 @@
 	trustctime = false
 	editor = vim
 	filemode = false
+	excludesfile = ~/.gitignore_global
+	pager = less -F -X
 [color]
 	ui = true
 [credential]
@@ -28,9 +30,11 @@
 	ci = commit
 	cia = commit -a --amend -C HEAD
 	st = status -sb
+	stu = status -sbu
+	lu = ls-files --others --exclude-standard
 	b = branch
 	unstage = reset HEAD --
-	
+
 	# Undo last commit
 	undocommit=reset --soft HEAD~
 	# add interactive
@@ -46,7 +50,7 @@
 	# List all aliases
 	la = !git config -l | grep --color=auto alias | cut -c 7-
 	# search codebase for a string (add -l to only list files containing the string)
-	searchcodebase = grep --color=auto -Ii 
+	searchcodebase = grep --color=auto -Ii
 	# file log shows changes to the file commit by commit
 	fl = log -u
 	# Search for a file in repo - combine it with fl!
@@ -75,3 +79,5 @@
 	lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	# Show detailed info about last commit
 	last= !git --no-pager log -1 --stat
+[status]
+	showUntrackedFiles = no
