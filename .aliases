@@ -7,7 +7,7 @@ alias -- -="cd -"
 alias cd..='cd ..'
 
 
-export USER_HOME=C:/Users/$USERNAME
+export USER_HOME=/Users/$USERNAME
 export UH=$USER_HOME
 export PROJECTS=$USER_HOME/Projects
 export DOWNLOADS=$USER_HOME/Downloads
@@ -24,7 +24,7 @@ alias h="history"
 
 alias psg="ps -ef | grep"
 alias psgj="psg java"
-alias subl="C:/Program\ Files/Sublime\ Text\ 3/subl.exe"
+# alias subl="C:/Program\ Files/Sublime\ Text\ 3/subl.exe"
 alias start_simple_server="python -m SimpleHTTPServer 8000"
 
 alias ff='find . -type f -name'
@@ -36,9 +36,3 @@ alias c="echo -ne '\033c'"
 alias o='less +F'
 #alias l='ls -oga'
 #alias ll='ls -og'
-
-# Set auto completion to be case insensitive
-set completion-ignore-case on
-
-# Display completion matches immediately instead of ringing a bell and delaying you
-set show-all-if-ambiguous on
