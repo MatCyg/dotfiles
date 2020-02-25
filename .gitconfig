@@ -1,6 +1,6 @@
 [user]
 	name =
-    email =
+	email =
 [http]
 	sslVerify = false
 [push]
@@ -14,7 +14,7 @@
 [color]
 	ui = true
 [credential]
-	helper = cache --timeout=3600
+	helper = cache --timeout=1
 [merge]
 	tool = vimdiff
 [mergetool]
@@ -33,7 +33,9 @@
 	stu = status -sbu
 	lu = ls-files --others --exclude-standard
 	b = branch
+    bn = symbolic-ref --short HEAD
 	unstage = reset HEAD --
+	clearlocalbranches = remote prune origin
 
 	# Undo last commit
 	undocommit=reset --soft HEAD~
@@ -46,7 +48,9 @@
 	sp = stash pop
 	# Add name in ""
 	ss = stash save
-
+	
+	o = open
+	
 	# List all aliases
 	la = !git config -l | grep --color=auto alias | cut -c 7-
 	# search codebase for a string (add -l to only list files containing the string)
