@@ -1,0 +1,24 @@
+{
+  "title": "Ctrl + Backspace to Delete",
+  "rules": [
+    {
+      "description": "Map Ctrl + Backspace to Delete",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "delete_or_backspace",
+            "modifiers": {
+              "mandatory": [ "left_control" ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "delete_forward"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

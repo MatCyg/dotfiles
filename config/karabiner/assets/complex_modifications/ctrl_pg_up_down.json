@@ -1,0 +1,32 @@
+{
+  "title": "Map ctrl + i and ctrl + o to page down and page up",
+  "rules": [
+    {
+      "description": "Map ctrl + i and ctrl + o to page down and page up",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "mandatory":  [ "left_control" ]
+            }
+          },
+          "to": [ { "key_code": "page_down" } ],
+          "type": "basic"
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "mandatory": [ "left_control" ]
+            }
+          },
+          "to": [ { "key_code": "page_up" } ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
