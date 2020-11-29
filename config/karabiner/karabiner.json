@@ -528,22 +528,6 @@
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "left_gui"
-                            },
-                            "to": {
-                                "key_code": "e"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_gui"
-                            },
-                            "to": {
-                                "key_code": "b"
-                            }
-                        },
-                        {
-                            "from": {
                                 "pointing_button": "button4"
                             },
                             "to": {
@@ -594,6 +578,14 @@
                             },
                             "to": {
                                 "key_code": "fn"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_command"
+                            },
+                            "to": {
+                                "key_code": "vk_launchpad"
                             }
                         }
                     ]
