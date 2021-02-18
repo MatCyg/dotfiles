@@ -29,14 +29,12 @@ alias h="history"
 
 
 alias psg="ps -ef | grep"
-alias psgj="psg java"
 alias start_simple_server="python -m SimpleHTTPServer 8000"
 alias copy_last_command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias k9='kill -9'
-alias kw='taskkill /pid'
 #alias c='clear'
 #alias c="echo -ne '\033c'"
 alias c="printf '\e]50;ClearScrollback\a'"
@@ -58,7 +56,7 @@ extract() {
         *.Z)         uncompress $1  ;; 
         *.7z)        7z x $1        ;; 
         *.jar)       unzip $1       ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;; 
+        *)           echo "'$1' cannot be extracted via extract()" ;;
          esac 
      else 
          echo "'$1' is not a valid file" 
@@ -67,7 +65,8 @@ extract() {
 
 alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
-refresh () { 
+
+refresh () {
 	command=$@;
 	if [[ -z "$command" ]]; then
 		command=$(history | tail -1 | head -1 | cut -c8-999)
@@ -80,11 +79,7 @@ refresh () {
   else
     echo "Exiting."
   fi
-
 }
 
 # shellcheck disable=SC2142
 alias cpu_temp='istats cpu | awk '\''{ print $3 }'\'''
-
-alias git_real_diff='$PROJECTS/personal/dotfiles/git_real_diff.sh'
-alias git_real_diff_cleanup='$PROJECTS/personal/dotfiles/git_real_diff_cleanup.sh'
