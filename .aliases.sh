@@ -13,15 +13,16 @@ export PROJECTS=$USER_HOME/Projects
 export DOWNLOADS=$USER_HOME/Downloads
 export DESKTOP=$USER_HOME/Desktop
 export TOOLS=$USER_HOME/tools
+export JAVA_SYMLINKS_DIR=$USER_HOME/.java
 
 # Shortcuts
-alias dl="cd $DOWNLOADS"
-alias dt="cd $DESKTOP"
-alias pd="cd $PROJECTS"
-alias pde="cd $PROJECTS/eldro"
-alias pdf="cd $PROJECTS/finastra"
-alias pdp="cd $PROJECTS/personal"
-alias ct="cd $TOOLS"
+alias dl='cd $DOWNLOADS'
+alias dt='cd $DESKTOP'
+alias pd='cd $PROJECTS'
+alias pde='cd $PROJECTS/eldro'
+alias pdf='cd $PROJECTS/finastra'
+alias pdp='cd $PROJECTS/personal'
+alias ct='cd $TOOLS'
 alias g="git"
 alias dr="docker"
 alias dc="docker-compose"
@@ -40,6 +41,12 @@ alias k9='kill -9'
 alias c="printf '\e]50;ClearScrollback\a'"
 alias o='less +F'
 alias sl='ls'
+
+alias listen="lsof -P -i -n"
+alias port='netstat -ap tcp'
+
+# shellcheck disable=SC2142
+alias cpu_temp='istats cpu | awk '\''{ print $3 }'\'''
 
 extract() { 
     if [ -f $1 ] ; then 
@@ -63,23 +70,17 @@ extract() {
      fi 
 }
 
-alias listen="lsof -P -i -n"
-alias port='netstat -ap tcp'
-
 refresh () {
-	command=$@;
+	command=$*;
 	if [[ -z "$command" ]]; then
 		command=$(history | tail -1 | head -1 | cut -c8-999)
 	fi
   echo "Executing command: $command"
-  read "response?Are you sure? [y/N]"
+  read -r "response?Are you sure? [y/N]" response
   if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
   then
-    while true; do $command; sleep 1; clear; done;
+    while true; do eval "$command"; sleep 1; clear; done;
   else
     echo "Exiting."
   fi
 }
-
-# shellcheck disable=SC2142
-alias cpu_temp='istats cpu | awk '\''{ print $3 }'\'''
