@@ -12,7 +12,7 @@ export UH=$USER_HOME
 export PROJECTS=$USER_HOME/Projects
 export DOWNLOADS=$USER_HOME/Downloads
 export DESKTOP=$USER_HOME/Desktop
-export TOOLS=$USER_HOME/tools
+export TOOLS=$USER_HOME/Tools
 export JAVA_SYMLINKS_DIR=$USER_HOME/.java
 
 # Shortcuts
@@ -22,7 +22,10 @@ alias pd='cd $PROJECTS'
 alias pde='cd $PROJECTS/eldro'
 alias pdf='cd $PROJECTS/finastra'
 alias pdp='cd $PROJECTS/personal'
-alias ct='cd $TOOLS'
+# shellcheck disable=SC2139
+# cd to dotfiles project
+alias pdd="cd $(dirname "$0")"
+alias tl='cd $TOOLS'
 alias g="git"
 alias dr="docker"
 alias dc="docker-compose"

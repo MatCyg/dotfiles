@@ -23,7 +23,7 @@ else
 fi
 
 
-echo "target_branch="$target_branch""
+echo "target_branch=$target_branch"
 
 git pull
 exists=$(git show-ref refs/heads/"$target_branch")
