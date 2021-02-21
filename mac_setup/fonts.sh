@@ -15,4 +15,8 @@ archive_name=$(basename "$sans_code_last_release_url")
 unzip -j "$archive_name" -d "$SANS_CODE_DIR"
 
 
-ls "$SANS_CODE_DIR"/ttf/*.ttf
+cp -v "$SANS_CODE_DIR"/*.ttf ~/Library/Fonts
+
+
+git clone --depth 1 https://github.com/powerline/fonts
+cp -v "$MAC_SETUP_DIR"/fonts/DejaVuSansMono/*.ttf ~/Library/Fonts
