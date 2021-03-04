@@ -1,6 +1,6 @@
 [user]
-	name =
-	email =
+	name = "Mateusz Cygert"
+	email = "matcyg@gmail.com"
 [http]
 	sslVerify = false
 [push]
