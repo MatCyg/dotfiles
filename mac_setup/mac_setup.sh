@@ -120,6 +120,7 @@ apps=(
   iterm2
   firefox
   karabiner-elements
+  rectangle
   postman
   spotify
 )
