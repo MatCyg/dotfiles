@@ -95,7 +95,6 @@ cmd_tools=(
   watch
   wget
   htop
-  mdcat
   httpie
   fzf
   docker
@@ -144,7 +143,7 @@ echo "[FONTS] - Completed fonts installation"
 
 # keep in defaults invoke global sudo, remember to run it as the last step
 echo "[defaults] - Setting up macOS defaults"
-"$(dirname "$0")"/mac_os_defaults.sh
+"$(dirname "$0")"/defaults.sh
 echo "[defaults] - Setting up macOS defaults"
 
 
