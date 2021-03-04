@@ -65,6 +65,13 @@ echo_section "[Oh-My-Zsh] Installation finished"
 
 
 
+echo_section "[symlinks] Setting up configuration symlinks..."
+# TODO this path should not be hardcoded
+ln -s "$HOME"/Projects/personal/dotfiles/config/karabiner "$HOME"/.config/karabiner
+echo_section "[symlinks] Symlinks set"
+
+
+
 echo_section "[brew] Installing..."
 
 if test ! "$(which brew)"; then
