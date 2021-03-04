@@ -1,6 +1,12 @@
 
 Some things are not yet automated:
 
+# Apps to install manually:
+- [TickTick](https://apps.apple.com/us/app/ticktick-to-do-list-remind/id966085870)
+- [Alfred 4](https://www.alfredapp.com)
+- [Little Snitch](https://www.obdev.at/)
+- [IntelliJ](https://www.jetbrains.com)
+
 # System preferences: 
 
 ### Screen:
