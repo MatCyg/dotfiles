@@ -117,7 +117,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # TODO
 # Volume:
 # Show volume in menu bar
-  TODO
+
 # Alert volume set to 0
 defaults write -g com.apple.sound.beep.volume -int 0
 # Disable UI sound effects
