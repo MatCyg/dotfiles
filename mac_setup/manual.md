@@ -7,7 +7,18 @@ Some things are not yet automated:
 - [Little Snitch](https://www.obdev.at/)
 - [IntelliJ](https://www.jetbrains.com)
 
-# System preferences: 
+# System preferences:
+
+### Keyboard:
+[comment]: <> (google for AppleSymbolicHotKeys)
+1. Launchpad & Dock -> disable all shortcuts
+2. Keyboard -> disable all beside `Move focus to next window`
+3. Services -> disable `Open and search man Page in Terminal`
+4. Spotlight -> change spotlight shortcut to ⌘⌥Space
+5. Accessibility -> disable all
+6. Dictation -> turn off shortcut
+7. Keyboard -> Select `Turn off keyboard backlight after 5 seconds`
+8. Change `Caps Lock` modifier to `Control`
 
 ### Screen:
 1. Night Shift -> sunset to sunrise
@@ -15,28 +26,12 @@ Some things are not yet automated:
 
 ### Battery:
 1. Battery:
-    - Select `Optimize video streaming while on battery`
-    - Show batter in menu bar true
+   - Select `Optimize video streaming while on battery`
+   - Show batter in menu bar true
 
 2. Power Adapter
-    - Disable power nap
-    - Somewhere should be an option to show current charge in percentage
-
-
-### Keyboard:
-[comment]: <> (google for AppleSymbolicHotKeys)
-1. Disable show desktop shortcut
-2. Disable application windows shortcut
-3. Disable a keyboard shortcuts beside :moves focus to next window and move focus to the windows drawer
-4. Services -> disable open man page in terminal and search man page index in terminal
-5. Change spotlight keyboard shortcut to option cmd space
-6. Accessibility disable turn voice over on/off
-7. Accessibility disable show accessibility controls
-8. Disable dictation shortcut
-9. Turn of keyboard backlight after 5 seconds
-10. Set Caps lock modifier to Control
-11. Maybe exchange fn -> ctrl
-
+   - Disable power nap
+   - Somewhere should be an option to show current charge in percentage
 
 ### Sharing
 1. Verify sharing option and disable remote login
