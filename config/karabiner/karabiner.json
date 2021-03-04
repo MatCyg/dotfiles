@@ -258,6 +258,49 @@
                         ]
                     },
                     {
+                        "description": "Map option + q and option + w to next/previous space",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "left_control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Right option swaps layout",
                         "manipulators": [
                             {
@@ -423,13 +466,6 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
@@ -449,16 +485,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "w",
                                     "modifiers": {
@@ -478,16 +518,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "e",
                                     "modifiers": {
@@ -507,16 +551,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": {
@@ -536,16 +584,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": {
@@ -565,16 +617,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "y",
                                     "modifiers": {
@@ -594,16 +650,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -623,16 +683,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "i",
                                     "modifiers": {
@@ -652,16 +716,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
@@ -681,16 +749,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "p",
                                     "modifiers": {
@@ -710,16 +782,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": {
@@ -739,16 +815,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": {
@@ -768,16 +848,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -797,16 +881,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
@@ -826,16 +914,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": {
@@ -855,16 +947,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "h",
                                     "modifiers": {
@@ -884,16 +980,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "z",
                                     "modifiers": {
@@ -913,16 +1013,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": {
@@ -942,16 +1046,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": {
@@ -971,16 +1079,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": {
@@ -1000,16 +1112,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "b",
                                     "modifiers": {
@@ -1029,16 +1145,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "n",
                                     "modifiers": {
@@ -1058,16 +1178,20 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "arrow_layout_enabled",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "from": {
                                     "key_code": "m",
                                     "modifiers": {
@@ -1087,6 +1211,17 @@
                                         }
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [],
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "arrow_layout_enabled",
+                                                "value": 1
+                                            }
+                                        }
+                                    ]
+                                },
                                 "type": "basic"
                             }
                         ]
