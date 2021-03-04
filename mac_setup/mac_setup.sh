@@ -15,6 +15,22 @@ echo_section "[XCODE-TOOLS] Installation finished"
 
 
 
+echo_section "[ssh-key] Generation..."
+
+email="matcyg@gmail.com"
+
+echo "[ssh-key] Creating an SSH key for '$email'"
+ssh-keygen -t ed25519 -C $email
+
+echo -e "\n[ssh-key] Please add this public key to Github:\n\n"
+cat "$HOME"/.ssh/id_ed25519.pub
+echo -e "\n\n[ssh-key] https://github.com/account/ssh \n"
+read -rp "[ssh-key] Press [Enter] key to continue..."
+
+echo_section "[ssh-key] Generation finished"
+
+
+
 # sdkman must be installed first as it alters .zshrc
 echo_section "[SDKMAN] Installing..."
 
