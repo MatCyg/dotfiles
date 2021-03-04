@@ -34,7 +34,7 @@
 	stu = status -sbu
 	lu = ls-files --others --exclude-standard
 	b = branch
-        bn = symbolic-ref --short HEAD
+    bn = symbolic-ref --short HEAD
 	unstage = reset HEAD --
 	clearlocalbranches = remote prune origin
 
@@ -91,5 +91,6 @@
 	lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
 	# Show detailed info about last commit
 	last= !git --no-pager log -1 --stat
+
 [status]
 	showUntrackedFiles = no
