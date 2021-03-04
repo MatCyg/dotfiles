@@ -7,13 +7,11 @@ alias -- -="cd -"
 alias cd..='cd ..'
 
 
-export USER_HOME=/Users/$USERNAME
-export UH=$USER_HOME
-export PROJECTS=$USER_HOME/Projects
-export DOWNLOADS=$USER_HOME/Downloads
-export DESKTOP=$USER_HOME/Desktop
-export TOOLS=$USER_HOME/Tools
-export JAVA_SYMLINKS_DIR=$USER_HOME/.java
+export PROJECTS=$HOME/Projects
+export DOWNLOADS=$HOME/Downloads
+export DESKTOP=$HOME/Desktop
+export TOOLS=$HOME/Tools
+export JAVA_SYMLINKS_DIR=$HOME/.java
 
 # Shortcuts
 alias dl='cd $DOWNLOADS'

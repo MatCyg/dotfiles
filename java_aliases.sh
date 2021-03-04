@@ -5,7 +5,7 @@ function set_default_java_and_run_command() {
   # shellcheck disable=SC2124
   remaining_args="${@:2}"
 
-  currently_set_java_version=$(readlink $USER_HOME/.sdkman/candidates/java/current)
+  currently_set_java_version=$(readlink "$HOME"/.sdkman/candidates/java/current)
 
   if [ "$currently_set_java_version" = "$java_version_to_set" ]; then
     echo "Default java version already set to $java_version_to_set."

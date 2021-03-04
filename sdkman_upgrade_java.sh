@@ -4,14 +4,15 @@ set -e
 #st -o pipefail
 #set -ux
 
-JAVA_SYMLINKS_DIR="$USER_HOME"/.java
+JAVA_SYMLINKS_DIR="$HOME"/.java
 
-sed -i -e 's/sdkman_auto_answer=false/sdkman_auto_answer=true/g' "$USER_HOME"/.sdkman/etc/config
+sed -i -e 's/sdkman_auto_answer=false/sdkman_auto_answer=true/g' "$HOME"/.sdkman/etc/config
 mkdir -p "$JAVA_SYMLINKS_DIR"
 
-source "$USER_HOME"/.sdkman/bin/sdkman-init.sh
+source "$HOME"/.sdkman/bin/sdkman-init.sh
+echo "Updating sdkman..."
 sdk update
-source "$USER_HOME"/.sdkman/bin/sdkman-init.sh
+source "$HOME"/.sdkman/bin/sdkman-init.sh
 
 versions_to_delete=$(sdk list java | grep "local only" | cut -c 62-)
 java_versions_to_install=$(sdk list java | grep "hs-adpt" | grep -v "sdk install" | grep -v "installed" | cut -c 62-)
@@ -65,7 +66,7 @@ install_java_using_sdk() {
 	  graalvm_version=$(cut -d "r" -f2- <<< "$version")
     symlink_base_name="graalvm-$graalvm_version-"
   fi
-  ln -sf "$USER_HOME"/.sdkman/candidates/java/"$version" "$JAVA_SYMLINKS_DIR"/"$symlink_base_name""$major_version"
+  ln -sf "$HOME"/.sdkman/candidates/java/"$version" "$JAVA_SYMLINKS_DIR"/"$symlink_base_name""$major_version"
 }
 
 verify_symlinks() {
@@ -98,3 +99,6 @@ verify_symlinks
 display_symlinks
 
 sdk flush
+
+echo "Please remember macOS doesn't allow choosing symlink from file picker. Please remember to alter file manually:"
+echo "${HOME}/Library/ApplicationSupport/JetBrains/_current_intellij_version/options/jdk.table.xml"
