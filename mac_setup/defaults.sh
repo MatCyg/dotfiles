@@ -196,6 +196,9 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 defaults write com.apple.finder FXPreferredViewStyle Clmv
 
 # RANDOM:
+# App switcher on all displays
+defaults write com.apple.Dock appswitcher-all-displays -bool true
+
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
 
