@@ -1,96 +1,101 @@
 [user]
-	name = "Mateusz Cygert"
-	email = "matcyg@gmail.com"
+    name = "Mateusz Cygert"
+    email = "matcyg@gmail.com"
 [http]
-	sslVerify = false
+    sslVerify = false
 [push]
-	default = current
+    default = current
 [core]
-	trustctime = false
-	editor = vim
-	filemode = false
-	excludesfile = ~/.gitignore_global
-	pager = less -F -X
+    trustctime = false
+    editor = vim
+    filemode = false
+    excludesfile = ~/.gitignore_global
+    pager = less -F -X
 [color]
-	ui = true
+    ui = true
 [credential]
-	helper = cache --timeout=1
+    helper = cache --timeout=1
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
-	keeptemporaries = false
-	keepbackups = false
-	prompt = false
-	trustexitcode = false
+    keeptemporaries = false
+    keepbackups = false
+    prompt = false
+    trustexitcode = false
 [alias]
-	# basic aliases
-	cp = cherry-pick
-	co = checkout
-	cl = clone
-	cls = clone --depth 1
-	ci = commit
-	cia = commit -a --amend -C HEAD
-	st = status -sb
-	stu = status -sbu
-	lu = ls-files --others --exclude-standard
-	b = branch
+    # basic aliases
+    cp = cherry-pick
+    co = checkout
+    cl = clone
+    cls = clone --depth 1
+    ci = commit
+    cia = commit -a --amend -C HEAD
+    st = status -sb
+    stu = status -sbu
+    lu = ls-files --others --exclude-standard
+    b = branch
+    # Get current branch name
     bn = symbolic-ref --short HEAD
-	unstage = reset HEAD --
-	clearlocalbranches = remote prune origin
+    unstage = reset HEAD --
+    clearlocalbranches = remote prune origin
 
-	# Undo last commit
-	undocommit=reset --soft HEAD~
-	# add interactive
-	ai=add -i
-	aa=add .	
-	# completly reset branch
-	fresh = !git add . && git reset --hard @
-	# execute real diff
-	rd = !$PROJECTS/personal/dotfiles/git_real_diff.sh
-	rdi = !$PROJECTS/personal/dotfiles/git_real_diff.sh && idea ./
-	rdc = !$PROJECTS/personal/dotfiles/git_real_diff_cleanup.sh
-	clean-branches = !$PROJECTS/personal/dotfiles/git_cleanup_other_branches.sh
-	# stash operation
-	sl = !git --no-pager stash list
-	sa = stash apply
-	sp = stash pop
-	# Add name in ""
-	ss = stash save
-	
-	o = open
-	
-	# List all aliases
-	la = !git config -l | grep --color=auto alias | cut -c 7-
-	# search codebase for a string (add -l to only list files containing the string)
-	searchcodebase = grep --color=auto -Ii
-	# file log shows changes to the file commit by commit
-	fl = log -u
-	# Search for a file in repo - combine it with fl!
-	f = !git ls-files | grep --color=auto -i
-	# Show diff with staged files
-	dc=diff --cached
-	# Show diff last commit
-	dlc = diff --cached HEAD^
-	# Show modified files in last commit
-	dl = ll -1
-	# List commits in short form with collors and branch tags annotations
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	# Ls last 10 without pager
-	lsn = !git --no-pager ls -n 10
-	# List commits and changed files
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	# List oneline without colors for chaining with Unix pipes
-	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-	# List oneline commits showing dates
-	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-	# List oneline commits showing relative dates
-	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    # checkout remote branch with fzf
+    cor = !git checkout -t $(git branch -r | fzf)
+    # checkout local branch with fzf
+    col = !git checkout $(git branch | fzf)
+    # Undo last commit
+    undocommit=reset --soft HEAD~
+    # add interactive
+    ai=add -i
+    aa=add .
+    # completly reset branch
+    fresh = !git add . && git reset --hard @
+    # execute real diff
+    rd = !$PROJECTS/personal/dotfiles/git_real_diff.sh
+    rdi = !$PROJECTS/personal/dotfiles/git_real_diff.sh && idea ./
+    rdc = !$PROJECTS/personal/dotfiles/git_real_diff_cleanup.sh
+    clean-branches = !$PROJECTS/personal/dotfiles/git_cleanup_other_branches.sh
+    # stash operation
+    sl = !git --no-pager stash list
+    sa = stash apply
+    sp = stash pop
+    # Add name in ""
+    ss = stash save
 
-	# Checkout what you did before scrum
-	scrumlog=log --since 3.days --author '!git config user.email' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-	# Show detailed info about last commit
-	last= !git --no-pager log -1 --stat
+    o = open
+
+    # List all aliases
+    la = !git config -l | grep --color=auto alias | cut -c 7-
+    # search codebase for a string (add -l to only list files containing the string)
+    searchcodebase = grep --color=auto -Ii
+    # file log shows changes to the file commit by commit
+    fl = log -u
+    # Search for a file in repo - combine it with fl!
+    f = !git ls-files | grep --color=auto -i
+    # Show diff with staged files
+    dc=diff --cached
+    # Show diff last commit
+    dlc = diff --cached HEAD^
+    # Show modified files in last commit
+    dl = ll -1
+    # List commits in short form with collors and branch tags annotations
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    # Ls last 10 without pager
+    lsn = !git --no-pager ls -n 10
+    # List commits and changed files
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    # List oneline without colors for chaining with Unix pipes
+    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+    # List oneline commits showing dates
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    # List oneline commits showing relative dates
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+
+    # Checkout what you did before scrum
+    scrumlog=log --since 3.days --author '!git config user.email' --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
+    # Show detailed info about last commit
+    last= !git --no-pager log -1 --stat
 
 [status]
-	showUntrackedFiles = no
+    showUntrackedFiles = no
