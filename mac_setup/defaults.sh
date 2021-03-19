@@ -228,6 +228,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Setting email addresses to copy as 'foo@example.com' instead of 'Foo Bar <foo@example.com>' in Mail.app"
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
+# Disable Ctrl + Command + D dictionary shortcut
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 70 '<dict><key>enabled</key><false/></dict>'
+
 chflags nohidden ~/Library
 
 # allow touch id instead of password for sudo:
