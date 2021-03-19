@@ -17,6 +17,8 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 alias badge="tput bel"
 
+
+install maven
 #look into
 # curlrc
 # hisotry ignore
