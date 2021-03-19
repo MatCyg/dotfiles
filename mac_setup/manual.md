@@ -33,8 +33,23 @@ Some things are not yet automated:
    - Disable power nap
    - Somewhere should be an option to show current charge in percentage
 
+### Accessibility
+1. Zoom  
+   - Select `Use scroll gesture with modifier keys to zoom` 
+   - Advanced select `Only when the pointer reaches an edge`
+2. Display
+   - `Reduce motion`
+   - `Reduce transparency`
+
 ### Sharing
 1. Verify sharing option and disable remote login
 2. Check details of installed profiles by running `sudo /usr/bin/profiles show`
 3. Check defaults preferences for third parties by verifying `sudo defaults read`
 
+# Applications preference:
+
+Alfred
+Features -> Clipboard History -> Select:
+   - Keep Plain Text
+   - Keep Images
+   - Keep File Lists
