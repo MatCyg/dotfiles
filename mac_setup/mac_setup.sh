@@ -101,6 +101,7 @@ cmd_tools=(
   fzf
   docker
   font-dejavu-sans-mono-nerd-font
+  yqrashawn/goku/goku
 )
 for cmd_tool in "${cmd_tools[@]}"; do
   echo "[brew-cmd-tools] Installing '$cmd_tool'"
@@ -124,10 +125,11 @@ apps=(
   rectangle
   postman
   spotify
+  docker
 )
 for app in "${apps[@]}"; do
   echo "[brew-apps] Installing '$app'"
-  brew install "$app"
+  brew install --cask "$app"
 done
 
 echo "[brew] Cleaning up..."
