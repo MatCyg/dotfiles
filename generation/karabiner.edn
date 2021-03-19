@@ -1,0 +1,152 @@
+{
+  :profiles {:Default {:default true
+                       :alone 250
+                       :held 250
+                       :sim 50
+                       :delay 500 }}
+  :applications {:firefox ["^com\\.mozilla\\.Firefox$"]
+                 :safari ["^com\\.apple\\.Safari$"]}
+
+  :main
+    [
+      {:des "caps_lock" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
+      {:des "left_command" :rules [[:##left_command :left_command nil {:alone :return_or_enter}]]}
+      {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
+      {:des "opt+q to left space" :rules [[:!Oq :!Tleft_arrow]]}
+      {:des "opt+w to right space" :rules [[:!Ow :!Tright_arrow]]}
+
+      {:des "right command to hyper" :rules [[:right_command :!CTOleft_shift nil {:alone ["writing_mode" 0]}]]}
+      {:des "right alt disable arrow layer if alone" :rules [[:right_option :right_option nil {:alone ["writing_mode" 1]}]]}
+      {:des "hyper+e to right space" :rules [[:!!e :!Tright_arrow]]}
+
+      {:des "arrow layer"
+              :rules [[:##j :left_arrow ["writing_mode" 0]]
+                      [:##k :down_arrow ["writing_mode" 0]]
+                      [:##l :up_arrow ["writing_mode" 0]]
+                      [:##semicolon :right_arrow ["writing_mode" 0]]]}
+
+
+  ;    {;; define application identifiers
+  ;      :applications {:chrome ["^com\\.google\\.Chrome$"]}
+  ;      :main [{:des "a to 1 only in chrome" :rules [[:a :1 :chrome]]}]}
+
+      ;; [:a :1 :chrome] -- [<from> <to> <conditions>]
+      ;; this means from a to 1 under the condition of chrome
+      ;; :chrome is a predefined application condition
+      ;; it's same with karabiner
+
+      ;; and we can use multiple conditions
+
+  ;    {:des "Hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
+      {:des "Hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
+      ;; !  | means mandatory
+      ;; #  | means optional
+      ;; C  | left_command
+      ;; T  | left_control
+      ;; O  | left_option
+      ;; S  | left_shift
+      ;; F  | fn
+      ;; Q  | right_command
+      ;; W  | right_control
+      ;; E  | right_option
+      ;; R  | right_shift
+      ;; P  | caps_lock
+      ;; !! | mandatory command + control + optional + shift (hyper)
+      ;; ## | optional any
+
+
+      {:des "disable arrow layer while typing"
+             :rules [
+                      [:#RSa [:#RSa ["writing_mode" 1]] nil {:held :#RSa :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSb [:#RSb ["writing_mode" 1]] nil {:held :#RSb :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSc [:#RSc ["writing_mode" 1]] nil {:held :#RSc :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSd [:#RSd ["writing_mode" 1]] nil {:held :#RSd :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSe [:#RSe ["writing_mode" 1]] nil {:held :#RSe :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf [:#RSf ["writing_mode" 1]] nil {:held :#RSf :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSg [:#RSg ["writing_mode" 1]] nil {:held :#RSg :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSh [:#RSh ["writing_mode" 1]] nil {:held :#RSh :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSi [:#RSi ["writing_mode" 1]] nil {:held :#RSi :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSj [:#RSj ["writing_mode" 1]] nil {:held :#RSj :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSk [:#RSk ["writing_mode" 1]] nil {:held :#RSk :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSl [:#RSl ["writing_mode" 1]] nil {:held :#RSl :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSm [:#RSm ["writing_mode" 1]] nil {:held :#RSm :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSn [:#RSn ["writing_mode" 1]] nil {:held :#RSn :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSo [:#RSo ["writing_mode" 1]] nil {:held :#RSo :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSp [:#RSp ["writing_mode" 1]] nil {:held :#RSp :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSq [:#RSq ["writing_mode" 1]] nil {:held :#RSq :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSr [:#RSr ["writing_mode" 1]] nil {:held :#RSr :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSs [:#RSs ["writing_mode" 1]] nil {:held :#RSs :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSt [:#RSt ["writing_mode" 1]] nil {:held :#RSt :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSu [:#RSu ["writing_mode" 1]] nil {:held :#RSu :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSv [:#RSv ["writing_mode" 1]] nil {:held :#RSv :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSw [:#RSw ["writing_mode" 1]] nil {:held :#RSw :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSx [:#RSx ["writing_mode" 1]] nil {:held :#RSx :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSy [:#RSy ["writing_mode" 1]] nil {:held :#RSy :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSz [:#RSz ["writing_mode" 1]] nil {:held :#RSz :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      [:#RS1 [:#RS1 ["writing_mode" 1]] nil {:held :#RS1 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS2 [:#RS2 ["writing_mode" 1]] nil {:held :#RS2 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS3 [:#RS3 ["writing_mode" 1]] nil {:held :#RS3 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS4 [:#RS4 ["writing_mode" 1]] nil {:held :#RS4 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS5 [:#RS5 ["writing_mode" 1]] nil {:held :#RS5 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS6 [:#RS6 ["writing_mode" 1]] nil {:held :#RS6 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS7 [:#RS7 ["writing_mode" 1]] nil {:held :#RS7 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS8 [:#RS8 ["writing_mode" 1]] nil {:held :#RS8 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS9 [:#RS9 ["writing_mode" 1]] nil {:held :#RS9 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RS0 [:#RS0 ["writing_mode" 1]] nil {:held :#RS0 :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      [:##spacebar [:##spacebar ["writing_mode" 1]] nil {:held :##spacebar :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      [:#RSf1 [:#RSf1 ["writing_mode" 1]] nil {:held :#RSf1 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf2 [:#RSf2 ["writing_mode" 1]] nil {:held :#RSf2 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf3 [:#RSf3 ["writing_mode" 1]] nil {:held :#RSf3 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf4 [:#RSf4 ["writing_mode" 1]] nil {:held :#RSf4 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf5 [:#RSf5 ["writing_mode" 1]] nil {:held :#RSf5 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf6 [:#RSf6 ["writing_mode" 1]] nil {:held :#RSf6 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf7 [:#RSf7 ["writing_mode" 1]] nil {:held :#RSf7 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf8 [:#RSf8 ["writing_mode" 1]] nil {:held :#RSf8 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf9 [:#RSf9 ["writing_mode" 1]] nil {:held :#RSf9 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf10 [:#RSf10 ["writing_mode" 1]] nil {:held :#RSf10 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf11 [:#RSf11 ["writing_mode" 1]] nil {:held :#RSf11 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSf12 [:#RSf12 ["writing_mode" 1]] nil {:held :#RSf12 :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSgrave_accent_and_tilde [:#RSgrave_accent_and_tilde ["writing_mode" 1]] nil {:held :#RSgrave_accent_and_tilde :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RShyphen [:#RShyphen ["writing_mode" 1]] nil {:held :#RShyphen :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSequal_sign [:#RSequal_sign ["writing_mode" 1]] nil {:held :#RSequal_sign :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSopen_bracket [:#RSopen_bracket ["writing_mode" 1]] nil {:held :#RSopen_bracket :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSclose_bracket [:#RSclose_bracket ["writing_mode" 1]] nil {:held :#RSclose_bracket :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSbackslash [:#RSbackslash ["writing_mode" 1]] nil {:held :#RSbackslash :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSsemicolon [:#RSsemicolon ["writing_mode" 1]] nil {:held :#RSsemicolon :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSquote [:#RSquote ["writing_mode" 1]] nil {:held :#RSquote :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RScomma [:#RScomma ["writing_mode" 1]] nil {:held :#RScomma :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSperiod [:#RSperiod ["writing_mode" 1]] nil {:held :#RSperiod :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSslash [:#RSslash ["writing_mode" 1]] nil {:held :#RSslash :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSscroll_lock [:#RSscroll_lock ["writing_mode" 1]] nil {:held :#RSscroll_lock :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSpause [:#RSpause ["writing_mode" 1]] nil {:held :#RSpause :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSdelete_or_backspace [:#RSdelete_or_backspace ["writing_mode" 1]] nil {:held :#RSdelete_or_backspace :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSdelete_forward [:#RSdelete_forward ["writing_mode" 1]] nil {:held :#RSdelete_forward :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSdelete_forward [:#RSdelete_forward ["writing_mode" 1]] nil {:held :#RSdelete_forward :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RShome [:#RShome ["writing_mode" 1]] nil {:held :#RShome :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSinsert [:#RSinsert ["writing_mode" 1]] nil {:held :#RSinsert :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSend [:#RSend ["writing_mode" 1]] nil {:held :#RSend :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSpage_up [:#RSpage_up ["writing_mode" 1]] nil {:held :#RSpage_up :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSpage_down [:#RSpage_down ["writing_mode" 1]] nil {:held :#RSpage_down :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSapplication [:#RSapplication ["writing_mode" 1]] nil {:held :#RSapplication :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSfn [:#RSfn ["writing_mode" 1]] nil {:held :#RSfn :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RStab [:#RStab ["writing_mode" 1]] nil {:held :#RStab :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSescape [:#RSescape ["writing_mode" 1]] nil {:held :#RSescape :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      [:#RSreturn_or_enter :#RSreturn_or_enter nil {:held :#RSreturn_or_enter :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      ;                      [:##left_shift [:##left_shift ["writing_mode" 1]] nil {:held :##left_shift :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##left_control [:##left_control ["writing_mode" 1]] nil {:held :##left_control :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##left_option [:##left_option ["writing_mode" 1]] nil {:held :##left_option :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##left_command [:##left_command ["writing_mode" 1]] nil {:held :##left_command :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##right_shift [:##right_shift ["writing_mode" 1]] nil {:held :##right_shift :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##right_control [:##right_control ["writing_mode" 1]] nil {:held :##right_control :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##right_option [:##right_option ["writing_mode" 1]] nil {:held :##right_option :delayed {:invoked ["writing_mode" 0] }} ]
+;                      [:##right_command [:##right_command ["writing_mode" 1]] nil {:held :##right_command :delayed {:invoked ["writing_mode" 0] }} ]
+
+                      ]
+      }
+  ]
+}
