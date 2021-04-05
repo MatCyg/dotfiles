@@ -2,43 +2,19 @@
   :profiles {:Default {:default true
                        :alone 250
                        :held 250
-                       :sim 50
+                       :sim 100
                        :delay 500 }}
   :applications {:firefox ["^com\\.mozilla\\.Firefox$"]
                  :safari ["^com\\.apple\\.Safari$"]}
 
+  :templates {
+    :next-stack "/usr/local/bin/yabai -m window --focus stack.next || /usr/local/bin/yabai -m window --focus stack.first"
+   }
+
+
   :main
     [
-      {:des "caps_lock" :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
-      {:des "left_command" :rules [[:##left_command :left_command nil {:alone :return_or_enter}]]}
-      {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
-      {:des "opt+q to left space" :rules [[:!Oq :!Tleft_arrow]]}
-      {:des "opt+w to right space" :rules [[:!Ow :!Tright_arrow]]}
-
-      {:des "right command to hyper" :rules [[:right_command :!CTOleft_shift nil {:alone ["writing_mode" 0]}]]}
-      {:des "right alt disable arrow layer if alone" :rules [[:right_option :right_option nil {:alone ["writing_mode" 1]}]]}
-      {:des "hyper+e to right space" :rules [[:!!e :!Tright_arrow]]}
-
-      {:des "arrow layer"
-              :rules [[:##j :left_arrow ["writing_mode" 0]]
-                      [:##k :down_arrow ["writing_mode" 0]]
-                      [:##l :up_arrow ["writing_mode" 0]]
-                      [:##semicolon :right_arrow ["writing_mode" 0]]]}
-
-
-  ;    {;; define application identifiers
-  ;      :applications {:chrome ["^com\\.google\\.Chrome$"]}
-  ;      :main [{:des "a to 1 only in chrome" :rules [[:a :1 :chrome]]}]}
-
-      ;; [:a :1 :chrome] -- [<from> <to> <conditions>]
-      ;; this means from a to 1 under the condition of chrome
-      ;; :chrome is a predefined application condition
-      ;; it's same with karabiner
-
-      ;; and we can use multiple conditions
-
-  ;    {:des "Hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
-      {:des "Hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
+;      yabai -m window --focus stack.next || yabai -m window --focus stack.first
       ;; !  | means mandatory
       ;; #  | means optional
       ;; C  | left_command
@@ -53,6 +29,79 @@
       ;; P  | caps_lock
       ;; !! | mandatory command + control + optional + shift (hyper)
       ;; ## | optional any
+;      {:des "caps_lock" :rules [[:##caps_lock :##caps_lock nil {:alone [:escape ["writing_mode" 0]]}]]}
+      {:des "caps_lock1" :rules [[:##caps_lock :##left_control nil {:alone [:escape ["writing_mode" 0]]}]]}
+;      {:des "caps_lock2" :rules [[:##right_control :##right_control nil {:alone [:escape ["writing_mode" 0]]}]]}
+
+      {:des "left_command" :rules [[:##left_command :left_command nil {:alone :return_or_enter}]]}
+;      {:des "left_command to disable arrow layer when alone" :rules [[:left_command :left_command nil {:alone ["writing_mode" 1]}]]}
+
+      {:des "left_shift to disable arrows when alone" :rules [[:left_shift :left_shift nil {:alone ["writing_mode" 1]}]]}
+      {:des "right_shift to disable arrows when alone" :rules [[:right_shift :right_shift nil {:alone ["writing_mode" 1]}]]}
+;      {:des "left_shift to disable arrow layer when alone" :rules [[:##left_shift :left_shift nil {:alone :return_or_enter}]]}
+
+
+      {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
+
+      {:des "right command to hyper" :rules [[:right_command :!CTOleft_shift nil {:alone ["writing_mode" 0]}]]}
+;      {:des "right alt disable arrow layer if alone" :rules [[:right_option :right_option nil {:alone ["writing_mode" 1]}]]}
+;      {:des "hyper+e to right space" :rules [[:!!e :!Tright_arrow]]}
+
+      {:des "arrow layer"
+              :rules [[:##j :left_arrow ["writing_mode" 0]]
+                      [:##k :down_arrow ["writing_mode" 0]]
+                      [:##l :up_arrow ["writing_mode" 0]]
+                      [:##semicolon :right_arrow ["writing_mode" 0]]]}
+
+      {:des "opt+q to left space" :rules [[:!Oq :!Tleft_arrow]]}
+      {:des "opt+w to right space" :rules [[:!Ow :!Tright_arrow]]}
+      {:des "hyper+q to left space" :rules [[:!!q :!Tleft_arrow]]}
+      {:des "hyper+w to right space" :rules [[:!!w :!Tright_arrow]]}
+      {:des "opt+a to previous tab"
+       :rules [
+                [:!Oa :!CSopen_bracket]
+                [:!!a :!CSopen_bracket]]}
+      {:des "opt+s to next tab"
+       :rules [
+                [:!Os :!CSclose_bracket]
+                [:!!s :!CSclose_bracket]]}
+
+;      {:des "Left option should send hyper with numbers"
+;            :rules [[:!O1 :!!1]
+;                    [:!O2 :!!2]
+;                    [:!O3 :!!3]
+;                    [:!O4 :!!4]
+;                    [:!O5 :!!5]
+;                    [:!O6 :!!6]
+;                    [:!O7 :!!7]
+;                    [:!O8 :!!8]
+;                    [:!O9 :!!9]
+;                    [:!O0 :!!0]]}
+      {:des "stack movement"
+       :rules [
+                [:!!comma [:next-stack]]
+                [:!!d [:next-stack]]
+                [:!Ograve_accent_and_tilde [:next-stack]]
+;                [:!Od [:next-stack]]
+                [[:spacebar :grave_accent_and_tilde] [:next-stack]]
+                ]}
+
+      {:des "simultaneous space + number to swtich workspace"
+       :rules [
+                [[:spacebar :1] :!!1]
+                [[:spacebar :2] :!!2]
+                [[:spacebar :3] :!!3]
+                [[:spacebar :4] :!!4]
+                [[:spacebar :5] :!!5]
+                [[:spacebar :6] :!!6]
+                [[:spacebar :7] :!!7]
+                [[:spacebar :8] :!!8]
+                [[:spacebar :9] :!!9]
+                [[:spacebar :0] :!!0]]}
+
+  ;    {:des "Hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
+      {:des "Hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
+
 
 
       {:des "disable arrow layer while typing"
@@ -122,7 +171,6 @@
                       [:#RSslash [:#RSslash ["writing_mode" 1]] nil {:held :#RSslash :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSscroll_lock [:#RSscroll_lock ["writing_mode" 1]] nil {:held :#RSscroll_lock :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSpause [:#RSpause ["writing_mode" 1]] nil {:held :#RSpause :delayed {:invoked ["writing_mode" 0] }} ]
-                      [:#RSdelete_or_backspace [:#RSdelete_or_backspace ["writing_mode" 1]] nil {:held :#RSdelete_or_backspace :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSdelete_forward [:#RSdelete_forward ["writing_mode" 1]] nil {:held :#RSdelete_forward :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSdelete_forward [:#RSdelete_forward ["writing_mode" 1]] nil {:held :#RSdelete_forward :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RShome [:#RShome ["writing_mode" 1]] nil {:held :#RShome :delayed {:invoked ["writing_mode" 0] }} ]
@@ -132,9 +180,10 @@
                       [:#RSpage_down [:#RSpage_down ["writing_mode" 1]] nil {:held :#RSpage_down :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSapplication [:#RSapplication ["writing_mode" 1]] nil {:held :#RSapplication :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSfn [:#RSfn ["writing_mode" 1]] nil {:held :#RSfn :delayed {:invoked ["writing_mode" 0] }} ]
-                      [:#RStab [:#RStab ["writing_mode" 1]] nil {:held :#RStab :delayed {:invoked ["writing_mode" 0] }} ]
-                      [:#RSescape [:#RSescape ["writing_mode" 1]] nil {:held :#RSescape :delayed {:invoked ["writing_mode" 0] }} ]
 
+                      [:#RStab :#RStab nil {:held :#RStab :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSescape :#RSescape nil {:held :#RSescape :delayed {:invoked ["writing_mode" 0] }} ]
+                      [:#RSdelete_or_backspace :#RSdelete_or_backspace nil {:held :#RSdelete_or_backspace :delayed {:invoked ["writing_mode" 0] }} ]
                       [:#RSreturn_or_enter :#RSreturn_or_enter nil {:held :#RSreturn_or_enter :delayed {:invoked ["writing_mode" 0] }} ]
 
                       ;                      [:##left_shift [:##left_shift ["writing_mode" 1]] nil {:held :##left_shift :delayed {:invoked ["writing_mode" 0] }} ]
