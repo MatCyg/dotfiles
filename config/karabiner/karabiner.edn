@@ -82,7 +82,6 @@
                 [:!!comma [:next-stack]]
                 [:!!d [:next-stack]]
                 [:!Ograve_accent_and_tilde [:next-stack]]
-;                [:!Od [:next-stack]]
                 [[:spacebar :grave_accent_and_tilde] [:next-stack]]
                 ]}
 
@@ -99,9 +98,9 @@
                 [[:spacebar :9] :!!9]
                 [[:spacebar :0] :!!0]]}
 
-  ;    {:des "Hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
-      {:des "Hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
-
+  ;    {:des "hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
+;      {:des "hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
+      {:des "hyper+m to Command + L" :rules [[:!!m :!Cl]]}
 
 
       {:des "disable arrow layer while typing"
