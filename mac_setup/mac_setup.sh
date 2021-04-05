@@ -68,6 +68,8 @@ echo_section "[Oh-My-Zsh] Installation finished"
 echo_section "[symlinks] Setting up configuration symlinks..."
 # TODO this path should not be hardcoded
 ln -s "$HOME"/Projects/personal/dotfiles/config/karabiner "$HOME"/.config/karabiner
+ln -s "$HOME"/Projects/personal/dotfiles/config/yabai "$HOME"/.config/yabai
+ln -s "$HOME"/Projects/personal/dotfiles/config/skhd "$HOME"/.config/skhd
 ln -s "$HOME"/Projects/personal/dotfiles/.gitconfig "$HOME"/.gitconfig
 ln -s "$HOME"/Projects/personal/dotfiles/.gitignore_global "$HOME"/.gitignore_global
 echo_section "[symlinks] Symlinks set"
