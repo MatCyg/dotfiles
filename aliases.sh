@@ -63,3 +63,6 @@ refresh () {
     echo "Exiting."
   fi
 }
+
+alias goku="goku -c $DOTFILES/config/karabiner/karabiner.edn"
+alias gokuw="gokuw -c $DOTFILES/config/karabiner/karabiner.edn"
