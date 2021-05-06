@@ -50,10 +50,11 @@ hyper - b : yabai -m space --rotate 90
 hyper - f : yabai -m window --toggle zoom-fullscreen
 
 # Restart Yabai
-shift + lctrl + alt - r :
-    /usr/bin/env osascript <<< \
-        "display notification \"Mother fucker restart\" with title \"Louis Yabai\""; \
-    launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+shift + lctrl + alt - r : brew services restart yabai
+#    shift + lctrl + alt - r :
+#    /usr/bin/env osascript <<< \
+#        "display notification \"Mother fucker restart\" with title \"Louis Yabai\""; \
+#    brew services restart yabai
 
 # Move all the container to workspace
 shift + alt - 1 : yabai -m space --move 1

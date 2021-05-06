@@ -101,6 +101,7 @@
   ;    {:des "hyper + L always sends Command + L" :rules [[:!!up_arrow :!Cl [:safari]]]}
 ;      {:des "hyper + L always sends Command + L" :rules [[:!Cl :a ]]}
       {:des "hyper+m to Command + L" :rules [[:!!m :!Cl]]}
+      {:des "hyper+m to Command + L" :rules [[:!!slash :!Cslash]]}
 
 
       {:des "disable arrow layer while typing"

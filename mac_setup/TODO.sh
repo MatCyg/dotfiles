@@ -1,5 +1,7 @@
 TODO should prepare system update scripts
 
+#https://blog.bejarano.io/hardening-macos/
+
 echo "Updating Homebrew"
 brew update && brew upgrade && brew cleanup && brew cask cleanup; brew bundle; brew doctor
 
