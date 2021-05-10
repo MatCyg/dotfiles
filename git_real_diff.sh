@@ -34,8 +34,8 @@ if [ "$shouldForce" != "-f" ] && [ "$current_branch" != "master" ] && [ "$curren
 fi
 
 # check if git merge is needed
-isBehind=$(git rev-list --left-only --count "$current_branch...$diff_branch")
-test "$isBehind" = 0
+commitsBehind=$(git rev-list --left-only --count "$current_branch...$diff_branch")
+test "$commitsBehind" = 0
 shouldMergeBeforeDiff=$?
 if [ "$shouldMergeBeforeDiff" -eq 0 ]; then
   echo "Target branch is up to date with current branch."
