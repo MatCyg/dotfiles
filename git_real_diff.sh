@@ -34,9 +34,10 @@ if [ "$shouldForce" != "-f" ] && [ "$current_branch" != "master" ] && [ "$curren
 fi
 
 # check if git merge is needed
-git --no-pager diff "$diff_branch" --check > /dev/null 2>&1
+isBehind=$(git rev-list --left-only --count "$current_branch...$diff_branch")
+test "$isBehind" = 0
 shouldMergeBeforeDiff=$?
-if [ $shouldMergeBeforeDiff -eq 0 ]; then
+if [ "$shouldMergeBeforeDiff" -eq 0 ]; then
   echo "Target branch is up to date with current branch."
   git diff --binary "$current_branch" "$diff_branch" >/tmp/git_real_diff.patch
 else
