@@ -15,8 +15,8 @@ sdk update
 source "$HOME"/.sdkman/bin/sdkman-init.sh
 
 versions_to_delete=$(sdk list java | grep "local only" | cut -c 62-)
-java_versions_to_install=$(sdk list java | grep "hs-adpt" | grep -v "sdk install" | grep -v "installed" | cut -c 62-)
-graalvm_versions_to_install=$(sdk list java | grep grl | head -2 | grep -v "installed" | cut -c 62-)
+java_versions_to_install=$(sdk list java | grep -v "local only" | grep "hs-adpt" | grep -v "sdk install" | grep -v "installed" | cut -c 62-)
+graalvm_versions_to_install=$(sdk list java | grep grl | grep -v "local only" | head -2 | grep -v "installed" | cut -c 62-)
 
 echo "##############################"
 
