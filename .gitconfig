@@ -48,6 +48,7 @@
     # add interactive
     ai=add -i
     aa=add .
+    aas=!git add . && git stash
     # completly reset branch
     fresh = !git add . && git reset --hard @
     # execute real diff
