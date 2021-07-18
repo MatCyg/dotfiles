@@ -62,5 +62,5 @@ bindAppToSpace "Microsoft Teams" 3
 bindAppToSpace "Sublime Text" 4
 bindAppToSpace "Postman" 4
 #bindAppToSpace "Terminal" 5
-bindAppToSpace "Cisco AnyConnect Secure Mobility Client" 8
+bindAppToSpace "Signal" 6
 bindAppToSpace "Spotify" 9
