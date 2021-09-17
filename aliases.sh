@@ -65,4 +65,5 @@ refresh () {
 }
 
 alias goku='goku -c $DOTFILES/config/karabiner/karabiner.edn'
+alias gokuc='goku -c $DOTFILES/config/karabiner/karabiner-colemak.edn'
 alias gokuw='gokuw -c $DOTFILES/config/karabiner/karabiner.edn'
