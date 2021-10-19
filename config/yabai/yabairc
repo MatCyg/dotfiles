@@ -24,6 +24,8 @@ yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
+# cmd to find out window titles
+# /usr/local/bin/yabai -m query --windows
 
 yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alfred Preferences$" sticky=on layer=above manage=off
@@ -39,7 +41,7 @@ yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add app="^JetBrains Toolbox$" manage=off
 jetbrain_apps="^(IntelliJ IDEA|WebStorm|PyCharm|CLion|GoLand)$"
-yabai -m rule --add app="${jetbrain_apps}" title="^(Preferences|Project Structure|Plugins|Run/Debug Configurations|Edit configuration settings)$" manage=off
+#yabai -m rule --add app="${jetbrain_apps}" title="^(Preferences|Project Structure|Plugins|Run/Debug Configurations|Edit configuration settings)$" manage=off
 #jetbrains_floating_windows='.*Preferences*.|.*Project Structure*.|.*Plugins*.|.*Run/Debug Configurations*.|.*Edit configuration settings*.|.*Welcome*.|Checkout*.|.*Configurations|Choose*.|Import*.|.*Changes|Tip*.|Rename*.'
 #yabai -m rule --add app="${jetbrain_apps}" title="${jetbrains_floating_windows}" manage=off
 #yabai -m rule --add app="${jetbrain_apps}" manage=off
@@ -52,7 +54,6 @@ bindAppToSpace() {
   local appName=$1
   local spaceNumber=$2
   yabai -m rule --add app="^$appName$" space="$spaceNumber"
-  yabai -m signal --add event=application_launched app="^$appName$" action="skhd -k 'hyper - $spaceNumber'"
 }
 
 bindAppToSpace "Firefox" 1
@@ -61,6 +62,14 @@ bindAppToSpace "Microsoft Outlook" 3
 bindAppToSpace "Microsoft Teams" 3
 bindAppToSpace "Sublime Text" 4
 bindAppToSpace "Postman" 4
-#bindAppToSpace "Terminal" 5
-bindAppToSpace "Signal" 6
+bindAppToSpace "UHK Agent" 5
+bindAppToSpace "Telegram" 6
 bindAppToSpace "Spotify" 9
+
+yabai -m rule --add app="IntelliJ IDEA" manage=off
+yabai -m rule --add app="IntelliJ IDEA" title=".*\[(.*)\].*" manage=on
+
+yabai -m signal --add event=application_launched app="IntelliJ IDEA" action="skhd -k 'hyper - 2'"
+
+yabai -m rule --add app="TickTick" title="Untitled" manage=off
+yabai -m rule --add app="TickTick" title="TickTick" space="6"
