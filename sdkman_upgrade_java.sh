@@ -15,7 +15,7 @@ sdk update
 source "$HOME"/.sdkman/bin/sdkman-init.sh
 
 versions_to_delete=$(sdk list java | grep "local only" | cut -c 62-)
-java_versions_to_install=$(sdk list java | grep -v "local only" | grep "hs-adpt" | grep -v "sdk install" | grep -v "installed" | cut -c 62-)
+java_versions_to_install=$(sdk list java | grep -v "local only" | grep "tem" | grep -v "sdk install" | grep -v "installed" | cut -c 62-)
 graalvm_versions_to_install=$(sdk list java | grep grl | grep -v "local only" | head -2 | grep -v "installed" | cut -c 62-)
 
 echo "##############################"
@@ -100,5 +100,4 @@ display_symlinks
 
 sdk flush
 
-echo "Please remember macOS doesn't allow choosing symlink from file picker. Please remember to alter file manually:"
-echo "${HOME}/Library/ApplicationSupport/JetBrains/_current_intellij_version/options/jdk.table.xml"
+echo -e "\nPlease remember to update IntelliJ java SDKs manually..."
