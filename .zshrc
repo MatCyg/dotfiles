@@ -18,7 +18,7 @@ plugins=(
 )
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=123'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=129'
 
 source $ZSH/oh-my-zsh.sh
 source "$DOTFILES"/.p10k.zsh
