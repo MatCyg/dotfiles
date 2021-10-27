@@ -211,11 +211,12 @@
   :main [
     {:des "disable buttons for learning purpose"
      :rules [
+             [:!T##open_bracket :delete_forward]
              [:##open_bracket :delete_or_backspace]
-             [:##close_bracket :delete_or_backspace]
-             [:##backslash :delete_or_backspace]
-             [:##hyphen :delete_or_backspace]
-             [:##equal_sign :delete_or_backspace]
+             [:##close_bracket []]
+             [:##backslash []]
+             [:##hyphen []]
+             [:##equal_sign []]
              [:##quote :return_or_enter]
              [:!SSgrave_accent_and_tilde []]
              [:!SS1 []]
@@ -232,11 +233,11 @@
              [:!SScomma []]
              [:!SSperiod [] :!navigation-layer]
              [:!SSslash []]
-;             [:##return_or_enter []]
-;             [:##delete_or_backspace []]
+             [:##return_or_enter []]
+             [:##delete_or_backspace []]
     ]}
     {:des "caps_lock to control, escape if alone" :rules [[:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]]}
-    {:des "right_option to backspace" :rules [[:##right_option :delete_or_backspace]]}
+;    {:des "right_option to backspace" :rules [[:##right_option :delete_or_backspace]]}
 ;    {:des "left_option to app layer" :rules [[:##left_option :TURN_ON_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
 ;    {:des "left_control to lower layer" :rules [[:##left_control :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
     {:des "left_option to lower layer" :rules [[:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
