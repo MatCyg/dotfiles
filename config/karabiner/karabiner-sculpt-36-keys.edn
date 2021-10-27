@@ -300,7 +300,8 @@
                      [:e :e nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:i :i nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:o :o nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
-                     [:k :k nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]                     [:h :h nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
+                     [:k :k nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
+                     [:h :h nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:comma :comma nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:period :period nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:slash :slash nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
@@ -377,8 +378,8 @@
            :rules [ :num-layer
                     ; mouse
                     [{:pkey :button1} {:pkey :button1 :modi :left_shift}]
-                    [:j {:mkey {:vwheel 100}}]
-                    [:k {:mkey {:vwheel -100}}]
+;                    [:j {:mkey {:vwheel 100}}]
+;                    [:k {:mkey {:vwheel -100}}]
                     ; left hand
                     [:##q :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##w :at nil {:afterup :TURN_ON_WRITING_LAYER}]

@@ -47,11 +47,11 @@
 ;      {:des "right alt disable arrow layer if alone" :rules [[:right_option :right_option nil {:alone ["writing_mode" 1]}]]}
 ;      {:des "hyper+e to right space" :rules [[:!!e :!Tright_arrow]]}
 
-      {:des "arrow layer"
-              :rules [[:##j :left_arrow ["writing_mode" 0]]
-                      [:##k :down_arrow ["writing_mode" 0]]
-                      [:##l :up_arrow ["writing_mode" 0]]
-                      [:##semicolon :right_arrow ["writing_mode" 0]]]}
+;      {:des "arrow layer"
+;              :rules [[:##j :left_arrow ["writing_mode" 0]]
+;                      [:##k :down_arrow ["writing_mode" 0]]
+;                      [:##l :up_arrow ["writing_mode" 0]]
+;                      [:##semicolon :right_arrow ["writing_mode" 0]]]}
 
       {:des "opt+q to left space" :rules [[:!Oq :!Tleft_arrow]]}
       {:des "opt+w to right space" :rules [[:!Ow :!Tright_arrow]]}

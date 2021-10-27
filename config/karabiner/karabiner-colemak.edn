@@ -211,8 +211,8 @@
   :main [
     {:des "disable buttons for learning purpose"
      :rules [
-             [:!T##open_bracket :delete_forward]
-             [:##open_bracket :delete_or_backspace]
+             [:!T##open_bracket [:delete_forward :TURN_OFF_SELECTION_MODE] nil {:held :delete_forward :params {:held 100}}]
+             [:##open_bracket [:delete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :delete_or_backspace :params {:held 100}}]
              [:##close_bracket []]
              [:##backslash []]
              [:##hyphen []]
@@ -462,13 +462,13 @@
               [:l :yabai-stack-right]
               [:u :yabai-focus-up]
               [:y :yabai-rotate]
-              [:semicolon :!OOdelete_forward]
+              [:semicolon []]
 
               [:m :yabai-toggle-fullscreen]
               [:n :yabai-focus-left]
               [:e :yabai-focus-down]
               [:i :yabai-focus-right]
-              [:o :!OOdelete_or_backspace]
+              [:o []]
 
               [:k []]
               [:h []]
@@ -657,67 +657,18 @@
               [:9 :yabai-switch-to-space-9]
               [:0 :yabai-switch-to-space-0]
 
-;              [:grave_accent_and_tilde [:hs ["focusLast"]]]
-;
-;              [:2 [[:hs-bind-app-to-slot 2] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:3 [[:hs-bind-app-to-slot 3] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:4 [[:hs-bind-app-to-slot 4] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:6 [[:hs-bind-app-to-slot 6] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:7 [[:hs-bind-app-to-slot 7] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:8 [[:hs-bind-app-to-slot 8] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:9 [[:hs-bind-app-to-slot 9] ["hs-bind-mode" 0]] :hs-bind-mode]
-;              [:0 [[:hs-bind-app-to-slot 10] ["hs-bind-mode" 0]] :hs-bind-mode]
-;
-;
-;              [:5 ["hs-bind-mode" 1]]
-
-;              [:1 [:hs-focus-app-slot 1]]
-;              [:3 [:hs-focus-app-slot 12]]
-;              [:4 [:hs-focus-app-slot 11]]
-;              [:2 [:hs-focus-app-slot 2]]
-;              [:3 [:hs-focus-app-slot 3]]
-;              [:4 [:hs-focus-app-slot 4]]
-;              [:6 [:hs-focus-app-slot 6]]
-;              [:7 [:hs-focus-app-slot 7]]
-;              [:8 [:hs-focus-app-slot 8]]
-;              [:9 [:hs-focus-app-slot 9]]
-;              [:0 [:hs-focus-app-slot 10]]
-
-;              [:#SSq [:hs-focus-app-slot 13]]
-;              [:#SSw [:hs-focus-app-slot 12]]
-;              [:#SSf [:hs-focus-app-slot 11]]
-;              [:#SSf [:hs ["focusLast"]]]
-
               ; left hand
-              [:#SSq :tab]
+              [:#SSq []]
               [:#SSw :yabai-switch-to-space-3]
               [:#SSf :yabai-switch-to-space-2]
               [:#SSp :yabai-switch-to-space-1]
               [:#SSb :yabai-switch-to-space-4]
 
-              ;                    [:#SSb [] nil {:alone {:pkey :button3} :held {:pkey :button2 :repeat false} :halt true}]
-
               [:#SSa [:yabai-next-stack]]
-              ;                    [:#SSa :!Ca]
               [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSt {:pkey :button1}]
-              ;                    [:#SSt nil nil {:alone :!Ct :held {:key :!CSt :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSg :!Tf]
-;
-;              ; left hand
-;              [:#SSq :TURN_ON_SINGLE_CHARACTER_MODE]
-;              [:#SSq :TURN_ON_SINGLE_CHARACTER_MODE nil {:held {:key :delete_forward :repeat false} :halt true}]
-;              [:#SSw :!Cw]
-;;              [:#SSf [] nil {:alone [:!Cf :TURN_ON_WRITING_LAYER] :held {:key :!Cf :repeat false} :halt true}]
-;              [:#SSp {:pkey :button1}]
-;              [:#SSb [] nil {:alone {:pkey :button3} :held {:pkey :button2 :repeat false} :halt true}]
-;
-;              [:#SSa :!Ca]
-;              [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-;              [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-;              [:#SSt nil nil {:alone :!Ct :held {:key :!CSt :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-;              [:#SSg :!Tf]
 
               [:#SSz :!Cz]
               [:#SSx [:!Cx :TURN_OFF_SELECTION_MODE]]
@@ -735,20 +686,11 @@
                }]
 
               ; right hand
-              [:#SSsemicolon :delete_forward]
-              [:#SSo :delete_or_backspace]
+              [:#SSsemicolon []]
+              [:#SSo []]
               [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
               [:#SSh :!Oup_arrow]
-              [:#SScomma [:!Cc ["double-comma" 0]] :double-comma]
-              [:#SScomma ["double-comma" 1] nil
-               { :alone :focus-url
-                 :held :unfocus-url
-                 :repeat false
-                 :halt true
-                 :delayed {:invoked  [["double-comma" 0]]
-                           :canceled [["double-comma" 0]]}
-                 :params {:alone 299 :held 300 :delay 2000}
-                 }]
+              [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true :params {:alone 299 :held 30}}]
               [:#SSperiod :!Odown_arrow]
               [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true :params{:alone 299 :held 300}}]
      ]}
