@@ -79,70 +79,73 @@
          :ticktick-show-pomodoro {:key :!!semicolon}
 
          :TURN_ON_NAVIGATION_LAYER [
-                                     {:shell "open -g hammerspoon://navigationMode"}
-                                     {:set ["navigation-layer" 1]}
-                                     {:set ["selection-mode" 0]}
-                                     {:set ["single-character-mode" 0]}
-                                     {:set ["raise-layer" 0]}
-                                     {:set ["lower-layer" 0]}
-                                     {:set ["app-layer" 0]}
-                                     ]
+           {:shell "open -g hammerspoon://navigationMode"}
+           {:set ["navigation-layer" 1]}
+           {:set ["selection-mode" 0]}
+           {:set ["single-character-mode" 0]}
+           {:set ["raise-layer" 0]}
+           {:set ["lower-layer" 0]}
+           {:set ["app-layer" 0]}
+           ]
          :TURN_ON_WRITING_LAYER [
-                                  {:shell "open -g hammerspoon://writingMode"}
-                                  {:set ["navigation-layer" 0]}
-                                  {:set ["selection-mode" 0]}
-                                  {:set ["single-character-mode" 0]}
-                                  {:set ["raise-layer" 0]}
-                                  {:set ["lower-layer" 0]}
-                                  {:set ["app-layer" 0]}
-                                  ]
+          {:shell "open -g hammerspoon://writingMode"}
+          {:set ["navigation-layer" 0]}
+          {:set ["selection-mode" 0]}
+          {:set ["single-character-mode" 0]}
+          {:set ["raise-layer" 0]}
+          {:set ["lower-layer" 0]}
+          {:set ["app-layer" 0]}
+          ]
          :TURN_ON_QWERTY [
-                           {:set ["qwerty" 1]}
-                           ]
+           {:set ["qwerty" 1]}
+          ]
          :TURN_OFF_QWERTY [
-                            {:set ["qwerty" 0]}
-                            ]
+          {:set ["qwerty" 0]}
+          ]
          :TURN_ON_SELECTION_MODE [
-                                   {:set ["selection-mode" 1]}
-                                   ]
+          {:set ["selection-mode" 1]}
+          ]
          :TURN_OFF_SELECTION_MODE [
-                                    {:set ["selection-mode" 0]}
-                                    ]
+          {:set ["selection-mode" 0]}
+          ]
          :TURN_ON_SINGLE_CHARACTER_MODE [
-                                          {:set ["single-character-mode" 1]}
-                                          ]
+          {:set ["single-character-mode" 1]}
+          ]
          :TURN_ON_RAISE_LAYER [
-                                {:set ["raise-layer" 1]}
-                                ]
+          {:set ["raise-layer" 1]}
+          ]
          :TURN_OFF_RAISE_LAYER [
-                                 {:set ["raise-layer" 0]}
-                                 ]
+          {:set ["raise-layer" 0]}
+          ]
          :TURN_ON_LOWER_LAYER [
-                                {:set ["lower-layer" 1]}
-                                ]
+          {:set ["lower-layer" 1]}
+          ]
          :TURN_OFF_LOWER_LAYER [
-                                 {:set ["lower-layer" 0]}
-                                 ]
+          {:set ["lower-layer" 0]}
+          ]
          :TURN_ON_NUM_LAYER [
-                                {:set ["num-layer" 1]}
-                                ]
+          {:set ["num-layer" 1]}
+          ]
          :TURN_OFF_NUM_LAYER [
-                                 {:set ["num-layer" 0]}
-                                 ]
+          {:set ["num-layer" 0]}
+          ]
+         :TURN_ON_NUM_BAR_LAYER [
+          {:set ["num-bar-layer" 1]}
+          ]
+         :TURN_OFF_NUM_BAR_LAYER [
+          {:set ["num-bar-layer" 0]}
+          ]
          :TURN_ON_APP_LAYER [
-                              {:shell "open -g hammerspoon://appLayerOn"}
-                              {:set ["app-layer" 1]}
-                              ]
+          {:shell "open -g hammerspoon://appLayerOn"}
+          {:set ["app-layer" 1]}
+          ]
          :TURN_OFF_APP_LAYER [
-                               {:shell "open -g hammerspoon://appLayerOff"}
-                               {:set ["app-layer" 0]}
-                               ]
-         :TURN_OFF_SHIFTED_LAYER  [
-                                    {:set ["shifted-layer" 0]}
-                                    ]
+          {:shell "open -g hammerspoon://appLayerOff"}
+          {:set ["app-layer" 0]}
+          ]
          :TOGGLE_LAYER_BAR  [
-                              {:shell "open -g hammerspoon://toggleLayerBar"}
-                              ]
+          {:shell "open -g hammerspoon://toggleLayerBar"}
+          ]
          ; symbols
          :exclaimation-mark {:key :1 :modi :shift}
          :at {:key :2 :modi :shift}
@@ -202,28 +205,60 @@
          :search-projects {:key :!!p}
 
          :search-paste-enter [
-                               {:key :!Cf :repeat false}
-                               {:key :!Cv :repeat false}
-                               {:key :return_or_enter :repeat false}
-                               ]
+          {:key :!Cf :repeat false}
+          {:key :!Cv :repeat false}
+          {:key :return_or_enter :repeat false}
+          ]
 
          :search-selection [{:key :!!s}]
          :search-clipboard [{:key :!CTOs}]
   }
   :main [
+
+          {:des "kyria combos"
+           :rules [
+          [:f18 [:open_parenthesis :close_parenthesis :period :TURN_ON_WRITING_LAYER]]
+          [:f19 [:open_bracket :TURN_ON_WRITING_LAYER]]
+          [:f20 [:close_bracket :TURN_ON_WRITING_LAYER]]
+          [:f21 [:open_parenthesis :TURN_ON_WRITING_LAYER]]
+          [:f22 [:close_parenthesis :TURN_ON_WRITING_LAYER]]
+          [:f23 [:open_braces :TURN_ON_WRITING_LAYER]]
+          [:f24 [:close_braces :TURN_ON_WRITING_LAYER]]
+          ]}
+
+          {:des "space to shift space"
+           :rules [
+                    [:spacebar :left_shift :!navigation-layer {:alone :spacebar :params {:alone 250}}]
+           ]}
+
+          ;          rctrl, left cmd, space
+;          lshift, right cmd, tab
+          {:des "semicolon to ctrl, semicolon if alone"
+           :rules [
+                    [:##semicolon :left_control nil {:alone :semicolon}]
+           ]}
+
+
+          {:des "tab to app-layer held, tab if alone"
+           :rules [
+                    [:##tab :TURN_ON_APP_LAYER nil {:alone :tab :afterup :TURN_OFF_APP_LAYER}]
+           ]}
+
+          {:des "lshift to shift if held, enter if alone, double enter holds enter"
+           :rules [
+;                    [:##left_shift :left_shift :!num-layer {:alone :return_or_enter}]
+                    [:##left_shift :TURN_ON_NUM_BAR_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_NUM_BAR_LAYER}]
+           ]}
+
           {:des "simultaneously arst + cmd to lower layer" :rules [[[:a :r :s :t :left_command] :TURN_ON_LOWER_LAYER nil {:params {:sim 50}}]]}
 
-          {:des "backspace to turn off selection mode" :rules [[:#C#Odelete_or_backspace [:delete_or_backspace :TURN_OFF_SELECTION_MODE] :!num-layer {:held :delete_or_backspace :params {:held 100}}]]}
-;          {:des "left control to escape if alone" :rules [[:##left_control :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]]}
-          {:des "right control to escape if alone" :rules [[:##right_control :TURN_ON_NUM_LAYER nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER] :afterup :TURN_OFF_NUM_LAYER}]]}
+          {:des "right control to num layer, escape if alone" :rules [[:##right_control :TURN_ON_NUM_LAYER nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER] :afterup :TURN_OFF_NUM_LAYER}]]}
           {:des "left control to single character layer if alone" :rules [[:##left_control :##left_control nil {:alone :TURN_ON_SINGLE_CHARACTER_MODE}]]}
 
           {:des "left_option to lower layer" :rules [[:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
 
           {:des "shift+backspace=delete" :rules [[:!SSdelete_or_backspace :delete_forward]]}
           {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
-
-          {:des "left_shift to enter if alone" :rules [[:##left_shift :##left_shift nil {:alone :return_or_enter}]]}
 
           {:des "cmd+space and sym shift+space opens alfred and turns on writing layer" :rules [
               [:!CCspacebar [:!CCspacebar :TURN_ON_WRITING_LAYER]]
@@ -233,15 +268,14 @@
           {:des "commands layers"
            :rules [
                     [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
-                    [:right_command :left_option nil {:alone :TURN_ON_APP_LAYER}]
+                    [:##right_command :##left_option :!num-layer {:alone [:delete_or_backspace :TURN_OFF_SELECTION_MODE]}]
                     [:##left_command :left_command]
-                    [:##right_command :left_option]
-                    ]}
+           ]}
 
           {:des "minimize TickTick instead of quiting"
            :rules [ :ticktick
                     [:!CCq :yabai-minimize]
-                    ]}
+           ]}
 
 ;
 ;          {:des "z should act as a shift"
@@ -294,6 +328,7 @@
                      [:l :l nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:u :u nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:y :y nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
+
                      [:semicolon :semicolon nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:m :m nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
                      [:n :n nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
@@ -377,6 +412,9 @@
           {:des "NUM LAYER"
            :rules [ :num-layer
                     ; mouse
+                    [:##left_shift :left_shift nil {:alone :!Sreturn_or_enter}]
+                    [:##right_command :##left_option nil {:alone :!Odelete_or_backspace}]
+
                     [{:pkey :button1} {:pkey :button1 :modi :left_shift}]
 ;                    [:j {:mkey {:vwheel 100}}]
 ;                    [:k {:mkey {:vwheel -100}}]
@@ -397,6 +435,53 @@
                     [:##x :!C2 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##c :!C3 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##d :!C4 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##v :!C5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    ; right hand
+                    [:##j :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##l :ampersand nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##u :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##y :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:delete_or_backspace [:!Odelete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :!Odelete_or_backspace :params {:held 100}}]
+
+                    [:##m :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##n :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##e :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##i :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##o :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##k :!C6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##h :!C7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##comma :!C8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##period :!C9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##slash :!C0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          ]}
+
+          {:des "NUM BAR LAYER"
+           :rules [ :num-bar-layer
+                    ; mouse
+                    [:##left_shift :left_shift nil {:alone :!Sreturn_or_enter}]
+                    [:##right_command :##left_option nil {:alone :!Odelete_or_backspace}]
+
+                    [{:pkey :button1} {:pkey :button1 :modi :left_shift}]
+;                    [:j {:mkey {:vwheel 100}}]
+;                    [:k {:mkey {:vwheel -100}}]
+                    ; left hand
+                    [:##q [] nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##w :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##f :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##p :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##b :percent nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##a :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##r :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##s :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##t :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##g :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##z :!C1 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##x :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##c :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##d :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##v :!C5 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     ; right hand
                     [:##j :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
@@ -503,13 +588,13 @@
                     [:l :yabai-stack-right]
                     [:u :yabai-focus-up]
                     [:y :yabai-rotate]
-                    [:semicolon :!OOdelete_forward]
+                    [:semicolon []]
 
                     [:m :yabai-toggle-fullscreen]
                     [:n :yabai-focus-left]
                     [:e :yabai-focus-down]
                     [:i :yabai-focus-right]
-                    [:o :!OOdelete_or_backspace]
+                    [:o []]
 
                     [:k []]
                     [:h []]
@@ -549,7 +634,7 @@
                     [:z [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
                     [:x [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
                     [:c [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
-                    [:d [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+                    [:d [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
                     [:v [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
                     ; right hand
                     [:j [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
@@ -711,16 +796,16 @@
 
                     [:grave_accent_and_tilde :grave_accent_and_tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
 
-                    [:1 :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:2 :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:3 :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:4 :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:5 :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:6 :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:7 :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:8 :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:9 :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:0 :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S1 :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S2 :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S3 :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S4 :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S5 :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S6 :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S7 :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S8 :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S9 :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:#S0 :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
 
 
 
@@ -756,7 +841,7 @@
                     ;              [:#SSf [:hs ["focusLast"]]]
 
                     ; left hand
-                    [:#SSq :tab]
+                    [:#SSq []]
                     [:#SSw :yabai-switch-to-space-3]
                     [:#SSf :yabai-switch-to-space-2]
                     [:#SSp :yabai-switch-to-space-1]
@@ -789,19 +874,10 @@
 
                     ; right hand
 ;                    [:#SSsemicolon :delete_forward]
-                    [:##o :return_or_enter]
+                    [:##o []]
                     [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
                     [:#SSh :!Oup_arrow]
-                    [:#SScomma [:!Cc ["double-comma" 0]] :double-comma]
-                    [:#SScomma ["double-comma" 1] nil
-                     { :alone :focus-url
-                       :held :unfocus-url
-                       :repeat false
-                       :halt true
-                       :delayed {:invoked  [["double-comma" 0]]
-                                 :canceled [["double-comma" 0]]}
-                       :params {:alone 299 :held 300 :delay 2000}
-                       }]
+                    [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true :params {:alone 299 :held 30}}]
                     [:#SSperiod :!Odown_arrow]
                     [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true :params{:alone 299 :held 300}}]
                     ]}
@@ -810,30 +886,6 @@
           ;#############################################   WRITING LAYER    ######################################################
           ;#############################################                    ######################################################
           ;#######################################################################################################################
-          {:des "QWERTY"
-           :rules [ [:condi :!navigation-layer :qwerty]
-                    [:f :##e]
-                    [:p :##r]
-                    [:b :##t]
-                    [:j :##y]
-                    [:l :##u]
-                    [:u :##i]
-                    [:y :##o]
-                    [:semicolon :##p]
-                    [:r :##s]
-                    [:s :##d]
-                    [:t :##f]
-                    [:m :##h]
-                    [:h :##m]
-                    [:n :##j]
-                    [:e :##k]
-                    [:i :##l]
-                    [:o :##semicolon]
-                    [:!Oo :!Osemicolon]
-                    [:d :##v]
-                    [:v :##b]
-                    [:k :##n]
-                    ]}
 
 
           ]

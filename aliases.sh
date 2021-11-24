@@ -65,9 +65,6 @@ refresh () {
 }
 
 alias goku='goku -c $DOTFILES/config/karabiner/karabiner.edn'
-alias gokuc='goku -c $DOTFILES/config/karabiner/karabiner-colemak.edn'
-alias gokuch='goku -c $DOTFILES/config/karabiner/karabiner-colemak-homerow-mods.edn'
-alias gokuw='gokuw -c $DOTFILES/config/karabiner/karabiner.edn'
-alias goku36='goku -c $DOTFILES/config/karabiner/karabiner-sculpt-36-keys.edn'
+alias goku34='goku -c $DOTFILES/config/karabiner/karabiner-34-keys.edn'
 
 

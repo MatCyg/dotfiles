@@ -315,8 +315,8 @@
              [:!SScomma []]
              [:!SSperiod [] :!navigation-layer]
              [:!SSslash []]
-             [:##return_or_enter []]
-             [:##delete_or_backspace []]
+;             [:##return_or_enter []]
+;             [:##delete_or_backspace []]
     ]}
     {:des "caps_lock to control, escape if alone" :rules [[:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]]}
 ;    {:des "right_option to backspace" :rules [[:##right_option :delete_or_backspace]]}
@@ -331,6 +331,9 @@
               [:right_command :left_option nil {:alone :TURN_ON_APP_LAYER}]
               [:##left_command :left_command]
               [:##right_command :left_option]
+;              [[:right_control :spacebar] :left_option nil {:alone :TURN_ON_APP_LAYER}]
+              [[:right_control :spacebar] :a]
+;              [[:right_control :spacebar] :space]
      ]}
 
     {:des "minimize TickTick instead of quiting"
@@ -726,8 +729,10 @@
               ; number row
               [:grave_accent_and_tilde [:yabai-next-stack]]
 
-              [:1 :yabai-switch-to-space-1]
-              [:2 :yabai-switch-to-space-2]
+              [:1 []]
+              [:2 []]
+;              [:1 :yabai-switch-to-space-1]
+;              [:2 :yabai-switch-to-space-2]
               [:3 :yabai-switch-to-space-3]
               [:4 :yabai-switch-to-space-4]
               [:5 :yabai-switch-to-space-5]
@@ -748,7 +753,7 @@
               [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSt {:pkey :button1}]
-              [:#SSg :!Tf]
+              [:#SSg :!Tq]
 
               [:#SSz :!Cz]
               [:#SSx [:!Cx :TURN_OFF_SELECTION_MODE]]
