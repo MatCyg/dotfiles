@@ -1,0 +1,137 @@
+{:des "cmd space opens alfred and turns on writing layer"
+ :rules [
+          [:!CCspacebar [:!CCspacebar :TURN_ON_WRITING_LAYER]]
+]}
+
+{:des "iterm2 reverse search to turn on wrt mode"
+ :rules [ :iterm2
+          [:!Tr [:TURN_ON_WRITING_LAYER :!Tr]]
+ ]}
+
+{:des "minimize TickTick instead of quiting"
+ :rules [ :ticktick
+          [:!CCq :yabai-minimize]
+ ]}
+
+{:des "ONE SHOT APP LAYER"
+ :rules [
+          [:condi :app-layer :firefox]
+          [:t :!CSt nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:p [:focus-url :focus-url :!Sreturn_or_enter] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:condi :app-layer :intellij]
+          [:q :!Oq nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:w [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:f [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:p [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:b [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:a [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:r [:!Sf6 :TURN_ON_WRITING_LAYER] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:s :!T1 nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:t [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:g [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:z [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:x [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:c [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:d [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
+          [:v :!COv nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          ; right hand
+          [:j [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:l :!COl nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:u :!T2 nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:y [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:semicolon [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:m [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:n :!On nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:e [:!Ce :TURN_ON_NAVIGATION_LAYER] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:i [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:o [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:k [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:h :!Om nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:comma :!Of7 nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:period [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:slash [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+
+          [:condi :app-layer :teams]
+          ; left hand
+          [:q [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:w [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:f [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:p [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:b [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:a :!CSm nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:r [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:s :!CSe nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:t [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:g [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:z [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:x [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:c [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:d [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:v [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          ; right hand
+          [:j [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:l [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:u [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:y [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:semicolon [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:m [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:n [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:e :!Ce nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:i [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:o [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:k [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:h [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:comma [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:period [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:slash [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:condi :app-layer]
+          ; left hand
+          [:q [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:w [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:f [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:p [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:b [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:a [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:r [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:s [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:t [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:g [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:z [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:x [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:c [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:d [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:v [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          ; right hand
+          [:j [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:l [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:u [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:y [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:semicolon [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:m [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:n [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:e :!Ce nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:i [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:o [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:k [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:h [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:comma [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:period [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+          [:slash [] nil {:afterup [:TURN_OFF_APP_LAYER]}]
+
+          [:spacebar :TURN_ON_WRITING_LAYER]
+          ]}

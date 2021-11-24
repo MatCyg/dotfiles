@@ -1,0 +1,49 @@
+{:des "RAISE LAYER"
+ :rules [
+      ; left hand
+      [:!Ograve_accent_and_tilde :tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O1 :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O2 :at nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O3 :hash nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O4 :dollar nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O5 :percent nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O6 :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O7 :ampersand nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O8 :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+      [:!Oq :grave_accent_and_tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ow :open_parenthesis  nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Of :close_parenthesis nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Op :open_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ob :close_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+      [:!O#SSa :diactric-a nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Or :hyphen nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSs :diactric-s nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ot :equal nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Og :colon nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+      [:!O#SSz :diactric-z nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSx :diactric-x nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSc :diactric-c nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Od :dquote nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ov :underscore nil {:afterup :TURN_ON_WRITING_LAYER}]
+      ; right hand
+      [:!Oj [] nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSl :diactric-l nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ou :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Oy :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Osemicolon :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+      [:!Om :tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSn :diactric-n nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSe :diactric-e nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Oi :quote nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!O#SSo :diactric-o nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+      [:!Ok :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Oh :plus nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ocomma :less_than nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Operiod :greater_than nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Oslash :question nil {:afterup :TURN_ON_WRITING_LAYER}]
+ ]}

@@ -1,0 +1,411 @@
+{
+  :profiles {:Colemak {:default true
+                       :alone 250
+                       :held 251
+                       :sim 50
+                       :delay 600 }}
+  :applications {
+    :firefox ["^org\\.mozilla\\.firefox$"]
+    :safari ["^com\\.apple\\.Safari$"]
+    :intellij ["^com\\.jetbrains\\.intellij$"]
+    :teams ["^com\\.microsoft\\.teams$"]
+    :outlook ["^com\\.microsoft\\.Outlook$"]
+    :ticktick ["^com\\.TickTick\\.task\\.mac$"]
+    :iterm2 ["^com\\.googlecode\\.iterm2$"]
+  }
+  :devices {
+    :ms-sculpt [{:vendor_id 1118 :product_id 1957}]
+    :mac [{:vendor_id 1452 :product_id 832}]
+  }
+  :templates {
+         :hs "open -g hammerspoon://%s"
+         :hs-focus-app "open -g hammerspoon://focusApp?app=%s"
+         :hs-focus-app-slot "open -g hammerspoon://focusAppSlot?slot=%s"
+         :hs-bind-app-to-slot "open -g hammerspoon://bindAppToSlot?slot=%s"
+         :open "open \"%s\""
+  }
+  :froms {
+           :anykey {:any :key_code :modi {:optional [:any]}}
+           :any_consumer {:any :consumer_key_code }
+  }
+  :tos {
+         :yabai-focus-left {:shell "/usr/local/bin/yabai -m window --focus west"}
+         :yabai-focus-down {:shell "/usr/local/bin/yabai -m window --focus south"}
+         :yabai-focus-up {:shell "/usr/local/bin/yabai -m window --focus north"}
+         :yabai-focus-right {:shell "/usr/local/bin/yabai -m window --focus east"}
+
+         :yabai-stack-right {:shell "window=$(/usr/local/bin/yabai -m query --windows --window | /usr/local/bin/jq -r '.id') && /usr/local/bin/yabai -m window east --stack $window || (/usr/local/bin/yabai -m window $window --toggle float && /usr/local/bin/yabai -m window $window --toggle float)"}
+         :yabai-next-stack {:shell "/usr/local/bin/yabai -m window --focus stack.next || /usr/local/bin/yabai -m window --focus stack.first"}
+
+         :yabai-switch-to-space-0 {:key :0 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-1 {:key :1 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-2 {:key :2 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-3 {:key :3 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-4 {:key :4 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-5 {:key :5 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-6 {:key :6 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-7 {:key :7 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-8 {:key :8 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+         :yabai-switch-to-space-9 {:key :9 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
+
+         :yabai-move-to-space-0 {:shell "/usr/local/bin/yabai -m window --space 0"}
+         :yabai-move-to-space-1 {:shell "/usr/local/bin/yabai -m window --space 1"}
+         :yabai-move-to-space-2 {:shell "/usr/local/bin/yabai -m window --space 2"}
+         :yabai-move-to-space-3 {:shell "/usr/local/bin/yabai -m window --space 3"}
+         :yabai-move-to-space-4 {:shell "/usr/local/bin/yabai -m window --space 4"}
+         :yabai-move-to-space-5 {:shell "/usr/local/bin/yabai -m window --space 5"}
+         :yabai-move-to-space-6 {:shell "/usr/local/bin/yabai -m window --space 6"}
+         :yabai-move-to-space-7 {:shell "/usr/local/bin/yabai -m window --space 7"}
+         :yabai-move-to-space-8 {:shell "/usr/local/bin/yabai -m window --space 8"}
+         :yabai-move-to-space-9 {:shell "/usr/local/bin/yabai -m window --space 9"}
+
+         :yabai-swap-left {:shell "/usr/local/bin/yabai -m window --swap west"}
+         :yabai-swap-down {:shell "/usr/local/bin/yabai -m window --swap south"}
+         :yabai-swap-up {:shell "/usr/local/bin/yabai -m window --swap north"}
+         :yabai-swap-right {:shell "/usr/local/bin/yabai -m window --swap east"}
+
+         :yabai-resize-left {:shell "/usr/local/bin/yabai -m window --resize left:-100:0; /usr/local/bin/yabai -m window --resize right:-100:0"}
+         :yabai-resize-down {:shell "/usr/local/bin/yabai -m window --resize top:0:100; /usr/local/bin/yabai -m window --resize bottom:0:100"}
+         :yabai-resize-up {:shell "/usr/local/bin/yabai -m window --resize top:0:-100; /usr/local/bin/yabai -m window --resize bottom:0:-100"}
+         :yabai-resize-right {:shell "/usr/local/bin/yabai -m window --resize left:100:0; /usr/local/bin/yabai -m window --resize right:100:0"}
+
+         :yabai-minimize {:shell "/usr/local/bin/yabai -m window --minimize"}
+         :yabai-toggle-fullscreen {:shell "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"}
+         :yabai-rotate {:shell "/usr/local/bin/yabai -m space --rotate 90"}
+
+         :os-dark-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to true'" }
+         :os-light-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to false'" }
+
+         :ticktick-new-task {:key :!!n}
+         :ticktick-start-pomodoro {:key :!!h}
+         :ticktick-show-pomodoro {:key :!!semicolon}
+
+         :TURN_ON_NAVIGATION_LAYER [
+           {:shell "open -g hammerspoon://navigationMode"}
+           {:set ["navigation-layer" 1]}
+           {:set ["ons-navigation-layer" 0]}
+           {:set ["selection-mode" 0]}
+           {:set ["single-character-mode" 0]}
+           {:set ["raise-layer" 0]}
+           {:set ["lower-layer" 0]}
+           {:set ["app-layer" 0]}
+         ]
+         :TURN_ON_WRITING_LAYER [
+           {:shell "open -g hammerspoon://writingMode"}
+           {:set ["navigation-layer" 0]}
+           {:set ["ons-navigation-layer" 0]}
+           {:set ["selection-mode" 0]}
+           {:set ["single-character-mode" 0]}
+           {:set ["raise-layer" 0]}
+           {:set ["lower-layer" 0]}
+           {:set ["app-layer" 0]}
+         ]
+         :TURN_ON_ONS_NAVIGATION_LAYER [
+             {:shell "open -g hammerspoon://navigationMode"}
+             {:set ["ons-navigation-layer" 1]}
+             {:set ["selection-mode" 0]}
+             {:set ["single-character-mode" 0]}
+             {:set ["raise-layer" 0]}
+             {:set ["lower-layer" 0]}
+             {:set ["app-layer" 0]}
+         ]
+         :TURN_ON_QWERTY [
+           {:set ["qwerty" 1]}
+         ]
+         :TURN_OFF_QWERTY [
+           {:set ["qwerty" 0]}
+         ]
+         :TURN_ON_SELECTION_MODE [
+           {:set ["selection-mode" 1]}
+         ]
+         :TURN_OFF_SELECTION_MODE [
+           {:set ["selection-mode" 0]}
+         ]
+         :TURN_ON_SINGLE_CHARACTER_MODE [
+           {:set ["single-character-mode" 1]}
+         ]
+         :TURN_ON_RAISE_LAYER [
+           {:set ["raise-layer" 1]}
+         ]
+         :TURN_OFF_RAISE_LAYER [
+           {:set ["raise-layer" 0]}
+         ]
+         :TURN_ON_LOWER_LAYER [
+           {:set ["lower-layer" 1]}
+         ]
+         :TURN_OFF_LOWER_LAYER [
+           {:set ["lower-layer" 0]}
+         ]
+         :TURN_ON_APP_LAYER [
+           {:shell "open -g hammerspoon://appLayerOn"}
+           {:set ["app-layer" 1]}
+         ]
+         :TURN_OFF_APP_LAYER [
+           {:shell "open -g hammerspoon://appLayerOff"}
+           {:set ["app-layer" 0]}
+         ]
+         :TURN_OFF_SHIFTED_LAYER  [
+           {:set ["shifted-layer" 0]}
+         ]
+         :TOGGLE_LAYER_BAR  [
+           {:shell "open -g hammerspoon://toggleLayerBar"}
+         ]
+         ; symbols
+         :exclaimation-mark {:key :1 :modi :shift}
+         :at {:key :2 :modi :shift}
+         :hash {:key :3 :modi :shift}
+         :dollar {:key :4 :modi :shift}
+         :percent {:key :5 :modi :shift}
+         :caret {:key :6 :modi :shift}
+         :ampersand {:key :7 :modi :shift}
+         :asterisk {:key :8 :modi :shift}
+
+         :hyphen {:key :hyphen}
+         :underscore {:key :hyphen :modi :shift}
+         :equal {:key :equal_sign}
+         :plus {:key :equal_sign :modi :shift}
+         :semicolon {:key :semicolon}
+         :colon {:key :semicolon :modi :shift}
+
+         :open_parenthesis {:key :9 :modi :shift}
+         :close_parenthesis {:key :0 :modi :shift}
+         :open_bracket {:key :open_bracket}
+         :close_bracket {:key :close_bracket}
+         :open_braces {:key :open_bracket :modi :shift}
+         :close_braces {:key :close_bracket :modi :shift}
+
+         :less_than {:key :comma :modi :shift}
+         :greater_than {:key :period :modi :shift}
+         :backquote {:key :grave_accent_and_tilde}
+         :tilde {:key :grave_accent_and_tilde :modi :shift}
+         :dquote {:key :quote :modi :shift}
+         :pipe {:key :backslash :modi :shift}
+         :question {:key :slash :modi :shift}
+
+         ; polish diactrics
+         :diactric-e {:key :!Oe}
+         :diactric-a {:key :!Oa}
+         :diactric-s {:key :!Os}
+         :diactric-z {:key :!Oz}
+         :diactric-x {:key :!Ox}
+         :diactric-c {:key :!Oc}
+         :diactric-o {:key :!Oo}
+         :diactric-l {:key :!Ol}
+         :diactric-n {:key :!On}
+
+         ; system-wide shortcuts
+         :window_snapshot {:key :!CS4}
+         :selection_snapshot {:key :!CS5}
+         :system-new_tab {:key :!Ct}
+         :system-close_tab {:key :!Cw}
+         :system-force_quit_apps {:key :!COescape}
+         :previous-tab {:key :!CSopen_bracket}
+         :next-tab {:key :!CSclose_bracket}
+         :focus-url {:key :!Cl}
+         :unfocus-url {:key :f6 :repeat false}
+         :copy {:key :!Cc}
+
+         :search-firefox-bookmarks {:key :!!b}
+         :search-projects {:key :!!p}
+
+         :search-paste-enter [
+           {:key :!Cf :repeat false}
+           {:key :!Cv :repeat false}
+           {:key :return_or_enter :repeat false}
+         ]
+
+         :search-selection [
+           {:key :!!s}
+         ]
+         :search-clipboard [
+           {:key :!CTOs}
+         ]
+  }
+  :main [
+
+     {:des "control to opposite layer"
+      :rules [
+            [:left_control :TURN_ON_SINGLE_CHARACTER_MODE :navigation-layer]
+            [:left_control :TURN_ON_ONS_NAVIGATION_LAYER :!navigation-layer]
+      ]}
+
+     {:des "backspace"
+      :rules [
+             [:!T##open_bracket [:delete_forward :TURN_OFF_SELECTION_MODE] nil {:held :delete_forward :params {:held 200}}]
+             [:##open_bracket [:delete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :delete_or_backspace :params {:held 200}}]
+     ]}
+
+     {:des "kyria combos"
+      :rules [
+        [[:comma :period] [:tilde :TURN_ON_WRITING_LAYER]]
+        [[:p :b] [:open_bracket :TURN_ON_WRITING_LAYER]]
+        [[:j :l] [:close_bracket :TURN_ON_WRITING_LAYER]]
+        [[:t :g] [:open_parenthesis :TURN_ON_WRITING_LAYER]]
+        [[:m :n] [:close_parenthesis :TURN_ON_WRITING_LAYER]]
+        [[:d :v] [:open_braces :TURN_ON_WRITING_LAYER]]
+        [[:k :h] [:close_braces :TURN_ON_WRITING_LAYER]]
+      ]}
+
+    {:des "caps_lock to control, escape if alone" :rules [[:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]]}
+;    {:des "right_option to backspace" :rules [[:##right_option :delete_or_backspace]]}
+;    {:des "left_option to app layer" :rules [[:##left_option :TURN_ON_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
+;    {:des "left_control to lower layer" :rules [[:##left_control :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
+    {:des "left_option to lower layer" :rules [[:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
+    {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
+
+
+     {:des "quote to shift if held, enter if alone, double enter holds enter"
+      :rules [
+;              [:##quote :right_shift nil {:alone :return_or_enter}]
+              [:##quote :return_or_enter :!ms-sculpt]
+      ]}
+
+     {:des "sculpt override"
+      :rules [
+               :ms-sculpt
+               [:##quote []]
+               [:##right_command :TURN_ON_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_APP_LAYER}]
+               [[:right_control :spacebar] :left_option :!left-command-down {:alone [:delete_or_backspace :TURN_OFF_SELECTION_MODE]}]
+               [[:left_command :right_control :spacebar] :left_option :left-command-down {:alone [:a :TURN_OFF_SELECTION_MODE] :params {:sim 3000}}]
+      ]}
+
+     {:des "commands layers"
+     :rules [
+              [:left_command [["left-command-down" 1] :left_command] nil {:alone :TURN_ON_NAVIGATION_LAYER :afterup ["left-command-down" 0]}]
+              [:right_command :left_option :!ms-sculpt {:alone :TURN_ON_APP_LAYER}]
+              [:##left_command :left_command]
+              [:##right_command :left_option]
+
+
+
+     ]}
+
+
+
+;#######################################################################################################################
+;#############################################      INCLUDE       ######################################################
+;#######################################################################################################################
+
+  ;include:disabled-buttons.edn
+  ;include:osl-nav-layer.edn
+  ;include:osl-character-layer.edn
+  ;include:raise-layer.edn
+  ;include:lower-layer.edn
+  ;include:app-layer.edn
+
+;#######################################################################################################################
+;#######################################################################################################################
+;#######################################################################################################################
+
+    {:des "navigation layer"
+     :rules [ [:condi :navigation-layer :!selection-mode]
+              [:##n :left_arrow]
+              [:##e :down_arrow]
+              [:##i :right_arrow]
+              [:##u :up_arrow]
+              [:##l :!Oleft_arrow]
+              [:##y :!Oright_arrow]
+              [:#SSj :page_up]
+              [:#SSm :page_down]
+
+              [:condi :navigation-layer :selection-mode]
+              [:##n :!Sleft_arrow]
+              [:##e :!Sdown_arrow]
+              [:##i :!Sright_arrow]
+              [:##u :!Sup_arrow]
+              [:##l :!SOleft_arrow]
+              [:##y :!SOright_arrow]
+              [:#SSj :!Spage_up]
+              [:#SSm :!Spage_down]
+
+              :navigation-layer
+              [:##left_shift :##left_shift :navigation-layer {:alone :TURN_ON_SELECTION_MODE}]
+              [:##right_shift :##right_shift :navigation-layer {:alone :TURN_ON_SELECTION_MODE}]
+              [:spacebar [:TURN_ON_WRITING_LAYER :!!grave_accent_and_tilde]]
+;              [:spacebar [ :button30]]
+
+              ; number row
+              [:grave_accent_and_tilde [:yabai-next-stack]]
+
+              [:1 []]
+              [:2 []]
+;              [:1 :yabai-switch-to-space-1]
+;              [:2 :yabai-switch-to-space-2]
+;              [:3 :yabai-switch-to-space-3]
+;              [:4 :yabai-switch-to-space-4]
+;              [:5 :yabai-switch-to-space-5]
+              [:6 :yabai-switch-to-space-6]
+              [:7 :yabai-switch-to-space-7]
+              [:8 :yabai-switch-to-space-8]
+              [:9 :yabai-switch-to-space-9]
+              [:0 :yabai-switch-to-space-0]
+
+              ; left hand
+              [:#SSq :!TO1]
+              [:#SSw :!TO2]
+              [:#SSf :!TO3]
+              [:#SSp :!TO4]
+              [:#SSb :!TO5]
+              [:#SSa :!TOgrave_accent_and_tilde]
+;              [:#SSa [:yabai-next-stack]]
+              [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSt {:pkey :button1}]
+              [:#SSg :!Tq]
+
+              [:#SSz :!Cz]
+              [:#SSx [:TURN_OFF_SELECTION_MODE :!Cx]]
+              [:#SSc [:TURN_OFF_SELECTION_MODE :!Cc]]
+              [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSv [:return_or_enter ["double-v" 0] [:noti :double-v]] ["double-v" 1]]
+              [:#SSv [[:noti :double-v "Press v again to send enter"] ["double-v" 1]] nil
+               { :alone [:!Cv :TURN_OFF_SELECTION_MODE]
+                 :held {:key :!COc :repeat false}
+                 :repeat false
+                 :halt true
+                 :delayed {:invoked  [["double-v" 0] [:noti :double-v]]
+                           :canceled [["double-v" 0] [:noti :double-v]]}
+                 :params {:alone 299 :held 300 :delay 2000}
+               }]
+
+              ; right hand
+              [:#SSsemicolon []]
+
+              [:#SSo :TURN_ON_SINGLE_CHARACTER_MODE]
+              [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
+              [:#SSh :!Oup_arrow]
+              [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true :params {:alone 299 :held 30}}]
+              [:#SSperiod :!Odown_arrow]
+              [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true :params{:alone 299 :held 300}}]
+     ]}
+  ]
+}
+
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; P  | caps_lock
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
+;; ! to [:left_command :left_control :left_option :left_shift]
+;; !A to [:command :control :option :shift]
+;; C to :left_command
+;; Q to :right_command
+;; CC to :command
+;; T to :left_control
+;; W to :right_control
+;; TT to :control
+;; O to :left_option
+;; E to :right_option
+;; OO to :option
+;; S to :left_shift
+;; R to :right_shift
+;; SS to :shift
