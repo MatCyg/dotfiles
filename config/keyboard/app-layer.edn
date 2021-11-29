@@ -8,10 +8,10 @@
           [:!Tr [:TURN_ON_WRITING_LAYER :!Tr]]
  ]}
 
-{:des "minimize TickTick instead of quiting"
- :rules [ :ticktick
-          [:!CCq :yabai-minimize]
- ]}
+;{:des "minimize TickTick instead of quiting"
+; :rules [ :ticktick
+;          [:!CCq :yabai-minimize]
+; ]}
 
 {:des "ONE SHOT APP LAYER"
  :rules [

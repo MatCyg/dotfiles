@@ -1,0 +1,78 @@
+{:des "NUM/APP LAYER"
+ :rules [ :num-app-layer
+          [:left_option :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
+          [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :!Odelete_or_backspace]]
+          [:##return_or_enter :!Treturn_or_enter nil]
+
+          ; right hand - NUM LAYER
+          [:##j :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##l :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##u :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##y :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:semicolon :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+          [:##m :plus nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##n :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##e :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##i :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##o :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+          [:##k :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##h :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##comma :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##period :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##slash :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+          ; left hand - APP LAYER
+          [:condi :num-app-layer :excel]
+          [:s :!Tu]
+
+          [:condi :num-app-layer :firefox]
+          [:f [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
+          [:r :!CSt]
+          [:s :slash]
+          [:t [:!Ct :TURN_ON_WRITING_LAYER]]
+          [:p [:focus-url :focus-url :!Sreturn_or_enter]]
+          ;
+          [:condi :num-app-layer :intellij]
+          [:q :!Oq]
+          ;                    [:w :!Of7]
+          ;                    [:!Of :!COl]
+          [:w :previous-tab]
+          [:f :next-tab]
+          [:p :!T2]
+          [:b [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
+          ;
+          [:a [:!Sf6 :TURN_ON_WRITING_LAYER]]
+          ;                    [:r :previous-tab]
+          ;                    [:s :next-tab]
+
+          ;                    [:t [:!Ce :TURN_ON_NAVIGATION_LAYER]]
+          [:!Tt :!Cn]
+
+          [:t []]
+          [:g [:!On :TURN_ON_NAVIGATION_LAYER]]
+          ;
+          [:condi :num-app-layer :teams]
+          [:a :!CSm]
+
+          [:condi :num-app-layer]
+          ;                    :num-app-layer
+          [:##q []]
+          [:##w []]
+          [:##f []]
+          [:##p []]
+          [:##b []]
+
+          [:##a []]
+          [:##r []]
+          [:##s []]
+          [:##t []]
+          [:##g []]
+
+          [:##z nil nil {:alone :!C4 :held {:key :!C5 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:##x :!C3]
+          [:##c nil nil {:alone :!C2 :held {:key :!C6 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:##d nil nil {:alone :!C1 :held {:key :!C7 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:##v nil nil {:alone :!C9 :held {:key :!C8 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+]}

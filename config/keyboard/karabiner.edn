@@ -12,67 +12,25 @@
     :outlook ["^com\\.microsoft\\.Outlook$"]
     :ticktick ["^com\\.TickTick\\.task\\.mac$"]
     :iterm2 ["^com\\.googlecode\\.iterm2$"]
+    :excel ["^com\\.microsoft\\.Excel$"]
   }
   :devices {
     :ms-sculpt [{:vendor_id 1118 :product_id 1957}]
     :mac [{:vendor_id 1452 :product_id 832}]
+    :kyria [{:vendor_id 36125 :product_id 40349}]
+    :staggered-keyboards [
+      {:vendor_id 1118 :product_id 1957}
+      {:vendor_id 1452 :product_id 832}
+    ]
+    :columnar-keyboards [
+      {:vendor_id 36125 :product_id 40349}
+    ]
   }
   :templates {
          :hs "open -g hammerspoon://%s"
-         :hs-focus-app "open -g hammerspoon://focusApp?app=%s"
-         :hs-focus-app-slot "open -g hammerspoon://focusAppSlot?slot=%s"
-         :hs-bind-app-to-slot "open -g hammerspoon://bindAppToSlot?slot=%s"
-         :open "open \"%s\""
-  }
-  :froms {
-           :anykey {:any :key_code :modi {:optional [:any]}}
-           :any_consumer {:any :consumer_key_code }
+         :open "open -a \"%s\""
   }
   :tos {
-         :yabai-focus-left {:shell "/usr/local/bin/yabai -m window --focus west"}
-         :yabai-focus-down {:shell "/usr/local/bin/yabai -m window --focus south"}
-         :yabai-focus-up {:shell "/usr/local/bin/yabai -m window --focus north"}
-         :yabai-focus-right {:shell "/usr/local/bin/yabai -m window --focus east"}
-
-         :yabai-stack-right {:shell "window=$(/usr/local/bin/yabai -m query --windows --window | /usr/local/bin/jq -r '.id') && /usr/local/bin/yabai -m window east --stack $window || (/usr/local/bin/yabai -m window $window --toggle float && /usr/local/bin/yabai -m window $window --toggle float)"}
-         :yabai-next-stack {:shell "/usr/local/bin/yabai -m window --focus stack.next || /usr/local/bin/yabai -m window --focus stack.first"}
-
-         :yabai-switch-to-space-0 {:key :0 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-1 {:key :1 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-2 {:key :2 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-3 {:key :3 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-4 {:key :4 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-5 {:key :5 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-6 {:key :6 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-7 {:key :7 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-8 {:key :8 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-         :yabai-switch-to-space-9 {:key :9 :modi {:mandatory [:left_command :left_option :left_shift :left_control]}}
-
-         :yabai-move-to-space-0 {:shell "/usr/local/bin/yabai -m window --space 0"}
-         :yabai-move-to-space-1 {:shell "/usr/local/bin/yabai -m window --space 1"}
-         :yabai-move-to-space-2 {:shell "/usr/local/bin/yabai -m window --space 2"}
-         :yabai-move-to-space-3 {:shell "/usr/local/bin/yabai -m window --space 3"}
-         :yabai-move-to-space-4 {:shell "/usr/local/bin/yabai -m window --space 4"}
-         :yabai-move-to-space-5 {:shell "/usr/local/bin/yabai -m window --space 5"}
-         :yabai-move-to-space-6 {:shell "/usr/local/bin/yabai -m window --space 6"}
-         :yabai-move-to-space-7 {:shell "/usr/local/bin/yabai -m window --space 7"}
-         :yabai-move-to-space-8 {:shell "/usr/local/bin/yabai -m window --space 8"}
-         :yabai-move-to-space-9 {:shell "/usr/local/bin/yabai -m window --space 9"}
-
-         :yabai-swap-left {:shell "/usr/local/bin/yabai -m window --swap west"}
-         :yabai-swap-down {:shell "/usr/local/bin/yabai -m window --swap south"}
-         :yabai-swap-up {:shell "/usr/local/bin/yabai -m window --swap north"}
-         :yabai-swap-right {:shell "/usr/local/bin/yabai -m window --swap east"}
-
-         :yabai-resize-left {:shell "/usr/local/bin/yabai -m window --resize left:-100:0; /usr/local/bin/yabai -m window --resize right:-100:0"}
-         :yabai-resize-down {:shell "/usr/local/bin/yabai -m window --resize top:0:100; /usr/local/bin/yabai -m window --resize bottom:0:100"}
-         :yabai-resize-up {:shell "/usr/local/bin/yabai -m window --resize top:0:-100; /usr/local/bin/yabai -m window --resize bottom:0:-100"}
-         :yabai-resize-right {:shell "/usr/local/bin/yabai -m window --resize left:100:0; /usr/local/bin/yabai -m window --resize right:100:0"}
-
-         :yabai-minimize {:shell "/usr/local/bin/yabai -m window --minimize"}
-         :yabai-toggle-fullscreen {:shell "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"}
-         :yabai-rotate {:shell "/usr/local/bin/yabai -m space --rotate 90"}
-
          :os-dark-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to true'" }
          :os-light-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to false'" }
 
@@ -83,22 +41,38 @@
          :TURN_ON_NAVIGATION_LAYER [
            {:shell "open -g hammerspoon://navigationMode"}
            {:set ["navigation-layer" 1]}
-           {:set ["ons-navigation-layer" 0]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
            {:set ["raise-layer" 0]}
            {:set ["lower-layer" 0]}
            {:set ["app-layer" 0]}
+           {:set ["fun-layer" 0]}
+           {:set ["macro-case" 0]}
+           {:set ["macro-case-space" 0]}
+           {:set ["camel-case" 0]}
+           {:set ["camel-case-space" 0]}
+           {:set ["snake-case" 0]}
+           {:set ["snake-case-space" 0]}
+           {:set ["dash-case" 0]}
+           {:set ["dash-case-space" 0]}
          ]
          :TURN_ON_WRITING_LAYER [
            {:shell "open -g hammerspoon://writingMode"}
            {:set ["navigation-layer" 0]}
-           {:set ["ons-navigation-layer" 0]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
            {:set ["raise-layer" 0]}
            {:set ["lower-layer" 0]}
            {:set ["app-layer" 0]}
+           {:set ["fun-layer" 0]}
+           {:set ["macro-case" 0]}
+           {:set ["macro-case-space" 0]}
+           {:set ["camel-case" 0]}
+           {:set ["camel-case-space" 0]}
+           {:set ["snake-case" 0]}
+           {:set ["snake-case-space" 0]}
+           {:set ["dash-case" 0]}
+           {:set ["dash-case-space" 0]}
          ]
          :TURN_ON_ONS_NAVIGATION_LAYER [
              {:shell "open -g hammerspoon://navigationMode"}
@@ -109,12 +83,6 @@
              {:set ["lower-layer" 0]}
              {:set ["app-layer" 0]}
          ]
-         :TURN_ON_QWERTY [
-           {:set ["qwerty" 1]}
-         ]
-         :TURN_OFF_QWERTY [
-           {:set ["qwerty" 0]}
-         ]
          :TURN_ON_SELECTION_MODE [
            {:set ["selection-mode" 1]}
          ]
@@ -124,12 +92,6 @@
          :TURN_ON_SINGLE_CHARACTER_MODE [
            {:set ["single-character-mode" 1]}
          ]
-         :TURN_ON_RAISE_LAYER [
-           {:set ["raise-layer" 1]}
-         ]
-         :TURN_OFF_RAISE_LAYER [
-           {:set ["raise-layer" 0]}
-         ]
          :TURN_ON_LOWER_LAYER [
            {:set ["lower-layer" 1]}
          ]
@@ -137,18 +99,49 @@
            {:set ["lower-layer" 0]}
          ]
          :TURN_ON_APP_LAYER [
-           {:shell "open -g hammerspoon://appLayerOn"}
            {:set ["app-layer" 1]}
          ]
          :TURN_OFF_APP_LAYER [
-           {:shell "open -g hammerspoon://appLayerOff"}
            {:set ["app-layer" 0]}
-         ]
-         :TURN_OFF_SHIFTED_LAYER  [
-           {:set ["shifted-layer" 0]}
          ]
          :TOGGLE_LAYER_BAR  [
            {:shell "open -g hammerspoon://toggleLayerBar"}
+         ]
+         :TURN_ON_NUM_APP_LAYER [
+           {:set ["num-app-layer" 1]}
+         ]
+         :TURN_OFF_NUM_APP_LAYER [
+           {:set ["num-app-layer" 0]}
+         ]
+         :TURN_ON_NUM_SYM_LAYER [
+           {:set ["num-sym-layer" 1]}
+         ]
+         :TURN_OFF_NUM_SYM_LAYER [
+           {:set ["num-sym-layer" 0]}
+         ]
+         :TURN_ON_FUN_LAYER [
+           {:set ["fun-layer" 1]}
+         ]
+         :TURN_OFF_FUN_LAYER [
+           {:set ["fun-layer" 0]}
+         ]
+         :TURN_ON_ADJUSTED_TYPING_LAYER [
+           {:set ["adjusted-typing-layer" 1]}
+         ]
+         :TURN_OFF_ADJUSTED_TYPING_LAYER [
+           {:set ["adjusted-typing-layer" 0]}
+         ]
+         :TURN_ON_MACRO_CASE [
+           {:set ["macro-case" 1]}
+         ]
+         :TURN_ON_CAMEL_CASE [
+           {:set ["camel-case" 1]}
+         ]
+         :TURN_ON_SNAKE_CASE [
+           {:set ["snake-case" 1]}
+         ]
+         :TURN_ON_DASH_CASE [
+           {:set ["dash-case" 1]}
          ]
          ; symbols
          :exclaimation-mark {:key :1 :modi :shift}
@@ -187,7 +180,7 @@
          :diactric-a {:key :!Oa}
          :diactric-s {:key :!Os}
          :diactric-z {:key :!Oz}
-         :diactric-x {:key :!Ox}
+         :diactric-x {:key :!Ox :repeat false}
          :diactric-c {:key :!Oc}
          :diactric-o {:key :!Oo}
          :diactric-l {:key :!Ol}
@@ -208,79 +201,74 @@
          :search-firefox-bookmarks {:key :!!b}
          :search-projects {:key :!!p}
 
-         :search-paste-enter [
-           {:key :!Cf :repeat false}
+         :paste-enter [
            {:key :!Cv :repeat false}
            {:key :return_or_enter :repeat false}
          ]
 
-         :search-selection [
-           {:key :!!s}
-         ]
-         :search-clipboard [
-           {:key :!CTOs}
-         ]
+         :search-selection [{:key :!!s}]
+         :search-clipboard [{:key :!CTOs}]
   }
   :main [
 
-     {:des "control to opposite layer"
-      :rules [
-            [:left_control :TURN_ON_SINGLE_CHARACTER_MODE :navigation-layer]
-            [:left_control :TURN_ON_ONS_NAVIGATION_LAYER :!navigation-layer]
-      ]}
-
-     {:des "backspace"
-      :rules [
-             [:!T##open_bracket [:delete_forward :TURN_OFF_SELECTION_MODE] nil {:held :delete_forward :params {:held 200}}]
-             [:##open_bracket [:delete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :delete_or_backspace :params {:held 200}}]
-     ]}
-
-     {:des "kyria combos"
-      :rules [
-        [[:comma :period] [:tilde :TURN_ON_WRITING_LAYER]]
-        [[:p :b] [:open_bracket :TURN_ON_WRITING_LAYER]]
-        [[:j :l] [:close_bracket :TURN_ON_WRITING_LAYER]]
-        [[:t :g] [:open_parenthesis :TURN_ON_WRITING_LAYER]]
-        [[:m :n] [:close_parenthesis :TURN_ON_WRITING_LAYER]]
-        [[:d :v] [:open_braces :TURN_ON_WRITING_LAYER]]
-        [[:k :h] [:close_braces :TURN_ON_WRITING_LAYER]]
-      ]}
-
-    {:des "caps_lock to control, escape if alone" :rules [[:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]]}
-;    {:des "right_option to backspace" :rules [[:##right_option :delete_or_backspace]]}
-;    {:des "left_option to app layer" :rules [[:##left_option :TURN_ON_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
-;    {:des "left_control to lower layer" :rules [[:##left_control :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
-    {:des "left_option to lower layer" :rules [[:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]]}
-    {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
-
-
-     {:des "quote to shift if held, enter if alone, double enter holds enter"
-      :rules [
-;              [:##quote :right_shift nil {:alone :return_or_enter}]
-              [:##quote :return_or_enter :!ms-sculpt]
-      ]}
-
      {:des "sculpt override"
-      :rules [
-               :ms-sculpt
+      :rules [ :ms-sculpt
                [:##quote []]
                [:##right_command :TURN_ON_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_APP_LAYER}]
                [[:right_control :spacebar] :left_option :!left-command-down {:alone [:delete_or_backspace :TURN_OFF_SELECTION_MODE]}]
                [[:left_command :right_control :spacebar] :left_option :left-command-down {:alone [:a :TURN_OFF_SELECTION_MODE] :params {:sim 3000}}]
-      ]}
+     ]}
 
-     {:des "commands layers"
-     :rules [
-              [:left_command [["left-command-down" 1] :left_command] nil {:alone :TURN_ON_NAVIGATION_LAYER :afterup ["left-command-down" 0]}]
-              [:right_command :left_option :!ms-sculpt {:alone :TURN_ON_APP_LAYER}]
-              [:##left_command :left_command]
-              [:##right_command :left_option]
+     {:des "staggered keyboards"
+      :rules [ :staggered-keyboards
+               ; left control fun layer
+               [:left_control :TURN_ON_FUN_LAYER]
+               ; backspace
+               [:!T##open_bracket [:delete_forward :TURN_OFF_SELECTION_MODE] nil {:held :delete_forward :params {:held 200}}]
+               [:##open_bracket [:delete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :delete_or_backspace :params {:held 200}}]
 
+               ; caps_lock to control, escape if alone
+               [:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]
 
+               ; left_option to lower layer
+               [:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]
+               ; ctrl+backspace=delete
+               [:!Tdelete_or_backspace :delete_forward]
+               ; quote to enter
+               [:##quote :return_or_enter]
+               ; commands layers
+               [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
+               [:right_command :left_option :!ms-sculpt {:alone :TURN_ON_APP_LAYER}]
+               [:##left_command :left_command]
+               [:##right_command :left_option]
 
      ]}
 
+     {:des "columnar keyboards"
+      :rules [ :columnar-keyboards
+               ; wx to fun layer
+               [ :f23 :TURN_ON_FUN_LAYER]
+               ; qz to lower layer
+               [ :f24 :TURN_ON_LOWER_LAYER]
+               ; backspace disables selection
+               [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :delete_or_backspace] :!num-app-layer {:held :delete_or_backspace :params {:held 200}}]
+               ; esc enables nav layer
+               [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER]]
+               ; right opt to assisted typing layer
+               [:right_option :TURN_ON_ADJUSTED_TYPING_LAYER nil {:afterup :TURN_OFF_ADJUSTED_TYPING_LAYER}]
+               ; right command to num layer
+               [:!Oright_command :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
+               [:#S#T#Cright_command :TURN_ON_NUM_APP_LAYER nil {:afterup :TURN_OFF_NUM_APP_LAYER}]
 
+               ; commands layers
+               [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
+               [:##left_command :left_command]
+     ]}
+
+     {:des "find overrides" :rules [
+        [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :paste-enter :repeat false :halt true :params{:alone 299 :held 300}}]
+        [:!COf [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
+     ]}
 
 ;#######################################################################################################################
 ;#############################################      INCLUDE       ######################################################
@@ -292,62 +280,92 @@
   ;include:raise-layer.edn
   ;include:lower-layer.edn
   ;include:app-layer.edn
+  ;include:fun-layer.edn
+  ;include:num-app-layer.edn
+  ;include:adjusted-typing-layer.edn
 
 ;#######################################################################################################################
 ;#######################################################################################################################
 ;#######################################################################################################################
+     {:des "arrow layer"
+      :rules [  [:condi :navigation-layer :!selection-mode :!app-layer]
+
+                [:!SSn [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
+                [:!SSe [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
+                [:!SSi [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
+                [:!SSu [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+                [:!SSl [:TURN_ON_SELECTION_MODE :!S!Oleft_arrow]]
+                [:!SSy [:TURN_ON_SELECTION_MODE :!S!Oright_arrow]]
+                [:!SSj [:TURN_ON_SELECTION_MODE :!Spage_up]]
+                [:!SSm [:TURN_ON_SELECTION_MODE :!Spage_down]]
+
+
+                [:##n :left_arrow]
+                [:##e :down_arrow]
+                [:##i :right_arrow]
+                [:##u :up_arrow]
+                [:##l :!Oleft_arrow]
+                [:##y :!Oright_arrow]
+                [:#SSj :page_up]
+                [:#SSm :page_down]
+
+                [:condi :navigation-layer :selection-mode]
+                [:##n :!Sleft_arrow]
+                [:##e :!Sdown_arrow]
+                [:##i :!Sright_arrow]
+                [:##u :!Sup_arrow]
+                [:##l :!SOleft_arrow]
+                [:##y :!SOright_arrow]
+                [:#SSj :!Spage_up]
+                [:#SSm :!Spage_down]
+                ]}
 
     {:des "navigation layer"
-     :rules [ [:condi :navigation-layer :!selection-mode]
-              [:##n :left_arrow]
-              [:##e :down_arrow]
-              [:##i :right_arrow]
-              [:##u :up_arrow]
-              [:##l :!Oleft_arrow]
-              [:##y :!Oright_arrow]
-              [:#SSj :page_up]
-              [:#SSm :page_down]
-
-              [:condi :navigation-layer :selection-mode]
-              [:##n :!Sleft_arrow]
-              [:##e :!Sdown_arrow]
-              [:##i :!Sright_arrow]
-              [:##u :!Sup_arrow]
-              [:##l :!SOleft_arrow]
-              [:##y :!SOright_arrow]
-              [:#SSj :!Spage_up]
-              [:#SSm :!Spage_down]
+     :rules [
+;              [:condi :navigation-layer :!selection-mode]
+;              [:##n :left_arrow]
+;              [:##e :down_arrow]
+;              [:##i :right_arrow]
+;              [:##u :up_arrow]
+;              [:##l :!Oleft_arrow]
+;              [:##y :!Oright_arrow]
+;              [:#SSj :page_up]
+;              [:#SSm :page_down]
+;
+;              [:condi :navigation-layer :selection-mode]
+;              [:##n :!Sleft_arrow]
+;              [:##e :!Sdown_arrow]
+;              [:##i :!Sright_arrow]
+;              [:##u :!Sup_arrow]
+;              [:##l :!SOleft_arrow]
+;              [:##y :!SOright_arrow]
+;              [:#SSj :!Spage_up]
+;              [:#SSm :!Spage_down]
 
               :navigation-layer
-              [:##left_shift :##left_shift :navigation-layer {:alone :TURN_ON_SELECTION_MODE}]
-              [:##right_shift :##right_shift :navigation-layer {:alone :TURN_ON_SELECTION_MODE}]
               [:spacebar [:TURN_ON_WRITING_LAYER :!!grave_accent_and_tilde]]
-;              [:spacebar [ :button30]]
 
               ; number row
-              [:grave_accent_and_tilde [:yabai-next-stack]]
-
+              [:grave_accent_and_tilde []]
               [:1 []]
               [:2 []]
-;              [:1 :yabai-switch-to-space-1]
-;              [:2 :yabai-switch-to-space-2]
-;              [:3 :yabai-switch-to-space-3]
-;              [:4 :yabai-switch-to-space-4]
-;              [:5 :yabai-switch-to-space-5]
-              [:6 :yabai-switch-to-space-6]
-              [:7 :yabai-switch-to-space-7]
-              [:8 :yabai-switch-to-space-8]
-              [:9 :yabai-switch-to-space-9]
-              [:0 :yabai-switch-to-space-0]
+              [:3 []]
+              [:4 []]
+              [:5 []]
+              [:6 []]
+              [:7 []]
+              [:8 []]
+              [:9 []]
+              [:0 []]
 
               ; left hand
-              [:#SSq :!TO1]
-              [:#SSw :!TO2]
-              [:#SSf :!TO3]
-              [:#SSp :!TO4]
-              [:#SSb :!TO5]
-              [:#SSa :!TOgrave_accent_and_tilde]
-;              [:#SSa [:yabai-next-stack]]
+              [:#SSq :!TOC0]
+              [:#SSw :!TOC1]
+              [:#SSf :!TOC2]
+              [:#SSp :!TOC3]
+              [:#SSb :!TOC4]
+
+              [:#SSa :!TOC9]
               [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSt {:pkey :button1}]
@@ -370,7 +388,6 @@
 
               ; right hand
               [:#SSsemicolon []]
-
               [:#SSo :TURN_ON_SINGLE_CHARACTER_MODE]
               [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
               [:#SSh :!Oup_arrow]

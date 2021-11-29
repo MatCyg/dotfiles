@@ -11,6 +11,9 @@ sed -i '' -e '/;include:osl-character-layer.edn/r./osl-character-layer.edn' $gok
 sed -i '' -e '/;include:raise-layer.edn/r./raise-layer.edn' $gokuFile
 sed -i '' -e '/;include:lower-layer.edn/r./lower-layer.edn' $gokuFile
 sed -i '' -e '/;include:app-layer.edn/r./app-layer.edn' $gokuFile
+sed -i '' -e '/;include:fun-layer.edn/r./fun-layer.edn' $gokuFile
+sed -i '' -e '/;include:num-app-layer.edn/r./num-app-layer.edn' $gokuFile
+sed -i '' -e '/;include:adjusted-typing-layer.edn/r./adjusted-typing-layer.edn' $gokuFile
 
 #cat $gokuFile
 
