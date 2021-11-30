@@ -13,6 +13,7 @@
                   :outlook ["^com\\.microsoft\\.Outlook$"]
                   :ticktick ["^com\\.TickTick\\.task\\.mac$"]
                   :iterm2 ["^com\\.googlecode\\.iterm2$"]
+                  :excel ["^com\\.microsoft\\.Excel$"]
   }
   :devices {
              :ms-sculpt [{:vendor_id 1118 :product_id 1957}]
@@ -90,6 +91,14 @@
            {:set ["lower-layer" 0]}
            {:set ["app-layer" 0]}
            {:set ["fun-layer" 0]}
+           {:set ["macro-case" 0]}
+           {:set ["macro-case-space" 0]}
+           {:set ["camel-case" 0]}
+           {:set ["camel-case-space" 0]}
+           {:set ["snake-case" 0]}
+           {:set ["snake-case-space" 0]}
+           {:set ["dash-case" 0]}
+           {:set ["dash-case-space" 0]}
          ]
          :TURN_ON_WRITING_LAYER [
            {:shell "open -g hammerspoon://writingMode"}
@@ -100,7 +109,15 @@
            {:set ["lower-layer" 0]}
            {:set ["app-layer" 0]}
            {:set ["fun-layer" 0]}
-                                  ]
+           {:set ["macro-case" 0]}
+           {:set ["macro-case-space" 0]}
+           {:set ["camel-case" 0]}
+           {:set ["camel-case-space" 0]}
+           {:set ["snake-case" 0]}
+           {:set ["snake-case-space" 0]}
+           {:set ["dash-case" 0]}
+           {:set ["dash-case-space" 0]}
+         ]
          :TURN_ON_QWERTY [
                             {:set ["qwerty" 1]}
                            ]
@@ -140,6 +157,12 @@
          :TURN_OFF_NUM_APP_LAYER [
                                  {:set ["num-app-layer" 0]}
                                  ]
+         :TURN_ON_NUM_SYM_LAYER [
+                                {:set ["num-sym-layer" 1]}
+                                ]
+         :TURN_OFF_NUM_SYM_LAYER [
+                                 {:set ["num-sym-layer" 0]}
+                                 ]
          :TURN_ON_APP_LAYER [
                               {:shell "open -g hammerspoon://appLayerOn"}
                               {:set ["app-layer" 1]}
@@ -160,6 +183,24 @@
          :TOGGLE_LAYER_BAR  [
                               {:shell "open -g hammerspoon://toggleLayerBar"}
                               ]
+         :TURN_ON_ADJUSTED_TYPING_LAYER [
+             {:set ["adjusted-typing-layer" 1]}
+         ]
+         :TURN_OFF_ADJUSTED_TYPING_LAYER [
+             {:set ["adjusted-typing-layer" 0]}
+         ]
+         :TURN_ON_MACRO_CASE [
+                               {:set ["macro-case" 1]}
+                               ]
+         :TURN_ON_CAMEL_CASE [
+                               {:set ["camel-case" 1]}
+                               ]
+         :TURN_ON_SNAKE_CASE [
+                               {:set ["snake-case" 1]}
+                               ]
+         :TURN_ON_DASH_CASE [
+                               {:set ["dash-case" 1]}
+                               ]
          ; symbols
          :exclaimation-mark {:key :1 :modi :shift}
          :at {:key :2 :modi :shift}
@@ -197,7 +238,7 @@
          :diactric-a {:key :!Oa}
          :diactric-s {:key :!Os}
          :diactric-z {:key :!Oz}
-         :diactric-x {:key :!Ox}
+         :diactric-x {:key :!Ox :repeat false}
          :diactric-c {:key :!Oc}
          :diactric-o {:key :!Oo}
          :diactric-l {:key :!Ol}
@@ -228,7 +269,7 @@
          :search-clipboard [{:key :!CTOs}]
   }
   :main [
-          {:des "wx to fun layer" :rules [
+          {:des "find overrides" :rules [
               [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :search-paste-enter :repeat false :halt true :params{:alone 299 :held 300}}]
               [:!COf [:!Cc :!Cc :!Cf :!Cf :search-paste-enter]]
 ;              [:!COf [:!Cc :!Cc :!Cf :!Cf :search-paste-enter] nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :search-paste-enter :repeat false :halt true :params{:alone 299 :held 300}}]
@@ -254,7 +295,16 @@
           {:des "backspace should disable selection" :rules [[:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :delete_or_backspace] :!num-app-layer {:held :delete_or_backspace :params {:held 200}}]]}
 
           {:des "esc enables nav layer" :rules [[:##escape [:##escape :TURN_ON_NAVIGATION_LAYER]]]}
-          {:des "right command to num layer" :rules [[:##right_command :TURN_ON_NUM_APP_LAYER nil {:afterup :TURN_OFF_NUM_APP_LAYER}]]}
+
+          {:des "right opt to assisted typing layer"
+           :rules [
+                    [:right_option :TURN_ON_ADJUSTED_TYPING_LAYER nil {:afterup :TURN_OFF_ADJUSTED_TYPING_LAYER}]
+          ]}
+
+
+          {:des "right command to num layer" :rules [
+                                                      [:!Oright_command :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
+                                                      [:#S#T#Cright_command :TURN_ON_NUM_APP_LAYER nil {:afterup :TURN_OFF_NUM_APP_LAYER}]]}
 ;          {:des "right control to app layer" :rules [[:##right_control :TURN_ON_APP_LAYER nil {:afterup :TURN_OFF_APP_LAYER}]]}
 ;          {:des "left option to lower layer" :rules [[:##left_option :TURN_OFF_RAISE_LAYER nil {:afterup :TURN_OFF_RAISE_LAYER}]]}
 
@@ -275,11 +325,11 @@
 
 ;          {:des "shift+backspace=delete" :rules [[:!SSdelete_or_backspace :delete_forward]]}
           {:des "ctrl+backspace=delete" :rules [[:!Tdelete_or_backspace :delete_forward]]}
-          ;#######################################################################################################################
-          ;#############################################      SINGLE        ######################################################
-          ;#############################################      CHARACTER     ######################################################
-          ;#############################################      LAYER         ######################################################
-          ;#######################################################################################################################
+;#######################################################################################################################
+;#############################################      SINGLE        ######################################################
+;#############################################      CHARACTER     ######################################################
+;#############################################      LAYER         ######################################################
+;#######################################################################################################################
           {
             :des "Single character mode"
             :rules [ :single-character-mode
@@ -355,67 +405,238 @@
                      ]}
 
 ;#######################################################################################################################
+;#############################################      ADJUSTED      ######################################################
+;#############################################      TYPING        ######################################################
+;#############################################      LAYER         ######################################################
+;#######################################################################################################################
+          {
+            :des "Single character mode"
+            :rules [ :adjusted-typing-layer
+
+
+;                     {:des "q+y to macro case" :rules [[ :f21 [:TURN_ON_WRITING_LAYER :TURN_ON_MACRO_CASE]]]}
+;                     {:des "q+semicolon to camel case" :rules [[ :f22 [:TURN_ON_WRITING_LAYER :TURN_ON_CAMEL_CASE]]]}
+                     [:##q [:grave_accent_and_tilde :grave_accent_and_tilde :grave_accent_and_tilde]]
+                     [:##w [:grave_accent_and_tilde :grave_accent_and_tilde :grave_accent_and_tilde :j :a :v :a]]
+                     [:##f [:grave_accent_and_tilde :grave_accent_and_tilde :grave_accent_and_tilde :j :s :o :n]]
+                     [:##p [:grave_accent_and_tilde :grave_accent_and_tilde :grave_accent_and_tilde]]
+                     [:##b [:open_braces :return_or_enter :return_or_enter :up_arrow :dquote :dquote :left_arrow :close_braces]]
+                     [:##a [:TURN_ON_WRITING_LAYER :TURN_ON_SNAKE_CASE]]
+                     [:##r [:TURN_ON_WRITING_LAYER :TURN_ON_MACRO_CASE]]
+                     [:##s [:TURN_ON_WRITING_LAYER :TURN_ON_CAMEL_CASE]]
+                     [:##t [:TURN_ON_WRITING_LAYER :TURN_ON_CAMEL_CASE]]
+                     [:##g []]
+                     [:##z []]
+                     [:##x [:TURN_ON_WRITING_LAYER :TURN_ON_DASH_CASE]]
+                     [:##c [:TURN_ON_WRITING_LAYER :TURN_ON_CAMEL_CASE ["camel-case-space" 1]]]
+                     [:##d [:TURN_ON_WRITING_LAYER :TURN_ON_CAMEL_CASE ["camel-case-space" 1]]]
+                     [:##v []]
+                     [:##j []]
+                     [:##l []]
+                     [:##u []]
+                     [:##y []]
+                     [:##semicolon []]
+                     [:##m []]
+                     [:##n []]
+                     [:##e []]
+                     [:##i []]
+                     [:##o []]
+                     [:##k []]
+                     [:##h []]
+          ]}
+;#######################################################################################################################
 ;#############################################                    ######################################################
-;#############################################     NUM  LAYER     ######################################################
+;#############################################        CASES       ######################################################
 ;#############################################                    ######################################################
 ;#######################################################################################################################
-          {:des "NUM LAYER"
-           :rules [ :num-layer
-                    ; mouse
-;                    [:##left_shift :left_shift nil {:alone :!Sreturn_or_enter}]
-;                    [:##right_command :##left_option nil {:alone :!Odelete_or_backspace}]
-                    [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :!Odelete_or_backspace]]
-                    [:##return_or_enter :!Oreturn_or_enter nil]
+          {:des "snake case"
+           :rules [ :snake-case
+                    [:spacebar [:delete_or_backspace :spacebar ["snake-case" 0] ["snake-case-space" 0]] :snake-case-space]
+                    [:spacebar [["snake-case-space" 1] :underscore]]
 
-;                    [{:pkey :button1} {:pkey :button1 :modi :left_shift}]
+                    [:q [["snake-case-space" 0] :q]]
+                    [:w [["snake-case-space" 0] :w]]
+                    [:f [["snake-case-space" 0] :f]]
+                    [:p [["snake-case-space" 0] :p]]
+                    [:b [["snake-case-space" 0] :b]]
+                    [:a [["snake-case-space" 0] :a]]
+                    [:r [["snake-case-space" 0] :r]]
+                    [:s [["snake-case-space" 0] :s]]
+                    [:t [["snake-case-space" 0] :t]]
+                    [:g [["snake-case-space" 0] :g]]
+                    [:z [["snake-case-space" 0] :z]]
+                    [:x [["snake-case-space" 0] :x]]
+                    [:c [["snake-case-space" 0] :c]]
+                    [:d [["snake-case-space" 0] :d]]
+                    [:v [["snake-case-space" 0] :v]]
+                    [:j [["snake-case-space" 0] :j]]
+                    [:l [["snake-case-space" 0] :l]]
+                    [:u [["snake-case-space" 0] :u]]
+                    [:y [["snake-case-space" 0] :y]]
+                    [:m [["snake-case-space" 0] :m]]
+                    [:n [["snake-case-space" 0] :n]]
+                    [:e [["snake-case-space" 0] :e]]
+                    [:i [["snake-case-space" 0] :i]]
+                    [:o [["snake-case-space" 0] :o]]
+                    [:k [["snake-case-space" 0] :k]]
+                    [:h [["snake-case-space" 0] :h]]
+                    [:#SScomma [:TURN_ON_WRITING_LAYER :comma]]
+                    [:#SSperiod [:TURN_ON_WRITING_LAYER :period]]
+                    [:#SSslash [:TURN_ON_WRITING_LAYER :slash]]
+                    [:#SSsemicolon [:TURN_ON_WRITING_LAYER :semicolon]]
+                    [:##return_or_enter [:TURN_ON_WRITING_LAYER :##return_or_enter]]
+           ]}
 
-                    [:##q :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##w :at nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##f :hash nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##p :dollar nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##b :percent nil {:afterup :TURN_ON_WRITING_LAYER}]
+          {:des "dash case"
+           :rules [ :dash-case
+                    [:spacebar [:delete_or_backspace :spacebar ["dash-case" 0] ["dash-case-space" 0]] :dash-case-space]
+                    [:spacebar [["dash-case-space" 1] :hyphen]]
 
-                    [:##a :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##r :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##s :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##t :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##g :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:q [["dash-case-space" 0] :q]]
+                    [:w [["dash-case-space" 0] :w]]
+                    [:f [["dash-case-space" 0] :f]]
+                    [:p [["dash-case-space" 0] :p]]
+                    [:b [["dash-case-space" 0] :b]]
+                    [:a [["dash-case-space" 0] :a]]
+                    [:r [["dash-case-space" 0] :r]]
+                    [:s [["dash-case-space" 0] :s]]
+                    [:t [["dash-case-space" 0] :t]]
+                    [:g [["dash-case-space" 0] :g]]
+                    [:z [["dash-case-space" 0] :z]]
+                    [:x [["dash-case-space" 0] :x]]
+                    [:c [["dash-case-space" 0] :c]]
+                    [:d [["dash-case-space" 0] :d]]
+                    [:v [["dash-case-space" 0] :v]]
+                    [:j [["dash-case-space" 0] :j]]
+                    [:l [["dash-case-space" 0] :l]]
+                    [:u [["dash-case-space" 0] :u]]
+                    [:y [["dash-case-space" 0] :y]]
+                    [:m [["dash-case-space" 0] :m]]
+                    [:n [["dash-case-space" 0] :n]]
+                    [:e [["dash-case-space" 0] :e]]
+                    [:i [["dash-case-space" 0] :i]]
+                    [:o [["dash-case-space" 0] :o]]
+                    [:k [["dash-case-space" 0] :k]]
+                    [:h [["dash-case-space" 0] :h]]
+                    [:#SScomma [:TURN_ON_WRITING_LAYER :comma]]
+                    [:#SSperiod [:TURN_ON_WRITING_LAYER :period]]
+                    [:#SSslash [:TURN_ON_WRITING_LAYER :slash]]
+                    [:#SSsemicolon [:TURN_ON_WRITING_LAYER :semicolon]]
+                    [:##return_or_enter [:TURN_ON_WRITING_LAYER :##return_or_enter]]
+           ]}
 
-                    [:##z :!C4 nil]
-                    [:##x :!C3 nil]
-                    [:##c :!C2 nil]
-                    [:##d :!C1 nil]
-                    [:##v :!C5 nil]
-                    ; right hand
-                    [:##j :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##l :ampersand nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##u :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##y [] nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##semicolon [] nil {:afterup :TURN_ON_WRITING_LAYER}]
+          {:des "macro case"
+           :rules [ :macro-case
+                    [:spacebar [:delete_or_backspace :spacebar ["macro-case" 0] ["macro-case-space" 0]] :macro-case-space]
+                    [:spacebar [["macro-case-space" 1] :underscore]]
 
-                    [:##m :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##n :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##e :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##i :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:##o :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:q [["macro-case-space" 0] :!Sq]]
+                    [:w [["macro-case-space" 0] :!Sw]]
+                    [:f [["macro-case-space" 0] :!Sf]]
+                    [:p [["macro-case-space" 0] :!Sp]]
+                    [:b [["macro-case-space" 0] :!Sb]]
+                    [:a [["macro-case-space" 0] :!Sa]]
+                    [:r [["macro-case-space" 0] :!Sr]]
+                    [:s [["macro-case-space" 0] :!Ss]]
+                    [:t [["macro-case-space" 0] :!St]]
+                    [:g [["macro-case-space" 0] :!Sg]]
+                    [:z [["macro-case-space" 0] :!Sz]]
+                    [:x [["macro-case-space" 0] :!Sx]]
+                    [:c [["macro-case-space" 0] :!Sc]]
+                    [:d [["macro-case-space" 0] :!Sd]]
+                    [:v [["macro-case-space" 0] :!Sv]]
+                    [:j [["macro-case-space" 0] :!Sj]]
+                    [:l [["macro-case-space" 0] :!Sl]]
+                    [:u [["macro-case-space" 0] :!Su]]
+                    [:y [["macro-case-space" 0] :!Sy]]
+                    [:m [["macro-case-space" 0] :!Sm]]
+                    [:n [["macro-case-space" 0] :!Sn]]
+                    [:e [["macro-case-space" 0] :!Se]]
+                    [:i [["macro-case-space" 0] :!Si]]
+                    [:o [["macro-case-space" 0] :!So]]
+                    [:k [["macro-case-space" 0] :!Sk]]
+                    [:h [["macro-case-space" 0] :!Sh]]
+                    [:#SScomma [:TURN_ON_WRITING_LAYER :comma]]
+                    [:#SSperiod [:TURN_ON_WRITING_LAYER :period]]
+                    [:#SSslash [:TURN_ON_WRITING_LAYER :slash]]
+                    [:#SSsemicolon [:TURN_ON_WRITING_LAYER :semicolon]]
+                    [:##return_or_enter [:TURN_ON_WRITING_LAYER :##return_or_enter]]
+           ]}
 
-                    [:##k :!C6 nil]
-                    [:##h :!C0 nil]
-                    [:##comma :!C9 nil]
-                    [:##period :!C8 nil]
-                    [:##slash :!C7 nil]
-          ]}
-          {:des "NUM/APP LAYER"
-           :rules [ :num-app-layer
+          {:des "camel case"
+           :rules [ :camel-case
+                    [:spacebar [["camel-case" 0] ["camel-case-space" 0] :spacebar] :camel-case-space]
+                    [:spacebar ["camel-case-space" 1]]
+
+                    [:q [["camel-case-space" 0] :!Sq] :camel-case-space]
+                    [:w [["camel-case-space" 0] :!Sw] :camel-case-space]
+                    [:f [["camel-case-space" 0] :!Sf] :camel-case-space]
+                    [:p [["camel-case-space" 0] :!Sp] :camel-case-space]
+                    [:b [["camel-case-space" 0] :!Sb] :camel-case-space]
+                    [:a [["camel-case-space" 0] :!Sa] :camel-case-space]
+                    [:r [["camel-case-space" 0] :!Sr] :camel-case-space]
+                    [:s [["camel-case-space" 0] :!Ss] :camel-case-space]
+                    [:t [["camel-case-space" 0] :!St] :camel-case-space]
+                    [:g [["camel-case-space" 0] :!Sg] :camel-case-space]
+                    [:z [["camel-case-space" 0] :!Sz] :camel-case-space]
+                    [:x [["camel-case-space" 0] :!Sx] :camel-case-space]
+                    [:c [["camel-case-space" 0] :!Sc] :camel-case-space]
+                    [:d [["camel-case-space" 0] :!Sd] :camel-case-space]
+                    [:v [["camel-case-space" 0] :!Sv] :camel-case-space]
+                    [:j [["camel-case-space" 0] :!Sj] :camel-case-space]
+                    [:l [["camel-case-space" 0] :!Sl] :camel-case-space]
+                    [:u [["camel-case-space" 0] :!Su] :camel-case-space]
+                    [:y [["camel-case-space" 0] :!Sy] :camel-case-space]
+                    [:m [["camel-case-space" 0] :!Sm] :camel-case-space]
+                    [:n [["camel-case-space" 0] :!Sn] :camel-case-space]
+                    [:e [["camel-case-space" 0] :!Se] :camel-case-space]
+                    [:i [["camel-case-space" 0] :!Si] :camel-case-space]
+                    [:o [["camel-case-space" 0] :!So] :camel-case-space]
+                    [:k [["camel-case-space" 0] :!Sk] :camel-case-space]
+                    [:h [["camel-case-space" 0] :!Sh] :camel-case-space]
+                    [:#SScomma [:TURN_ON_WRITING_LAYER :comma]]
+                    [:#SSperiod [:TURN_ON_WRITING_LAYER :period]]
+                    [:#SSslash [:TURN_ON_WRITING_LAYER :slash]]
+                    [:#SSsemicolon [:TURN_ON_WRITING_LAYER :semicolon]]
+                    [:##return_or_enter [:TURN_ON_WRITING_LAYER :##return_or_enter]]
+           ]}
+
+;#######################################################################################################################
+;#############################################                    ######################################################
+;#############################################    NUM SYM LAYER   ######################################################
+;#############################################                    ######################################################
+;#######################################################################################################################
+          {:des "NUM/SYM LAYER"
+           :rules [ :num-sym-layer
+                    [:left_option :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
                     [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :!Odelete_or_backspace]]
                     [:##return_or_enter :!Treturn_or_enter nil]
 
+                    ; left hand
+                    [:##q :grave_accent_and_tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##w :open_parenthesis  nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##f :close_parenthesis nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##p :open_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##b :close_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##a :diactric-a nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##r :hyphen nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##s :diactric-s nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##t :dquote nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##g :colon nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##z [] nil {:alone :diactric-z :held :diactric-x :afterup :TURN_ON_WRITING_LAYER}]
+                    [:##x :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##c :diactric-c nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##d :equal nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##v :at nil {:afterup :TURN_ON_WRITING_LAYER}]
+
                     ; right hand - NUM LAYER
-                    [:##j :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##j :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##l :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##u :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##y :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
-                    [:semicolon :percent nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:semicolon :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
 
                     [:##m :plus nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##n :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
@@ -423,30 +644,69 @@
                     [:##i :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##o :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
 
-                    [:##k :hyphen nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##k :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##h :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##comma :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##period :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##slash :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
+          ]}
+;#######################################################################################################################
+;#############################################                    ######################################################
+;#############################################     NUM  LAYER     ######################################################
+;#############################################                    ######################################################
+;#######################################################################################################################
+          {:des "NUM/APP LAYER"
+           :rules [ :num-app-layer
+                    [:left_option :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
+                    [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :!Odelete_or_backspace]]
+                    [:##return_or_enter :!Treturn_or_enter nil]
+
+                    ; right hand - NUM LAYER
+                    [:##j :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##l :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##u :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##y :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:semicolon :caret nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##m :plus nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##n :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##e :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##i :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
+                    [:##o :0 nil {:afterup :TURN_ON_WRITING_LAYER}]
+
+                    [:##k :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##h :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##comma :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##period :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
                     [:##slash :asterisk nil {:afterup :TURN_ON_WRITING_LAYER}]
 
                     ; left hand - APP LAYER
+                    [:condi :num-app-layer :excel]
+                    [:s :!Tu]
+
                     [:condi :num-app-layer :firefox]
                     [:f [:!Cc :!Cc :!Cf :!Cf :search-paste-enter]]
+                    [:r :!CSt]
                     [:s :slash]
-                    [:t :!CSt]
+                    [:t [:!Ct :TURN_ON_WRITING_LAYER]]
                     [:p [:focus-url :focus-url :!Sreturn_or_enter]]
 ;
                     [:condi :num-app-layer :intellij]
                     [:q :!Oq]
-                    [:w :!Of7]
-                    [:t [:!Ce :TURN_ON_NAVIGATION_LAYER]]
-                    [:!Of :!COl]
+;                    [:w :!Of7]
+;                    [:!Of :!COl]
+                    [:w :previous-tab]
+                    [:f :next-tab]
                     [:p :!T2]
                     [:b [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
 ;
-                    [:a []]
-                    [:r [:!Sf6 :TURN_ON_WRITING_LAYER]]
-                    [:s :!T1]
+                    [:a [:!Sf6 :TURN_ON_WRITING_LAYER]]
+;                    [:r :previous-tab]
+;                    [:s :next-tab]
+
+;                    [:t [:!Ce :TURN_ON_NAVIGATION_LAYER]]
+                    [:!Tt :!Cn]
+
                     [:t []]
                     [:g [:!On :TURN_ON_NAVIGATION_LAYER]]
 ;
@@ -480,6 +740,9 @@
 ;#######################################################################################################################
           {:des "RAISE LAYER"
            :rules [
+                [:!Oright_command :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
+                [:!Ospacebar :spacebar nil {:afterup :TURN_ON_WRITING_LAYER}]
+
                 ; left hand
                 [:!Oq :grave_accent_and_tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!Ow :open_parenthesis  nil {:afterup :TURN_ON_WRITING_LAYER}]
@@ -488,34 +751,34 @@
                 [:!Ob :close_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
 
                 [:!O#SSa :diactric-a nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Or :hyphen nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Or {:key :hyphen :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held {:key :period :modi :shift :repeat false}}]
                 [:!O#SSs :diactric-s nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Ot :equal nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Ot :dquote nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!Og :colon nil {:afterup :TURN_ON_WRITING_LAYER}]
 
-                [:!O#SSz :diactric-z nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!O#SSx :diactric-x nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!O#SSz [] nil {:alone :diactric-z :held :diactric-x :afterup :TURN_ON_WRITING_LAYER}]
+                [:!Ox :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!O#SSc :diactric-c nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Od :dquote nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Ov :underscore nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Od :equal nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Ov :at nil {:afterup :TURN_ON_WRITING_LAYER}]
                 ; right hand
-                [:!Oj :tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Oj :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!O#SSl :diactric-l nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Ou :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Oy :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Osemicolon :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Ou :dollar nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Oy :percent nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Osemicolon :hash nil {:afterup :TURN_ON_WRITING_LAYER}]
 
-                [:!Om :hash nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Om :ampersand nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!O#SSn :diactric-n nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!O#SSe :diactric-e nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!Oi :quote nil {:afterup :TURN_ON_WRITING_LAYER}]
                 [:!O#SSo :diactric-o nil {:afterup :TURN_ON_WRITING_LAYER}]
 
                 [:!Ok :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Oh :dollar nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Ocomma :at nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Operiod :ampersand nil {:afterup :TURN_ON_WRITING_LAYER}]
-                [:!Oslash :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Oh :underscore nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Ocomma :less_than nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Operiod :greater_than nil {:afterup :TURN_ON_WRITING_LAYER}]
+                [:!Oslash :tilde nil {:afterup :TURN_ON_WRITING_LAYER}]
            ]}
 ;#######################################################################################################################
 ;#############################################                    ######################################################
@@ -623,14 +886,14 @@
           {:des "arrow layer"
            :rules [  [:condi :navigation-layer :!selection-mode :!app-layer]
 
-                     [:!SSn [:!Sleft_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSe [:!Sdown_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSi [:!Sright_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSu [:!Sup_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSl [:!S!Oleft_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSy [:!S!Oright_arrow :TURN_ON_SELECTION_MODE]]
-                     [:!SSj [:!Spage_up :TURN_ON_SELECTION_MODE]]
-                     [:!SSm [:!Spage_down :TURN_ON_SELECTION_MODE]]
+                     [:!SSn [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
+                     [:!SSe [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
+                     [:!SSi [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
+                     [:!SSu [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+                     [:!SSl [:TURN_ON_SELECTION_MODE :!S!Oleft_arrow]]
+                     [:!SSy [:TURN_ON_SELECTION_MODE :!S!Oright_arrow]]
+                     [:!SSj [:TURN_ON_SELECTION_MODE :!Spage_up]]
+                     [:!SSm [:TURN_ON_SELECTION_MODE :!Spage_down]]
 
 
                      [:##n :left_arrow]
@@ -655,18 +918,15 @@
 
           {:des "navigation layer"
            :rules [ :navigation-layer
-;                    [:##spacebar [:TURN_ON_WRITING_LAYER] :lcmd {:afterup :TURN_ON_NAVIGATION_LAYER}]
                     [:spacebar [:TURN_ON_WRITING_LAYER :!!grave_accent_and_tilde]]
 
-;                    [:left_command [:TURN_ON_NAVIGATION_LAYER ["lcmd" 1] :left_command] nil {:afterup ["lcmd" 0]}]
-
                     ; left hand
-                    [:#SSq :!TO1]
-                    [:#SSw :!TO2]
-                    [:#SSf :!TO3]
-                    [:#SSp :!TO4]
-                    [:#SSb :!TO5]
-                    [:#SSa :!TOgrave_accent_and_tilde]
+                    [:#SSq :!TOC0]
+                    [:#SSw :!TOC1]
+                    [:#SSf :!TOC2]
+                    [:#SSp :!TOC3]
+                    [:#SSb :!TOC4]
+                    [:#SSa :!TOC9]
 
 ;                    [:#SSq :yabai-switch-to-space-5]
 ;                    [:#SSw :yabai-switch-to-space-3]
@@ -675,6 +935,8 @@
 ;                    [:#SSb :yabai-switch-to-space-4]
 ;                    [:#SSa [:yabai-next-stack]]
 
+                    [:#SSr :!T1 :intellij]
+                    [:#SSs [:!Ce :TURN_ON_NAVIGATION_LAYER] :intellij]
                     [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
                     [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
                     [:#SSt {:pkey :button1}]
