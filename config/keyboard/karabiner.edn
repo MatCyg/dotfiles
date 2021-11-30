@@ -258,7 +258,7 @@
                [:right_option :TURN_ON_ADJUSTED_TYPING_LAYER nil {:afterup :TURN_OFF_ADJUSTED_TYPING_LAYER}]
                ; right command to num layer
                [:!Oright_command :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
-               [:#S#T#Cright_command :TURN_ON_NUM_APP_LAYER nil {:afterup :TURN_OFF_NUM_APP_LAYER}]
+               [:#S#T#Cright_command :TURN_ON_NUM_APP_LAYER :!lower-layer {:afterup :TURN_OFF_NUM_APP_LAYER}]
 
                ; commands layers
                [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
@@ -366,8 +366,12 @@
               [:#SSb :!TOC4]
 
               [:#SSa :!TOC9]
+
+              [:#SSr :!T1 :intellij]
+              [:#SSs [:!Ce :TURN_ON_NAVIGATION_LAYER] :intellij]
               [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
               [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+
               [:#SSt {:pkey :button1}]
               [:#SSg :!Tq]
 
