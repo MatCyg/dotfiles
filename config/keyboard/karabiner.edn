@@ -1,5 +1,5 @@
 {
-  :profiles {:Colemak {:default true
+  :profiles {:Default {:default true
                        :alone 250
                        :held 251
                        :sim 50
