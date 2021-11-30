@@ -70,9 +70,9 @@
           [:##t []]
           [:##g []]
 
-          [:##z nil nil {:alone :!C4 :held {:key :!C5 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:##z nil nil {:alone :!C4 :held {:key :!C5 :repeat false} :repeat false :halt true}]
           [:##x :!C3]
-          [:##c nil nil {:alone :!C2 :held {:key :!C6 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-          [:##d nil nil {:alone :!C1 :held {:key :!C7 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-          [:##v nil nil {:alone :!C9 :held {:key :!C8 :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:##c nil nil {:alone :!C2 :held {:key :!C6 :repeat false} :repeat false :halt true}]
+          [:##d nil nil {:alone :!C1 :held {:key :!C7 :repeat false} :repeat false :halt true}]
+          [:##v nil nil {:alone :!C9 :held {:key :!C8 :repeat false} :repeat false :halt true}]
 ]}

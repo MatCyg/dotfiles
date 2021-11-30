@@ -32,15 +32,15 @@
 ;          [:#SSb :yabai-switch-to-space-4 nil {:afterup :TURN_ON_WRITING_LAYER}]
 ;
 ;          [:#SSa [:yabai-next-stack] nil {:afterup :TURN_ON_WRITING_LAYER}]
-          [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER :params{:alone 299 :held 300}}]
-          [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER :params{:alone 299 :held 300}}]
+          [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER}]
+          [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER}]
           [:#SSt {:pkey :button1} nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:#SSg :!Tf nil {:afterup :TURN_ON_WRITING_LAYER}]
 
           [:#SSz :!Cz nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:#SSx [:!Cx :TURN_OFF_SELECTION_MODE] nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:#SSc :!Cc nil {:afterup :TURN_ON_WRITING_LAYER}]
-          [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER :params{:alone 299 :held 300}}]
+          [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER}]
           [:#SSv [:return_or_enter ["double-v" 0] [:noti :double-v]] ["double-v" 1] {:afterup :TURN_ON_WRITING_LAYER}]
           [:#SSv [[:noti :double-v "Press v again to send enter"] ["double-v" 1]] nil
            { :alone [:!Cv :TURN_OFF_SELECTION_MODE]
@@ -49,7 +49,7 @@
              :halt true
              :delayed {:invoked  [["double-v" 0] [:noti :double-v] :TURN_ON_WRITING_LAYER]
                        :canceled [["double-v" 0] [:noti :double-v]]}
-             :params {:alone 299 :held 300 :delay 2000}
+             :params {:delay 2000}
              }]
 
           ; right hand
@@ -59,5 +59,5 @@
           [:#SSh :!Oup_arrow nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true :afterup :TURN_ON_WRITING_LAYER :params {:alone 299 :held 30}}]
           [:#SSperiod :!Odown_arrow nil {:afterup :TURN_ON_WRITING_LAYER}]
-          [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true}]
           ]}

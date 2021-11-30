@@ -18,7 +18,7 @@
 
           [:#SSq :!CChyphen]
           [:#SSw :!CCequal_sign]
-          [[:q :w] :!CC0 nil {:params {:sim 50}}]
+          [[:q :w] :!CC0]
           [:f []]
           [:p []]
           [:b [] nil {:alone [:TURN_ON_NAVIGATION_LAYER :!CTq] :held [:TURN_ON_NAVIGATION_LAYER {:shell "pmset sleepnow" }]}]
@@ -26,12 +26,12 @@
           [:a []]
           [:r []]
           [:s []]
-          [:t nil nil {:alone :!CTS4 :held {:key :!CS5 :repeat false} :afterup :TURN_ON_NAVIGATION_LAYER :repeat false :halt true :params{:alone 299 :held 300}}]
+          [:t nil nil {:alone :!CTS4 :held {:key :!CS5 :repeat false} :afterup :TURN_ON_NAVIGATION_LAYER :repeat false :halt true}]
           [:g :ticktick-show-pomodoro]
 
           [:z :volume_down]
           [:x :volume_up]
-          [[:z :x] :mute nil {:params {:sim 50}}]
+          [[:z :x] :mute]
           [:c :vk_consumer_next]
           [:d :vk_consumer_play]
           [[:c :d] :vk_consumer_previous]

@@ -266,7 +266,7 @@
      ]}
 
      {:des "find overrides" :rules [
-        [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :paste-enter :repeat false :halt true :params{:alone 299 :held 300}}]
+        [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :paste-enter :repeat false :halt true}]
         [:!COf [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
      ]}
 
@@ -369,8 +369,8 @@
 
               [:#SSr :!T1 :intellij]
               [:#SSs [:!Ce :TURN_ON_NAVIGATION_LAYER] :intellij]
-              [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
-              [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true}]
+              [:#SSs nil nil {:alone :next-tab :held {:key :!Cclose_bracket :repeat false} :repeat false :halt true}]
 
               [:#SSt {:pkey :button1}]
               [:#SSg :!Tq]
@@ -378,7 +378,7 @@
               [:#SSz :!Cz]
               [:#SSx [:TURN_OFF_SELECTION_MODE :!Cx]]
               [:#SSc [:TURN_OFF_SELECTION_MODE :!Cc]]
-              [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true}]
               [:#SSv [:return_or_enter ["double-v" 0] [:noti :double-v]] ["double-v" 1]]
               [:#SSv [[:noti :double-v "Press v again to send enter"] ["double-v" 1]] nil
                { :alone [:!Cv :TURN_OFF_SELECTION_MODE]
@@ -387,7 +387,7 @@
                  :halt true
                  :delayed {:invoked  [["double-v" 0] [:noti :double-v]]
                            :canceled [["double-v" 0] [:noti :double-v]]}
-                 :params {:alone 299 :held 300 :delay 2000}
+                 :params {:delay 2000}
                }]
 
               ; right hand
@@ -395,9 +395,9 @@
               [:#SSo :TURN_ON_SINGLE_CHARACTER_MODE]
               [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
               [:#SSh :!Oup_arrow]
-              [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true :params {:alone 299 :held 30}}]
+              [:#SScomma [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true}]
               [:#SSperiod :!Odown_arrow]
-              [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true :params{:alone 299 :held 300}}]
+              [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true}]
      ]}
   ]
 }
