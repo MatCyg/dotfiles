@@ -2,7 +2,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 # Too many plugins will slow down shell startup.
 plugins=(
-  osx
+  macos
   git
   sdk
   brew
