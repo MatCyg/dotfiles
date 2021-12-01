@@ -294,8 +294,8 @@
                 [:!SSe [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
                 [:!SSi [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
                 [:!SSu [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
-                [:!SSl [:TURN_ON_SELECTION_MODE :!S!Oleft_arrow]]
-                [:!SSy [:TURN_ON_SELECTION_MODE :!S!Oright_arrow]]
+                [:!SSl [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
+                [:!SSy [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
                 [:!SSj [:TURN_ON_SELECTION_MODE :!Spage_up]]
                 [:!SSm [:TURN_ON_SELECTION_MODE :!Spage_down]]
 
@@ -321,28 +321,7 @@
                 ]}
 
     {:des "navigation layer"
-     :rules [
-;              [:condi :navigation-layer :!selection-mode]
-;              [:##n :left_arrow]
-;              [:##e :down_arrow]
-;              [:##i :right_arrow]
-;              [:##u :up_arrow]
-;              [:##l :!Oleft_arrow]
-;              [:##y :!Oright_arrow]
-;              [:#SSj :page_up]
-;              [:#SSm :page_down]
-;
-;              [:condi :navigation-layer :selection-mode]
-;              [:##n :!Sleft_arrow]
-;              [:##e :!Sdown_arrow]
-;              [:##i :!Sright_arrow]
-;              [:##u :!Sup_arrow]
-;              [:##l :!SOleft_arrow]
-;              [:##y :!SOright_arrow]
-;              [:#SSj :!Spage_up]
-;              [:#SSm :!Spage_down]
-
-              :navigation-layer
+     :rules [ :navigation-layer
               [:spacebar [:TURN_ON_WRITING_LAYER :!!grave_accent_and_tilde]]
 
               ; number row
