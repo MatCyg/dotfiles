@@ -46,6 +46,7 @@ alias sl='ls'
 alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
+alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 # shellcheck disable=SC2142
 alias cpu_temp='istats cpu | awk '\''{ print $3 }'\'''
 
