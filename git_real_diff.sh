@@ -62,6 +62,5 @@ fi
 
 git apply /tmp/git_real_diff.patch
 git add .
-touch git_real_diff_marker.txt
 
 echo "Diff executed from branch $diff_branch onto $current_branch."
