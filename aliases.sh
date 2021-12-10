@@ -17,7 +17,6 @@ export JAVA_SYMLINKS_DIR=$HOME/.java
 alias dl='cd $DOWNLOADS'
 alias dt='cd $DESKTOP'
 alias pd='cd $PROJECTS'
-alias pde='cd $PROJECTS/eldro'
 alias pdf='cd $PROJECTS/finastra'
 alias pdp='cd $PROJECTS/personal'
 # shellcheck disable=SC2139
@@ -29,16 +28,12 @@ alias dr="docker"
 alias dc="docker-compose"
 alias h="history"
 
-
-alias psg="ps -ef | grep"
 alias start_simple_server="python -m SimpleHTTPServer 8000"
 alias copy_last_command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias k9='kill -9'
-#alias c='clear'
-#alias c="echo -ne '\033c'"
 alias c="printf '\e]50;ClearScrollback\a'"
 alias o='less +F'
 alias sl='ls'
@@ -47,8 +42,6 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-# shellcheck disable=SC2142
-alias cpu_temp='istats cpu | awk '\''{ print $3 }'\'''
 
 refresh () {
 	command=$*;
