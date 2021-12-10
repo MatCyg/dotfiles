@@ -42,7 +42,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias brew_update_all='brew update && brew upgrade && brew upgrade --cask && brew cleanup && brew cask cleanup; brew bundle; brew doctor'
+alias brew_update_all='brew update && brew upgrade && brew upgrade --casks && brew cleanup --prune=all; brew doctor'
 
 refresh () {
 	command=$*;
