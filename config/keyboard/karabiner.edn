@@ -1,7 +1,7 @@
 {
   :profiles {:Default {:default true
-                       :alone 250
-                       :held 251
+                       :alone 180
+                       :held 181
                        :sim 50
                        :delay 600 }}
   :applications {
@@ -24,6 +24,8 @@
     ]
     :columnar-keyboards [
       {:vendor_id 36125 :product_id 40349}
+      {:vendor_id 7504 :product_id 24926}
+      {:vendor_id 0 :product_id 0}
     ]
   }
   :templates {
@@ -176,15 +178,15 @@
          :question {:key :slash :modi :shift}
 
          ; polish diactrics
-         :diactric-e {:key :!Oe}
-         :diactric-a {:key :!Oa}
-         :diactric-s {:key :!Os}
-         :diactric-z {:key :!Oz}
+         :diactric-e {:key :!Oe :repeat false}
+         :diactric-a {:key :!Oa :repeat false}
+         :diactric-s {:key :!Os :repeat false}
+         :diactric-z {:key :!Oz :repeat false}
          :diactric-x {:key :!Ox :repeat false}
-         :diactric-c {:key :!Oc}
-         :diactric-o {:key :!Oo}
-         :diactric-l {:key :!Ol}
-         :diactric-n {:key :!On}
+         :diactric-c {:key :!Oc :repeat false}
+         :diactric-o {:key :!Oo :repeat false}
+         :diactric-l {:key :!Ol :repeat false}
+         :diactric-n {:key :!On :repeat false}
 
          ; system-wide shortcuts
          :window_snapshot {:key :!CS4}
@@ -222,7 +224,7 @@
      {:des "staggered keyboards"
       :rules [ :staggered-keyboards
                ; left control fun layer
-               [:left_control :TURN_ON_FUN_LAYER]
+               [:##left_control :TURN_ON_LOWER_LAYER nil {:afterup :TURN_OFF_LOWER_LAYER}]
                ; backspace
                [:!T##open_bracket [:delete_forward :TURN_OFF_SELECTION_MODE] nil {:held :delete_forward :params {:held 200}}]
                [:##open_bracket [:delete_or_backspace :TURN_OFF_SELECTION_MODE] nil {:held :delete_or_backspace :params {:held 200}}]
@@ -231,23 +233,26 @@
                [:##caps_lock :##left_control nil {:alone [:escape :TURN_ON_NAVIGATION_LAYER]}]
 
                ; left_option to lower layer
-               [:##left_option :TURN_ON_LOWER_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_LOWER_LAYER}]
+               [:##left_option :TURN_ON_NUM_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_NUM_APP_LAYER}]
+               [:##right_option :TURN_ON_NUM_APP_LAYER nil {:alone :return_or_enter :afterup :TURN_OFF_NUM_APP_LAYER}]
                ; ctrl+backspace=delete
                [:!Tdelete_or_backspace :delete_forward]
                ; quote to enter
                [:##quote :return_or_enter]
+               [:spacebar [] :!navigation-layer {:alone :spacebar :held :TURN_ON_NUM_APP_LAYER :afterup :TURN_OFF_NUM_APP_LAYER :params {:held 220}}]
                ; commands layers
                [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
-               [:right_command :left_option :!ms-sculpt {:alone :TURN_ON_APP_LAYER}]
+               [:##right_command :left_option [:!ms-sculpt :num-app-layer] {:alone :!Odelete_or_backspace}]
+               [:##right_command :left_option :!ms-sculpt {:alone :delete_or_backspace}]
+               [:!Oleft_command [:!Oleft_command] nil {:alone :caret}]
                [:##left_command :left_command]
-               [:##right_command :left_option]
 
      ]}
 
      {:des "columnar keyboards"
       :rules [ :columnar-keyboards
-               ; wx to fun layer
-               [ :f23 :TURN_ON_FUN_LAYER]
+               ; q semicolon to screaming snake case
+               [:f22 [:TURN_ON_WRITING_LAYER :TURN_ON_MACRO_CASE]]
                ; qz to lower layer
                [ :f24 :TURN_ON_LOWER_LAYER]
                ; backspace disables selection
@@ -256,9 +261,8 @@
                [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER]]
                ; right opt to assisted typing layer
                [:right_option :TURN_ON_ADJUSTED_TYPING_LAYER nil {:afterup :TURN_OFF_ADJUSTED_TYPING_LAYER}]
-               ; right command to num layer
-               [:!Oright_command :TURN_ON_NUM_SYM_LAYER nil {:afterup :TURN_OFF_NUM_SYM_LAYER}]
-               [:#S#T#Cright_command :TURN_ON_NUM_APP_LAYER :!lower-layer {:afterup :TURN_OFF_NUM_APP_LAYER}]
+               ; righśt command to num layer
+               [:##right_command :TURN_ON_NUM_APP_LAYER :!lower-layer {:afterup :TURN_OFF_NUM_APP_LAYER}]
 
                ; commands layers
                [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
@@ -266,7 +270,7 @@
      ]}
 
      {:des "find overrides" :rules [
-        [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER :!Cf] :held :paste-enter :repeat false :halt true}]
+        [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER] :held :paste-enter :repeat false :halt true}]
         [:!COf [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
      ]}
 
@@ -338,11 +342,11 @@
               [:0 []]
 
               ; left hand
-              [:#SSq :!TOC0]
+              [:#SSq :!TOC4]
               [:#SSw :!TOC1]
               [:#SSf :!TOC2]
               [:#SSp :!TOC3]
-              [:#SSb :!TOC4]
+              [:#SSb :!TOC0]
 
               [:#SSa :!TOC9]
 
@@ -370,7 +374,8 @@
                }]
 
               ; right hand
-              [:#SSsemicolon []]
+              [:#SSsemicolon :TURN_ON_SINGLE_CHARACTER_MODE]
+              [:#SSsemicolon :tab]
               [:#SSo :TURN_ON_SINGLE_CHARACTER_MODE]
               [:#SSk [:ticktick-new-task :TURN_ON_WRITING_LAYER]]
               [:#SSh :!Oup_arrow]
@@ -378,6 +383,20 @@
               [:#SSperiod :!Odown_arrow]
               [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true}]
      ]}
+
+     {:des "diactric hold layer"
+      :rules [ [:condi :!navigation-layer :!polish-diactrics-disabled]
+         [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace :diactric-a]}]
+         [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace :diactric-s]}]
+         [:#SSz {:key :z :repeat false} nil {:held [:delete_or_backspace :diactric-z]}]
+         [:#SSx {:key :x :repeat false} nil {:held [:delete_or_backspace :delete_or_backspace :diactric-x]}]
+         [:#SSc {:key :c :repeat false} nil {:held [:delete_or_backspace :diactric-c]}]
+         [:#SSl {:key :l :repeat false} nil {:held [:delete_or_backspace :diactric-l]}]
+         [:#SSn {:key :n :repeat false} nil {:held [:delete_or_backspace :diactric-n]}]
+         [:#SSe {:key :e :repeat false} nil {:held [:delete_or_backspace :diactric-e]}]
+         [:#SSo {:key :o :repeat false} nil {:held [:delete_or_backspace :diactric-o]}]
+      ]}
+
   ]
 }
 

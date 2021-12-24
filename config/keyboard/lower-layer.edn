@@ -1,7 +1,7 @@
 {:des "LOWER LAYER"
  :rules [ :lower-layer
           [:#S#T#Cright_command [:TURN_OFF_LOWER_LAYER :TURN_ON_FUN_LAYER] nil {:afterup [:TURN_OFF_FUN_LAYER :TURN_ON_LOWER_LAYER]}]
-          [:#S#T#Cright_command [:TURN_OFF_LOWER_LAYER :TURN_ON_FUN_LAYER] nil {:afterup [:TURN_OFF_FUN_LAYER :TURN_ON_LOWER_LAYER]}]
+          [:#S#T#Cleft_option [:TURN_OFF_LOWER_LAYER :TURN_ON_FUN_LAYER] nil {:afterup [:TURN_OFF_FUN_LAYER :TURN_ON_LOWER_LAYER]}]
           [:delete_or_backspace :!OOdelete_or_backspace]
           ; number row
           [:grave_accent_and_tilde []]
@@ -43,7 +43,18 @@
           [:y []]
           [:semicolon []]
 
-          [:m []]
+          [:m [:TURN_OFF_LOWER_LAYER ["polish-diactrics-disabled" 1] [:noti :polish-diactrics "Polish diactrics disabled"]]
+           :!polish-diactrics-disabled
+           { :delayed {:invoked  [:noti :polish-diactrics]
+                       :canceled [:noti :polish-diactrics]}
+             :params {:delay 2000}
+           }]
+          [:m [:TURN_OFF_LOWER_LAYER ["polish-diactrics-disabled" 0] [:noti :polish-diactrics "Polish diactrics enabled"]]
+           :polish-diactrics-disabled
+           { :delayed {:invoked  [:noti :polish-diactrics]
+                       :canceled [:noti :polish-diactrics]}
+             :params {:delay 2000}
+           }]
           [:n []]
           [:e []]
           [:i []]
