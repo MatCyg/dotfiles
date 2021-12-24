@@ -9,7 +9,7 @@
           [:r [:open ["Finder"]]]
           [:s [:open ["Spotify"]]]
           [:t [:open ["TickTick"]]]
-          [:g [:open ["iTerm2"]]]
+          [:g [:open ["Karabiner-EventViewer"]]]
           [:z [:open ["Notes"]]]
           [:x [:open ["Telegram"]]]
           [:c [:open ["Safari"]]]
