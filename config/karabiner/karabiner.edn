@@ -41,12 +41,16 @@
            {:set ["navigation-layer" 1]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
+           {:set ["period-pressed" 0]}
+           {:set ["spacebar-pressed" 0]}
          ]
          :TURN_ON_WRITING_LAYER [
            {:shell "open -g hammerspoon://writingMode"}
            {:set ["navigation-layer" 0]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
+           {:set ["period-pressed" 0]}
+           {:set ["spacebar-pressed" 0]}
          ]
          :TURN_ON_SELECTION_MODE [
            {:set ["selection-mode" 1]}
@@ -148,6 +152,7 @@
   }
   :main [
 
+
      {:des "columnar keyboards"
       :rules [ :columnar-keyboards
                ; backspace disables selection
@@ -178,11 +183,36 @@
         [:!!close_bracket :os-dark-mode]
         [:!!backslash :TOGGLE_LAYER_BAR]
 
+        [:!!equal_sign :TURN_ON_WRITING_LAYER]
+        [:!!hyphen :TURN_ON_NAVIGATION_LAYER]
+
         [:!CTS4 :TURN_ON_NAVIGATION_LAYER nil {:alone :!CTS4 :held :!CS5 :repeat false :halt true}]
 
         [:!C#Sf :!Cf nil {:alone [:TURN_ON_WRITING_LAYER] :held :paste-enter :repeat false :halt true}]
         [:!COf [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
+
+
+        [:!C4 nil nil {:alone :!C4 :held {:key :!C8 :repeat false} :repeat false :halt true}]
+        [:!C3 nil nil {:alone :!C3 :held {:key :!C7 :repeat false} :repeat false :halt true}]
+        [:!C2 nil nil {:alone :!C2 :held {:key :!C6 :repeat false} :repeat false :halt true}]
+        [:!C1 nil nil {:alone :!C1 :held {:key :!C5 :repeat false} :repeat false :halt true}]
+        [:!C9 nil nil {:alone :!C9 :held {:key :!C0 :repeat false} :repeat false :halt true}]
      ]}
+
+;     Currently missing features:
+;     Different action on tap/hold - doable with tap hold given I can create non repeatable macro - diactrics, a few actions on nav layer
+;     paste enter - can be possibly already done with macro past and layer switch for 2 seconds
+;     untoggle a layer - cannot press button and change WRT/NAV modes
+;     change to layer with mod - symbol layer with alt - mod morps with negatives or change layer with mod active,
+;                                mod active might require a lot of layer to work
+;     selection mode can be potentialy done with another layer - complex but very doable
+;
+;     features needed:
+;     - non repeatable macro - could be done by sending an unused key at the end of the sequence, i.e. f24
+;     - hold layer macro (first &to DEFAULT and then &mo SYMBOL
+;     - hold layer with modifier macro - coulb be done by workaround. i don't need alt being held that often,
+;                                                                     can be moved to FUN layer
+
 
 ;#######################################################################################################################
 ;###########################################     INSERT SINGLE      ####################################################
@@ -271,18 +301,85 @@
               [:#SSslash nil nil {:alone [:search-firefox-bookmarks :TURN_ON_WRITING_LAYER] :held [:search-projects :TURN_ON_WRITING_LAYER] :repeat false :halt true}]
      ]}
 
+
+     {:des "automatic shifting"
+      :rules [
+      [:period [:period ["period-pressed" 1]] :!period-pressed]
+      [:spacebar [:spacebar ["spacebar-pressed" 1] ["period-pressed" 0]] :period-pressed]
+
+      [:q [["period-pressed" 0] :q] :period-pressed]
+      [:w [["period-pressed" 0] :w] :period-pressed]
+      [:f [["period-pressed" 0] :f] :period-pressed]
+      [:p [["period-pressed" 0] :p] :period-pressed]
+      [:b [["period-pressed" 0] :b] :period-pressed]
+      [:a [["period-pressed" 0] :a] :period-pressed]
+      [:r [["period-pressed" 0] :r] :period-pressed]
+      [:s [["period-pressed" 0] :s] :period-pressed]
+      [:t [["period-pressed" 0] :t] :period-pressed]
+      [:g [["period-pressed" 0] :g] :period-pressed]
+      [:z [["period-pressed" 0] :z] :period-pressed]
+      [:x [["period-pressed" 0] :x] :period-pressed]
+      [:c [["period-pressed" 0] :c] :period-pressed]
+      [:d [["period-pressed" 0] :d] :period-pressed]
+      [:v [["period-pressed" 0] :v] :period-pressed]
+      [:j [["period-pressed" 0] :j] :period-pressed]
+      [:l [["period-pressed" 0] :l] :period-pressed]
+      [:u [["period-pressed" 0] :u] :period-pressed]
+      [:y [["period-pressed" 0] :y] :period-pressed]
+      [:m [["period-pressed" 0] :m] :period-pressed]
+      [:n [["period-pressed" 0] :n] :period-pressed]
+      [:e [["period-pressed" 0] :e] :period-pressed]
+      [:i [["period-pressed" 0] :i] :period-pressed]
+      [:o [["period-pressed" 0] :o] :period-pressed]
+      [:k [["period-pressed" 0] :k] :period-pressed]
+      [:h [["period-pressed" 0] :h] :period-pressed]
+
+      [:q [["spacebar-pressed" 0] :!Sq] :spacebar-pressed]
+      [:w [["spacebar-pressed" 0] :!Sw] :spacebar-pressed]
+      [:f [["spacebar-pressed" 0] :!Sf] :spacebar-pressed]
+      [:p [["spacebar-pressed" 0] :!Sp] :spacebar-pressed]
+      [:b [["spacebar-pressed" 0] :!Sb] :spacebar-pressed]
+      [:a [["spacebar-pressed" 0] :!Sa] :spacebar-pressed]
+      [:r [["spacebar-pressed" 0] :!Sr] :spacebar-pressed]
+      [:s [["spacebar-pressed" 0] :!Ss] :spacebar-pressed]
+      [:t [["spacebar-pressed" 0] :!St] :spacebar-pressed]
+      [:g [["spacebar-pressed" 0] :!Sg] :spacebar-pressed]
+      [:z [["spacebar-pressed" 0] :!Sz] :spacebar-pressed]
+      [:x [["spacebar-pressed" 0] :!Sx] :spacebar-pressed]
+      [:c [["spacebar-pressed" 0] :!Sc] :spacebar-pressed]
+      [:d [["spacebar-pressed" 0] :!Sd] :spacebar-pressed]
+      [:v [["spacebar-pressed" 0] :!Sv] :spacebar-pressed]
+      [:j [["spacebar-pressed" 0] :!Sj] :spacebar-pressed]
+      [:l [["spacebar-pressed" 0] :!Sl] :spacebar-pressed]
+      [:u [["spacebar-pressed" 0] :!Su] :spacebar-pressed]
+      [:y [["spacebar-pressed" 0] :!Sy] :spacebar-pressed]
+      [:m [["spacebar-pressed" 0] :!Sm] :spacebar-pressed]
+      [:n [["spacebar-pressed" 0] :!Sn] :spacebar-pressed]
+      [:e [["spacebar-pressed" 0] :!Se] :spacebar-pressed]
+      [:i [["spacebar-pressed" 0] :!Si] :spacebar-pressed]
+      [:o [["spacebar-pressed" 0] :!So] :spacebar-pressed]
+      [:k [["spacebar-pressed" 0] :!Sk] :spacebar-pressed]
+      [:h [["spacebar-pressed" 0] :!Sh] :spacebar-pressed]
+;      [:#SScomma [:TURN_ON_WRITING_LAYER :comma]]
+;      [:#SSperiod [:TURN_ON_WRITING_LAYER :period]]
+;      [:#SSslash [:TURN_ON_WRITING_LAYER :slash]]
+;      [:#SSsemicolon [:TURN_ON_WRITING_LAYER :semicolon]]
+;      [:##return_or_enter [:TURN_ON_WRITING_LAYER :##return_or_enter]]
+
+     ]}
+
      {:des "diactric hold layer"
       :rules [ [:condi :!navigation-layer :!polish-diactrics-disabled]
-         [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace :diactric-a]}]
-         [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace :diactric-s]}]
-         [:#SSz {:key :z :repeat false} nil {:held [:delete_or_backspace :diactric-z]}]
-         [:#SSx {:key :x :repeat false} nil {:held [:delete_or_backspace :delete_or_backspace :diactric-x]}]
-         [:#SSc {:key :c :repeat false} nil {:held [:delete_or_backspace :diactric-c]}]
-         [:#SSl {:key :l :repeat false} nil {:held [:delete_or_backspace :diactric-l]}]
-         [:#SSn {:key :n :repeat false} nil {:held [:delete_or_backspace :diactric-n]}]
-         [:#SSe {:key :e :repeat false} nil {:held [:delete_or_backspace :diactric-e]}]
-         [:#SSo {:key :o :repeat false} nil {:held [:delete_or_backspace :diactric-o]}]
-      ]}
+        [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace :diactric-a]}]
+        [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace :diactric-s]}]
+        [:#SSz {:key :z :repeat false} nil {:held [:delete_or_backspace :diactric-z]}]
+        [:#SSx {:key :x :repeat false} nil {:held [:delete_or_backspace :delete_or_backspace :diactric-x]}]
+        [:#SSc {:key :c :repeat false} nil {:held [:delete_or_backspace :diactric-c]}]
+        [:#SSl {:key :l :repeat false} nil {:held [:delete_or_backspace :diactric-l]}]
+        [:#SSn {:key :n :repeat false} nil {:held [:delete_or_backspace :diactric-n]}]
+        [:#SSe {:key :e :repeat false} nil {:held [:delete_or_backspace :diactric-e]}]
+        [:#SSo {:key :o :repeat false} nil {:held [:delete_or_backspace :diactric-o]}]
+     ]}
 
      {:des "RAISE LAYER"
       :rules [
@@ -348,37 +445,37 @@
       ]}
      {:des "FUN LAYER"
       :rules [
-        [:!!f1 [:open ["Microsoft Outlook"]]]
-        [:!!f2 [:open ["Microsoft Teams"]]]
-        [:!!f3 [:open ["IntelliJ"]]]
-        [:!!f4 [:open ["Firefox"]]]
-        [:!!f5 [:open ["Sublime Text"]]]
-        [:!!f6 [:open ["Docker"]]]
-        [:!!f7 [:open ["Finder"]]]
-        [:!!f8 [:open ["Spotify"]]]
+        [:!!f1 []]
+        [:!!f2 [:open ["Safari"]]]
+        [:!!f3 [:open ["Firefox"]]]
+        [:!!f4 [:open ["Postman"]]]
+        [:!!f5 []]
+        [:!!f6 [:open ["Visual Studio Code"]]]
+        [:!!f7 [:open ["Sublime Text"]]]
+        [:!!f8 [:open ["IntelliJ"]]]
         [:!!f9 [:open ["TickTick"]]]
-        [:!!f10 []]
-        [:!!f11 [:open ["Notes"]]]
-        [:!!f12 [:open ["Telegram"]]]
-        [:!!f13 [:open ["Safari"]]]
+        [:!!f10 [:open ["iTerm2"]]]
+        [:!!f11 []]
+        [:!!f12 [:open ["Docker"]]]
+        [:!!f13 [:open ["Lens"]]]
         [:!!f14 [:open ["draw.io"]]]
-        [:!!f15 [:open ["Postman"]]]
+        [:!!f15 []]
 
-        [:!!f16 []]
-        [:!!f17 [:open ["Lens"]]]
-        [:!!f18 []]
+        [:!!f16 [:open ["Cisco AnyConnect Secure Mobility Client"]]]
+        [:!!f17 [:open ["Microsoft PowerPoint"]]]
+        [:!!f18 [:open ["Microsoft Excel"]]]
         [:!!f19 []]
-        [:!!f20 []]
+        [:!!f20 [:open ["Notes"]]]
         [:!!f21 []]
-        [:!!f22 []]
-        [:!!f23 []]
+        [:!!f22 [:open ["Microsoft Teams"]]]
+        [:!!f23 [:open ["Microsoft Outlook"]]]
         [:!!f24 []]
-        [:!STOf1 []]
+        [:!STOf1 [:open ["Obsidian"]]]
         [:!STOf2 [:open ["Karabiner-EventViewer"]]]
-        [:!STOf3 []]
-        [:!STOf4 []]
-        [:!STOf5 []]
-        [:!STOf6 []]
+        [:!STOf3 [:open ["Telegram"]]]
+        [:!STOf4 [:open ["Spotify"]]]
+        [:!STOf5 [:open ["Finder"]]]
+        [:!STOf6 [:open ["Alfred Preferences"]]]
      ]}
 
      {:des "cmd space opens alfred and turns on writing layer"
