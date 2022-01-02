@@ -334,6 +334,7 @@
       [:k [["period-pressed" 0] :k] :period-pressed]
       [:h [["period-pressed" 0] :h] :period-pressed]
 
+      [:spacebar [["spacebar-pressed" 0] :spacebar] :spacebar-pressed]
       [:q [["spacebar-pressed" 0] :!Sq] :spacebar-pressed]
       [:w [["spacebar-pressed" 0] :!Sw] :spacebar-pressed]
       [:f [["spacebar-pressed" 0] :!Sf] :spacebar-pressed]
