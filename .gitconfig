@@ -11,6 +11,7 @@
     filemode = false
     excludesfile = ~/.gitignore_global
     pager = less -F -X
+	autocrlf = input
 [color]
     ui = true
 [credential]
@@ -54,7 +55,6 @@
     # execute real diff
     rd = !$PROJECTS/personal/dotfiles/git_real_diff.sh
     rdi = !$PROJECTS/personal/dotfiles/git_real_diff.sh && idea ./
-    rdc = !$PROJECTS/personal/dotfiles/git_real_diff_cleanup.sh
     clean-branches = !$PROJECTS/personal/dotfiles/git_cleanup_other_branches.sh
     # stash operation
     sl = !git --no-pager stash list
