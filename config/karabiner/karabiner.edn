@@ -285,7 +285,7 @@
 
 
 ;              [:#SSd [:!Ctab :left_command :left_command]]
-              [:#SSd nil nil {:alone :!Otab :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
+              [:#SSd nil nil {:alone {:key :tab :modi :option :repeat false} :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
 ;              [:#SSd [:!Otab]]
 
 
