@@ -37,7 +37,7 @@
          :os-light-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to false'" }
 
          :TURN_ON_NAVIGATION_LAYER [
-           {:shell "open -g hammerspoon://navigationMode"}
+;           {:shell "open -g hammerspoon://navigationMode"}
            {:set ["navigation-layer" 1]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
@@ -45,7 +45,7 @@
            {:set ["spacebar-pressed" 0]}
          ]
          :TURN_ON_WRITING_LAYER [
-           {:shell "open -g hammerspoon://writingMode"}
+;           {:shell "open -g hammerspoon://writingMode"}
            {:set ["navigation-layer" 0]}
            {:set ["selection-mode" 0]}
            {:set ["single-character-mode" 0]}
@@ -160,7 +160,7 @@
                ; esc enables nav layer
                [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER]]
                ; commands layers
-               [:!Oleft_command :left_command nil {:alone :!Oreturn_or_enter}]
+               [:!Oleft_command :!Oleft_command nil {:alone :!Oreturn_or_enter}]
                [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
                [:##left_command :left_command]
      ]}
@@ -259,16 +259,18 @@
 
     {:des "navigation layer"
      :rules [ :navigation-layer
-              [:spacebar [:TURN_ON_WRITING_LAYER :!!grave_accent_and_tilde]]
+              [:spacebar [:TURN_ON_WRITING_LAYER]]
 
               ; left hand
-              [:#SSq :!TOC4]
-              [:#SSw :!TOC1]
-              [:#SSf :!TOC2]
-              [:#SSp :!TOC3]
+              [:#SSq :!Cgrave_accent_and_tilde]
+              [:#SSw [:open ["Microsoft Teams"]]]
+              [:#SSf [:open ["Intellij Idea"]]]
+              [:#SSp [:open ["Firefox"]]]
+              [:b nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true}]
+              [:#SSb :!TOC8]
               [:#SSb :!TOC0]
 
-              [:#SSa :!TOC9]
+              [:#SSa :!Ctab]
               [:#SSr :!T1 :intellij]
               [:#SSs [:!Ce :TURN_ON_NAVIGATION_LAYER] :intellij]
               [:#SSr nil nil {:alone :previous-tab :held {:key :!Copen_bracket :repeat false} :repeat false :halt true}]
@@ -280,7 +282,13 @@
               [:#SSz :!Cz]
               [:#SSx [:TURN_OFF_SELECTION_MODE :!Cx]]
               [:#SSc [:TURN_OFF_SELECTION_MODE :!Cc]]
-              [:#SSd nil nil {:alone :search-selection :held :search-clipboard :repeat false :halt true}]
+
+
+;              [:#SSd [:!Ctab :left_command :left_command]]
+              [:#SSd nil nil {:alone :!Otab :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
+;              [:#SSd [:!Otab]]
+
+
               [:#SSv [:return_or_enter ["double-v" 0] [:noti :double-v]] ["double-v" 1]]
               [:#SSv [[:noti :double-v "Press v again to send enter"] ["double-v" 1]] nil
                { :alone [:!Cv :TURN_OFF_SELECTION_MODE]
@@ -370,6 +378,36 @@
      ]}
 
      {:des "diactric hold layer"
+      :rules [[:condi :!navigation-layer]
+       [:#SSq {:key :q :repeat false} nil {:held [:delete_or_backspace {:key :q :modi :shift :repeat false}]}]
+       [:#SSw {:key :w :repeat false} nil {:held [:delete_or_backspace {:key :w :modi :shift :repeat false}]}]
+       [:#SSf {:key :f :repeat false} nil {:held [:delete_or_backspace {:key :f :modi :shift :repeat false}]}]
+       [:#SSp {:key :p :repeat false} nil {:held [:delete_or_backspace {:key :p :modi :shift :repeat false}]}]
+       [:#SSb {:key :b :repeat false} nil {:held [:delete_or_backspace {:key :b :modi :shift :repeat false}]}]
+       [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace {:key :a :modi :shift :repeat false}]}]
+       [:#SSr {:key :r :repeat false} nil {:held [:delete_or_backspace {:key :r :modi :shift :repeat false}]}]
+       [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace {:key :s :modi :shift :repeat false}]}]
+       [:#SSt {:key :t :repeat false} nil {:held [:delete_or_backspace {:key :t :modi :shift :repeat false}]}]
+       [:#SSg {:key :g :repeat false} nil {:held [:delete_or_backspace {:key :g :modi :shift :repeat false}]}]
+       [:#SSz {:key :z :repeat false} nil {:held [:delete_or_backspace {:key :z :modi :shift :repeat false}]}]
+       [:#SSx {:key :x :repeat false} nil {:held [:delete_or_backspace {:key :x :modi :shift :repeat false}]}]
+       [:#SSc {:key :c :repeat false} nil {:held [:delete_or_backspace {:key :c :modi :shift :repeat false}]}]
+       [:#SSd {:key :d :repeat false} nil {:held [:delete_or_backspace {:key :d :modi :shift :repeat false}]}]
+       [:#SSv {:key :v :repeat false} nil {:held [:delete_or_backspace {:key :v :modi :shift :repeat false}]}]
+       [:#SSj {:key :j :repeat false} nil {:held [:delete_or_backspace {:key :j :modi :shift :repeat false}]}]
+       [:#SSl {:key :l :repeat false} nil {:held [:delete_or_backspace {:key :l :modi :shift :repeat false}]}]
+       [:#SSu {:key :u :repeat false} nil {:held [:delete_or_backspace {:key :u :modi :shift :repeat false}]}]
+       [:#SSy {:key :y :repeat false} nil {:held [:delete_or_backspace {:key :y :modi :shift :repeat false}]}]
+       [:#SSm {:key :m :repeat false} nil {:held [:delete_or_backspace {:key :m :modi :shift :repeat false}]}]
+       [:#SSn {:key :n :repeat false} nil {:held [:delete_or_backspace {:key :n :modi :shift :repeat false}]}]
+       [:#SSe {:key :e :repeat false} nil {:held [:delete_or_backspace {:key :e :modi :shift :repeat false}]}]
+       [:#SSi {:key :i :repeat false} nil {:held [:delete_or_backspace {:key :i :modi :shift :repeat false}]}]
+       [:#SSo {:key :o :repeat false} nil {:held [:delete_or_backspace {:key :o :modi :shift :repeat false}]}]
+       [:#SSk {:key :k :repeat false} nil {:held [:delete_or_backspace {:key :k :modi :shift :repeat false}]}]
+       [:#SSh {:key :h :repeat false} nil {:held [:delete_or_backspace {:key :h :modi :shift :repeat false}]}]
+     ]}
+
+     {:des "diactric hold layer"
       :rules [ [:condi :!navigation-layer :!polish-diactrics-disabled]
         [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace :diactric-a]}]
         [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace :diactric-s]}]
@@ -387,6 +425,7 @@
         [:spacebar :spacebar nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Ospacebar :spacebar nil {:afterup :TURN_ON_WRITING_LAYER}]
 
+        [:!SSequal_sign {:key :equal_sign :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :8 :modi :shift :repeat false}]}]
         [:#SS1 :1 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:#SS2 :2 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:#SS3 :3 nil {:afterup :TURN_ON_WRITING_LAYER}]
@@ -407,32 +446,31 @@
         [:#SSquote :quote nil {:afterup :TURN_ON_WRITING_LAYER}]
 
         ; left hand
-        [:!Oq {:key :grave_accent_and_tilde :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :grave_accent_and_tilde :modi :shift :repeat false}]}]
-        [:!Ot {:key :quote :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :8 :modi :shift :repeat false}]}]
-        [:!O#SSg {:key :hyphen :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :3 :modi :shift :repeat false}]}]
-        [:!Od {:key :equal_sign :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :6 :modi :shift :repeat false}]}]
-
+        [:!Oq :grave_accent_and_tilde  nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Ow :open_braces  nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Of :close_braces nil {:afterup :TURN_ON_WRITING_LAYER}]
-        [:!O#SSp {:key :hyphen :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held {:key :period :modi :shift :repeat false}}]
-        [:!Ob :dollar nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!O#SSp {:key :hyphen :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace :spacebar :hyphen {:key :period :modi :shift :repeat false} {:key :spacebar :repeat false}]}]
+        [:!Ob {:key :4 :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :5 :modi :shift :repeat false}]}]
 
         [:!Oa :quote nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Or :open_parenthesis  nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Os :close_parenthesis nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Ot :dquote nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Og {:key :hyphen :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :3 :modi :shift :repeat false}]}]
 
         [:!Oz :at nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Ox :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Oc :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
-        [:!Ov :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Od :equal_sign nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Ov {:key :backslash :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :6 :modi :shift :repeat false}]}]
         ; right hand
-        [:!Oj :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Oj :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!O#SSl :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!O#SSu :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!O#SSy :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!Osemicolon :exclaimation-mark nil {:afterup :TURN_ON_WRITING_LAYER}]
 
-        [:!Om :plus nil {:afterup :TURN_ON_WRITING_LAYER}]
+        [:!Om {:key :equal_sign :modi :shift :repeat false} nil {:afterup :TURN_ON_WRITING_LAYER :held [:delete_or_backspace {:key :8 :modi :shift :repeat false}]}]
         [:!O#SSn :4 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!O#SSe :5 nil {:afterup :TURN_ON_WRITING_LAYER}]
         [:!O#SSi :6 nil {:afterup :TURN_ON_WRITING_LAYER}]
@@ -447,31 +485,31 @@
      {:des "FUN LAYER"
       :rules [
         [:!!f1 []]
-        [:!!f2 [:open ["Safari"]]]
-        [:!!f3 [:open ["Firefox"]]]
-        [:!!f4 [:open ["Postman"]]]
-        [:!!f5 []]
+        [:!!f2 [:open ["Microsoft Teams"]]]
+        [:!!f3 [:open ["Intellij Idea"]]]
+        [:!!f4 [:open ["Firefox"]]]
+        [:!!f5 [:open ["Safari"]]]
         [:!!f6 [:open ["Visual Studio Code"]]]
-        [:!!f7 [:open ["Sublime Text"]]]
-        [:!!f8 [:open ["IntelliJ"]]]
+        [:!!f7 []]
+        [:!!f8 [:open ["Sublime Text"]]]
         [:!!f9 [:open ["TickTick"]]]
         [:!!f10 [:open ["iTerm2"]]]
         [:!!f11 []]
         [:!!f12 [:open ["Docker"]]]
         [:!!f13 [:open ["Lens"]]]
         [:!!f14 [:open ["draw.io"]]]
-        [:!!f15 []]
+        [:!!f15 [:open ["Postman"]]]
 
         [:!!f16 [:open ["Cisco AnyConnect Secure Mobility Client"]]]
-        [:!!f17 [:open ["Microsoft PowerPoint"]]]
-        [:!!f18 [:open ["Microsoft Excel"]]]
-        [:!!f19 []]
+        [:!!f17 [:open ["Microsoft Outlook"]]]
+        [:!!f18 [:open ["Microsoft PowerPoint"]]]
+        [:!!f19 [:open ["Microsoft Excel"]]]
         [:!!f20 [:open ["Notes"]]]
         [:!!f21 []]
-        [:!!f22 [:open ["Microsoft Teams"]]]
-        [:!!f23 [:open ["Microsoft Outlook"]]]
+        [:!!f22 []]
+        [:!!f23 []]
         [:!!f24 []]
-        [:!STOf1 [:open ["Obsidian"]]]
+        [:!STOf1 []]
         [:!STOf2 [:open ["Karabiner-EventViewer"]]]
         [:!STOf3 [:open ["Telegram"]]]
         [:!STOf4 [:open ["Spotify"]]]
@@ -498,7 +536,7 @@
 
         :firefox
         ; [:f [:!Cc :!Cc :!Cf :!Cf :paste-enter]]
-        [:gcs-a [] nil { :alone :focus-url :held :unfocus-url :repeat false :halt true}]
+        [:gcs-a [] nil {:alone :focus-url :held :unfocus-url :repeat false :halt true}]
         [:gcs-r :!CSt]
         [:gcs-s :slash]
         [:gcs-t [:!Ct :TURN_ON_WRITING_LAYER]]
@@ -510,13 +548,15 @@
         [:gcs-r []]
         [:gcs-s :!Of7]
         [:gcs-t []]
-        [:gcs-g [:!On :TURN_ON_NAVIGATION_LAYER]]
+        [:gcs-g [:TURN_ON_NAVIGATION_LAYER :!On]]
+;        [:gcs-g [] nil {:alone [:TURN_ON_NAVIGATION_LAYER :!On] :held {:key :u :modi [:command :shift] :repeat false} :repeat false :halt true}]
 
         [:gcs-z :!Oq]
         [:gcs-x :previous-tab]
         [:gcs-c :next-tab]
         [:gcs-d :!T2]
-        [:gcs-v [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
+;        [:gcs-v [:TURN_ON_NAVIGATION_LAYER :right_option :right_option :right_option]]
+        [:gcs-v :!Sf12]
       ]}
      ]
 }
