@@ -548,8 +548,11 @@
         [:gcs-a [:!Sf6 :TURN_ON_WRITING_LAYER]]
         [:gcs-r []]
         [:gcs-s :!Of7]
-        [:gcs-t []]
+        [:gcs-t :!Oslash]
+
         [:gcs-g [:TURN_ON_NAVIGATION_LAYER :!On]]
+        [:gcsa-g [:TURN_ON_WRITING_LAYER :!Of8]]
+
 ;        [:gcs-g [] nil {:alone [:TURN_ON_NAVIGATION_LAYER :!On] :held {:key :u :modi [:command :shift] :repeat false} :repeat false :halt true}]
 
         [:gcs-z :!Oq]
