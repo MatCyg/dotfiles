@@ -29,6 +29,8 @@
     co = checkout
     cl = clone
     cls = clone --depth 1
+    clf-old = "!f() { GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519'; git clone --config core.sshCommand=\"$GIT_SSH_COMMAND\" \"$@\"; }; f"
+    clf = clone --config core.sshCommand='ssh -i ~/.ssh/id_ed25519'
     ci = commit
     cia = commit -a --amend -C HEAD
     st = status -sb
