@@ -219,7 +219,7 @@
 ;#######################################################################################################################
      {:des "Single character mode"
       :rules [ :single-character-mode
-        [:spacebar :spacebar nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##semicolon :semicolon nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##comma :comma nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##period :period nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##slash :slash nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##q :q nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##w :w nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##f :f nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##p :p nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##b :b nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##a :a nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##r :r nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##s :s nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##t :t nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##g :g nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##z :z nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##x :x nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##c :c nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##d :d nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##v :v nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##j :j nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##l :l nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##u :u nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##y :y nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##m :m nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##n :n nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##e :e nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##i :i nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##o :o nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##k :k nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:##h :h nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}]
+        [:spacebar :spacebar nil {:afterup [:TURN_ON_NAVIGATION_LAYER]}] [:q {:key :q :repeat false} nil {:held [:delete_or_backspace {:key :x :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:w {:key :w :repeat false} nil {:held [:delete_or_backspace {:key :w :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:f {:key :f :repeat false} nil {:held [:delete_or_backspace {:key :f :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:p {:key :p :repeat false} nil {:held [:delete_or_backspace {:key :p :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:b {:key :b :repeat false} nil {:held [:delete_or_backspace {:key :b :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:a {:key :a :repeat false} nil {:held [:delete_or_backspace {:key :a :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:r {:key :r :repeat false} nil {:held [:delete_or_backspace {:key :r :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:s {:key :s :repeat false} nil {:held [:delete_or_backspace {:key :s :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:t {:key :t :repeat false} nil {:held [:delete_or_backspace {:key :t :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:g {:key :g :repeat false} nil {:held [:delete_or_backspace {:key :g :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:z {:key :z :repeat false} nil {:held [:delete_or_backspace {:key :z :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:x {:key :x :repeat false} nil {:held [:delete_or_backspace {:key :x :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:c {:key :c :repeat false} nil {:held [:delete_or_backspace {:key :c :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:d {:key :d :repeat false} nil {:held [:delete_or_backspace {:key :d :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:v {:key :v :repeat false} nil {:held [:delete_or_backspace {:key :v :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:j {:key :j :repeat false} nil {:held [:delete_or_backspace {:key :j :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:l {:key :l :repeat false} nil {:held [:delete_or_backspace {:key :l :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:u {:key :u :repeat false} nil {:held [:delete_or_backspace {:key :u :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:y {:key :y :repeat false} nil {:held [:delete_or_backspace {:key :y :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:m {:key :m :repeat false} nil {:held [:delete_or_backspace {:key :m :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:n {:key :n :repeat false} nil {:held [:delete_or_backspace {:key :n :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:e {:key :e :repeat false} nil {:held [:delete_or_backspace {:key :e :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:i {:key :i :repeat false} nil {:held [:delete_or_backspace {:key :i :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:o {:key :o :repeat false} nil {:held [:delete_or_backspace {:key :o :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:k {:key :k :repeat false} nil {:held [:delete_or_backspace {:key :k :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:h {:key :h :repeat false} nil {:held [:delete_or_backspace {:key :h :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:semicolon {:key :semicolon :repeat false} nil {:held [:delete_or_backspace {:key :semicolon :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:comma {:key :comma :repeat false} nil {:held [:delete_or_backspace {:key :comma :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:period {:key :period :repeat false} nil {:held [:delete_or_backspace :delete_or_backspace {:key :period :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:slash {:key :slash :repeat false} nil {:held [:delete_or_backspace {:key :slash :modi :shift :repeat false}] :afterup :TURN_ON_NAVIGATION_LAYER}] [:##semicolon :semicolon nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##comma :comma nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##period :period nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##slash :slash nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##q :q nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##w :w nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##f :f nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##p :p nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##b :b nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##a :a nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##r :r nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##s :s nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##t :t nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##g :g nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##z :z nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##x :x nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##c :c nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##d :d nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##v :v nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##j :j nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##l :l nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##u :u nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##y :y nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##m :m nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##n :n nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##e :e nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##i :i nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##o :o nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##k :k nil {:afterup :TURN_ON_NAVIGATION_LAYER}] [:##h :h nil {:afterup :TURN_ON_NAVIGATION_LAYER}]
      ]}
 ;#######################################################################################################################
 ;#######################################################################################################################
@@ -377,34 +377,38 @@
 
      ]}
 
-     {:des "diactric hold layer"
+     {:des "auto shift"
       :rules [[:condi :!navigation-layer]
-       [:#SSq {:key :q :repeat false} nil {:held [:delete_or_backspace {:key :q :modi :shift :repeat false}]}]
-       [:#SSw {:key :w :repeat false} nil {:held [:delete_or_backspace {:key :w :modi :shift :repeat false}]}]
-       [:#SSf {:key :f :repeat false} nil {:held [:delete_or_backspace {:key :f :modi :shift :repeat false}]}]
-       [:#SSp {:key :p :repeat false} nil {:held [:delete_or_backspace {:key :p :modi :shift :repeat false}]}]
-       [:#SSb {:key :b :repeat false} nil {:held [:delete_or_backspace {:key :b :modi :shift :repeat false}]}]
-       [:#SSa {:key :a :repeat false} nil {:held [:delete_or_backspace {:key :a :modi :shift :repeat false}]}]
-       [:#SSr {:key :r :repeat false} nil {:held [:delete_or_backspace {:key :r :modi :shift :repeat false}]}]
-       [:#SSs {:key :s :repeat false} nil {:held [:delete_or_backspace {:key :s :modi :shift :repeat false}]}]
-       [:#SSt {:key :t :repeat false} nil {:held [:delete_or_backspace {:key :t :modi :shift :repeat false}]}]
-       [:#SSg {:key :g :repeat false} nil {:held [:delete_or_backspace {:key :g :modi :shift :repeat false}]}]
-       [:#SSz {:key :z :repeat false} nil {:held [:delete_or_backspace {:key :z :modi :shift :repeat false}]}]
-       [:#SSx {:key :x :repeat false} nil {:held [:delete_or_backspace {:key :x :modi :shift :repeat false}]}]
-       [:#SSc {:key :c :repeat false} nil {:held [:delete_or_backspace {:key :c :modi :shift :repeat false}]}]
-       [:#SSd {:key :d :repeat false} nil {:held [:delete_or_backspace {:key :d :modi :shift :repeat false}]}]
-       [:#SSv {:key :v :repeat false} nil {:held [:delete_or_backspace {:key :v :modi :shift :repeat false}]}]
-       [:#SSj {:key :j :repeat false} nil {:held [:delete_or_backspace {:key :j :modi :shift :repeat false}]}]
-       [:#SSl {:key :l :repeat false} nil {:held [:delete_or_backspace {:key :l :modi :shift :repeat false}]}]
-       [:#SSu {:key :u :repeat false} nil {:held [:delete_or_backspace {:key :u :modi :shift :repeat false}]}]
-       [:#SSy {:key :y :repeat false} nil {:held [:delete_or_backspace {:key :y :modi :shift :repeat false}]}]
-       [:#SSm {:key :m :repeat false} nil {:held [:delete_or_backspace {:key :m :modi :shift :repeat false}]}]
-       [:#SSn {:key :n :repeat false} nil {:held [:delete_or_backspace {:key :n :modi :shift :repeat false}]}]
-       [:#SSe {:key :e :repeat false} nil {:held [:delete_or_backspace {:key :e :modi :shift :repeat false}]}]
-       [:#SSi {:key :i :repeat false} nil {:held [:delete_or_backspace {:key :i :modi :shift :repeat false}]}]
-       [:#SSo {:key :o :repeat false} nil {:held [:delete_or_backspace {:key :o :modi :shift :repeat false}]}]
-       [:#SSk {:key :k :repeat false} nil {:held [:delete_or_backspace {:key :k :modi :shift :repeat false}]}]
-       [:#SSh {:key :h :repeat false} nil {:held [:delete_or_backspace {:key :h :modi :shift :repeat false}]}]
+       [:q {:key :q :repeat false} nil {:held [:delete_or_backspace {:key :q :modi :shift :repeat false}]}]
+       [:w {:key :w :repeat false} nil {:held [:delete_or_backspace {:key :w :modi :shift :repeat false}]}]
+       [:f {:key :f :repeat false} nil {:held [:delete_or_backspace {:key :f :modi :shift :repeat false}]}]
+       [:p {:key :p :repeat false} nil {:held [:delete_or_backspace {:key :p :modi :shift :repeat false}]}]
+       [:b {:key :b :repeat false} nil {:held [:delete_or_backspace {:key :b :modi :shift :repeat false}]}]
+       [:a {:key :a :repeat false} nil {:held [:delete_or_backspace {:key :a :modi :shift :repeat false}]}]
+       [:r {:key :r :repeat false} nil {:held [:delete_or_backspace {:key :r :modi :shift :repeat false}]}]
+       [:s {:key :s :repeat false} nil {:held [:delete_or_backspace {:key :s :modi :shift :repeat false}]}]
+       [:t {:key :t :repeat false} nil {:held [:delete_or_backspace {:key :t :modi :shift :repeat false}]}]
+       [:g {:key :g :repeat false} nil {:held [:delete_or_backspace {:key :g :modi :shift :repeat false}]}]
+       [:z {:key :z :repeat false} nil {:held [:delete_or_backspace {:key :z :modi :shift :repeat false}]}]
+       [:x {:key :x :repeat false} nil {:held [:delete_or_backspace {:key :x :modi :shift :repeat false}]}]
+       [:c {:key :c :repeat false} nil {:held [:delete_or_backspace {:key :c :modi :shift :repeat false}]}]
+       [:d {:key :d :repeat false} nil {:held [:delete_or_backspace {:key :d :modi :shift :repeat false}]}]
+       [:v {:key :v :repeat false} nil {:held [:delete_or_backspace {:key :v :modi :shift :repeat false}]}]
+       [:j {:key :j :repeat false} nil {:held [:delete_or_backspace {:key :j :modi :shift :repeat false}]}]
+       [:l {:key :l :repeat false} nil {:held [:delete_or_backspace {:key :l :modi :shift :repeat false}]}]
+       [:u {:key :u :repeat false} nil {:held [:delete_or_backspace {:key :u :modi :shift :repeat false}]}]
+       [:y {:key :y :repeat false} nil {:held [:delete_or_backspace {:key :y :modi :shift :repeat false}]}]
+       [:m {:key :m :repeat false} nil {:held [:delete_or_backspace {:key :m :modi :shift :repeat false}]}]
+       [:n {:key :n :repeat false} nil {:held [:delete_or_backspace {:key :n :modi :shift :repeat false}]}]
+       [:e {:key :e :repeat false} nil {:held [:delete_or_backspace {:key :e :modi :shift :repeat false}]}]
+       [:i {:key :i :repeat false} nil {:held [:delete_or_backspace {:key :i :modi :shift :repeat false}]}]
+       [:o {:key :o :repeat false} nil {:held [:delete_or_backspace {:key :o :modi :shift :repeat false}]}]
+       [:k {:key :k :repeat false} nil {:held [:delete_or_backspace {:key :k :modi :shift :repeat false}]}]
+       [:h {:key :h :repeat false} nil {:held [:delete_or_backspace {:key :h :modi :shift :repeat false}]}]
+       [:semicolon {:key :semicolon :repeat false} nil {:held [:delete_or_backspace {:key :semicolon :modi :shift :repeat false}]}]
+       [:comma {:key :comma :repeat false} nil {:held [:delete_or_backspace {:key :comma :modi :shift :repeat false}]}]
+       [:period {:key :period :repeat false} nil {:held [:delete_or_backspace :delete_or_backspace {:key :period :modi :shift :repeat false}]}]
+       [:slash {:key :slash :repeat false} nil {:held [:delete_or_backspace {:key :slash :modi :shift :repeat false}]}]
      ]}
 
      {:des "diactric hold layer"
