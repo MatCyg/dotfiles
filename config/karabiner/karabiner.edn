@@ -1,3 +1,4 @@
+
 {
   :profiles {:Standalone {:default true
                        :alone 180
@@ -63,6 +64,15 @@
          ]
          :TOGGLE_LAYER_BAR  [
            {:shell "open -g hammerspoon://toggleLayerBar"}
+         ]
+
+         :TURN_ON_APP_SWITCHER  [
+           {:shell "osascript -e 'tell application \"System Events\" to key down command' -e 'tell application \"System Events\" to keystroke tab' -e 'delay 3' -e 'tell application \"System Events\" to key up command'"}
+           {:set ["app-switcher-visible" 1]}
+         ]
+         :TURN_OFF_APP_SWITCHER  [
+           {:shell "osascript -e 'tell application \"System Events\" to key up command'"}
+           {:set ["app-switcher-visible" 0]}
          ]
 
          ; symbols
@@ -158,7 +168,10 @@
                ; backspace disables selection
                [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :delete_or_backspace] :!num-app-layer {:held :delete_or_backspace :params {:held 200}}]
                ; esc enables nav layer
-               [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER]]
+               [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER :TURN_OFF_APP_SWITCHER] :app-switcher-visible]
+               [:##escape [:##escape :TURN_ON_NAVIGATION_LAYER] :!app-switcher-visible]
+               [:##return_or_enter [:return_or_enter :TURN_OFF_APP_SWITCHER] :app-switcher-visible]
+               [:##return_or_enter :return_or_enter :!app-switcher-visible]
                ; commands layers
                [:!Oleft_command :!Oleft_command nil {:alone :!Oreturn_or_enter}]
                [:left_command :left_command nil {:alone :TURN_ON_NAVIGATION_LAYER}]
@@ -227,34 +240,34 @@
      {:des "arrow layer"
       :rules [  [:condi :navigation-layer :!selection-mode :!app-layer]
 
-                [:!SSn [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
-                [:!SSe [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
-                [:!SSi [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
-                [:!SSu [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
-                [:!SSl [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
-                [:!SSy [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
-                [:!SSj [:TURN_ON_SELECTION_MODE :!Spage_up]]
-                [:!SSm [:TURN_ON_SELECTION_MODE :!Spage_down]]
+        [:!SSn [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
+        [:!SSe [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
+        [:!SSi [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
+        [:!SSu [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+        [:!SSl [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
+        [:!SSy [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
+        [:!SSj [:TURN_ON_SELECTION_MODE :!Spage_up]]
+        [:!SSm [:TURN_ON_SELECTION_MODE :!Spage_down]]
 
 
-                [:##n :left_arrow]
-                [:##e :down_arrow]
-                [:##i :right_arrow]
-                [:##u :up_arrow]
-                [:##l :!Oleft_arrow]
-                [:##y :!Oright_arrow]
-                [:#SSj :page_up]
-                [:#SSm :page_down]
+        [:##n :left_arrow]
+        [:##e :down_arrow]
+        [:##i :right_arrow]
+        [:##u :up_arrow]
+        [:##l :!Oleft_arrow]
+        [:##y :!Oright_arrow]
+        [:#SSj :page_up]
+        [:#SSm :page_down]
 
-                [:condi :navigation-layer :selection-mode]
-                [:##n :!Sleft_arrow]
-                [:##e :!Sdown_arrow]
-                [:##i :!Sright_arrow]
-                [:##u :!Sup_arrow]
-                [:##l :!SOleft_arrow]
-                [:##y :!SOright_arrow]
-                [:#SSj :!Spage_up]
-                [:#SSm :!Spage_down]
+        [:condi :navigation-layer :selection-mode]
+        [:##n :!Sleft_arrow]
+        [:##e :!Sdown_arrow]
+        [:##i :!Sright_arrow]
+        [:##u :!Sup_arrow]
+        [:##l :!SOleft_arrow]
+        [:##y :!SOright_arrow]
+        [:#SSj :!Spage_up]
+        [:#SSm :!Spage_down]
      ]}
 
     {:des "navigation layer"
@@ -283,15 +296,40 @@
               [:#SSx [:TURN_OFF_SELECTION_MODE :!Cx]]
               [:#SSc [:TURN_OFF_SELECTION_MODE :!Cc]]
 
+              [:!SSd [["app-switcher-visible" 1]
+                   {:shell "osascript -e 'tell application \"System Events\" to key up command'"}
+                   ]]
 
+             [:d [["app-switcher-visible" 1] {:shell "osascript -e 'tell application \"System Events\" to key down command' -e 'tell application \"System Events\" to keystroke tab' -e 'delay 3' -e 'tell application \"System Events\" to key up command'"}]
+                nil {:delayed {:invoked  [["app-switcher-visible" 0]]} :params {:delay 3000}}]
+
+
+;
+;              how should d work?
+;              if pressed once open cmd tab and keep cmd pressed for 10 seconds?
+;              enter should send enter and turn off
+;              escape should close and turn off
+;              arrows should send arrow and keep open
+;              tab should send and keep open
+;
+;
+;
+;
+
+;
 ;              [:#SSd [:!Ctab :left_command :left_command]]
-              [:#SSd nil nil {:alone {:key :tab :modi :option :repeat false} :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
+;              [:#SSd {:shell "osascript -e 'tell application \"System Events\" to key down command' -e 'delay 5' -e 'tell application \"System Events\" to key up command'"}]
+;              [:#SSd {:shell "osascript -e 'tell application \"System Events\" to key down command'"}]
+;              :os-light-mode {:shell "osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to false'" }
+
+;              [:#SSd nil nil {:alone {:key :tab :modi :option :repeat false} :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
+;              [:#SSd nil nil {:alone {:key :tab :modi :option :repeat false} :held {:key :return_or_enter :repeat false} :repeat false :halt true}]
 ;              [:#SSd [:!Otab]]
 
 
               [:#SSv [:return_or_enter ["double-v" 0] [:noti :double-v]] ["double-v" 1]]
               [:#SSv [[:noti :double-v "Press v again to send enter"] ["double-v" 1]] nil
-               { :alone [:!Cv :TURN_OFF_SELECTION_MODE]
+               { :alone [{:shell "pbpaste | pbcopy"} :!Cv :TURN_OFF_SELECTION_MODE]
                  :held {:key :!COc :repeat false}
                  :repeat false
                  :halt true
@@ -514,7 +552,7 @@
         [:!!f22 []]
         [:!!f23 []]
         [:!!f24 []]
-        [:!STOf1 []]
+        [:!STOf1 [:open ["Activity Monitor"]]]
         [:!STOf2 [:open ["Karabiner-EventViewer"]]]
         [:!STOf3 [:open ["Telegram"]]]
         [:!STOf4 [:open ["Spotify"]]]
