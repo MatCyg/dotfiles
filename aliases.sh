@@ -61,5 +61,6 @@ refresh () {
 
 alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
 alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
+alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
 
 
