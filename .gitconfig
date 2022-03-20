@@ -7,7 +7,7 @@
     default = current
 [core]
     trustctime = false
-    editor = vim
+	editor = subl -n -w
     filemode = false
     excludesfile = ~/.gitignore_global
     pager = less -F -X
@@ -31,6 +31,7 @@
     cls = clone --depth 1
     clf-old = "!f() { GIT_SSH_COMMAND='ssh -i ~/.ssh/id_ed25519'; git clone --config core.sshCommand=\"$GIT_SSH_COMMAND\" \"$@\"; }; f"
     clf = clone --config core.sshCommand='ssh -i ~/.ssh/id_ed25519'
+    cfgf = config core.sshCommand 'ssh -i ~/.ssh/id_ed25519'
     ci = commit
     cia = commit -a --amend -C HEAD
     st = status -sb
