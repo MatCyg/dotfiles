@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 if ! git ls-files >& /dev/null; then
   echo "Not a git repository."
