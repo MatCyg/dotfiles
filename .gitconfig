@@ -41,7 +41,7 @@
     # Get current branch name
     bn = symbolic-ref --short HEAD
     unstage = reset HEAD --
-    clearlocalbranches = remote prune origin
+
 
     # checkout remote branch with fzf
     cor = !git checkout -t $(git branch -r | fzf)
@@ -59,6 +59,7 @@
     rd = !$PROJECTS/personal/dotfiles/git_real_diff.sh
     rdi = !$PROJECTS/personal/dotfiles/git_real_diff.sh && idea ./
     clean-branches = !$PROJECTS/personal/dotfiles/git_cleanup_other_branches.sh
+    clearlocalbranches = remote prune origin
     # stash operation
     sl = !git --no-pager stash list
     sa = stash apply
