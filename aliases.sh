@@ -42,7 +42,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias brew_update_all='brew update && brew upgrade && brew upgrade --casks && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias brew_update_all='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
 
 refresh () {
 	command=$*;
@@ -64,3 +64,10 @@ alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
 
 
+t() {
+  passed_dir=$1
+  if [[ -z $passed_dir ]]; then
+    passed_dir=$(z | fzf | awk '{print $2}')
+  fi
+  z "$passed_dir"
+}
