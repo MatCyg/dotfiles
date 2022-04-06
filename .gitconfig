@@ -42,7 +42,6 @@
     bn = symbolic-ref --short HEAD
     unstage = reset HEAD --
 
-
     # checkout remote branch with fzf
     cor = !git checkout -t $(git branch -r | fzf)
     # checkout local branch with fzf
@@ -52,7 +51,8 @@
     # add interactive
     ai=add -i
     aa=add .
-    aas=!git add . && git stash
+    as=!git add . && git stash
+    ac=!git add . && git commit -m
     # completly reset branch
     fresh = !git add . && git reset --hard @
     # execute real diff
@@ -64,40 +64,21 @@
     sl = !git --no-pager stash list
     sa = stash apply
     sp = stash pop
-    # Add name in ""
-    ss = stash save
-
     o = open
 
     # List all aliases
     la = !git config -l | grep --color=auto alias | cut -c 7-
     # search codebase for a string (add -l to only list files containing the string)
     searchcodebase = grep --color=auto -Ii
-    # file log shows changes to the file commit by commit
-    fl = log -u
     # Search for a file in repo - combine it with fl!
     f = !git ls-files | grep --color=auto -i
-    # Show diff with staged files
     dc=diff --cached
-    # Show diff last commit
-    dlc = diff --cached HEAD^
-    # Show modified files in last commit
-    dl = ll -1
-    # List commits in short form with collors and branch tags annotations
+
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    # Ls last 10 without pager
     lsn = !git --no-pager ls -n 10
-    # List commits and changed files
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    # List oneline without colors for chaining with Unix pipes
-    lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
-    # List oneline commits showing dates
     lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-    # List oneline commits showing relative dates
     ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-    lg=log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %Cblue<%an>%Creset' --abbrev-commit --date=relative --all
-    # Show detailed info about last commit
-    last= !git --no-pager log -1 --stat
 
 [status]
     showUntrackedFiles = no
