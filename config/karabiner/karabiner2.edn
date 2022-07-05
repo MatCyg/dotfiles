@@ -6,6 +6,8 @@
  :applications {
                  :intellij ["^com\\.jetbrains\\.intellij$"]
                  :teams ["^com\\.microsoft\\.teams$"]
+                 :firefox ["^org\\.mozilla\\.firefox$"]
+                 :safari ["^com\\.apple\\.Safari$"]
                  }
  :devices      {:mac [{:vendor_id 1452 :product_id 832}
                       {:vendor_id 76 :product_id 668}
@@ -104,9 +106,14 @@
 
 
                 {:des   "APP SHORTCUT LAYER"
-                 :rules [:teams
+                 :rules [ :teams
 ;                         [:!CSopen_bracket [:!T1]]
                          [:!CSclose_bracket [:!CSm]]
+                          :firefox
+                         [:gcs-r :!Ct]
+                         [:gcs-s :!Cw]
+                         [:gcs-t :!Ct]
+                         [:gcs-g [:!Ct :previous-tab :!Cw]]
                           :intellij
                          [:!CTSx :!CSopen_bracket]
                          [:!CTSc :!CSclose_bracket]
@@ -164,7 +171,8 @@
 
 
                 {:des   "override option"
-                 :rules [
+                 :rules [ :mac
+                            [:!Wspacebar :right_option]
                         ; [:!OOq []]
                           [:!OOw []]
 ;                          [:!OOe []]
@@ -184,14 +192,14 @@
                           [:!OOb []]
                           ; right hand
                           [:!OOy []]
-                          [:!OOu :equal]
-                          [:!OOi :hyphen]
+                          [:!OOu []]
+                          [:!OOi []]
 ;                          [:!OOo []]
                           [:!OOp []]
 
                           [:!OOh []]
-                          [:!OOj :equal]
-                          [:!OOk :hyphen]
+                          [:!OOj []]
+                          [:!OOk []]
 ;                          [:!OOl []]
                           [:!OOsemicolon []]
 
@@ -203,96 +211,32 @@
                           [:!Oz :previous-tab]
                           [:!Ox :next-tab]
 ;                          [:!OOslash []]
+
+                          [:!OO1 :!CTO1]
+                          [:!OO2 :!CTO2]
+                          [:!OO3 :!CTO3]
                 ]}
 
                 {:des   "MAC qwerty specific"
                  :rules [:mac
 
-
-                         [:f3 :!CTO1]
-                         [:f2 :!CTO2]
-                         [:f1 :!CTO3]
-
                          [:!Tdelete_or_backspace :delete_forward]
                          [:##caps_lock :##left_control nil {:alone [:escape ["writing_mode" 0]]}]
-
                          [:##return_or_enter nil nil {:held :right_control :alone :return_or_enter}]
 
-                         ; commands layers
-                         [:!Oleft_command :!Oleft_command nil {:alone :!Oreturn_or_enter}]
-
                          [:##left_control :!CTOleft_shift]
+
                          [:##right_shift nil nil {:held :right_shift :alone :!Otab :params {:held 100 :alone 99}}]
-;                         [:##right_option nil nil {:held :right_option :alone ["os-layer" 1] :params {:held 100 :alone 99}}]
                          [:##right_command :##right_command nil {:alone [:!Ctab] :params {:held 120 :alone 119}}]
-                         [:!!q :!CSopen_bracket]
-                         [:!!w :!CSclose_bracket]
-                         [:!!r [:!Ctab :left_command]]
-                         [:!!g :!Tq]
-                         [:!!z :!Cc]
-                         [:!!x :!Cc]
-                         [:!!c :!Cc]
-                         [:!!v :!Cv]
-                         [:!!f :!CTO1]
-                         [:!!d :!CTO2]
-                         [:!!e :!CTO3]
+
 
                          [:!!left_arrow :!TOleft_arrow]
                          [:!!right_arrow :!TOright_arrow]
                          [:!!up_arrow :!TOup_arrow]
-;                         [:!!e :!CTO3]
-                         ]}
 
+                         [{:key :9 :modi :shift} []]
+                         [{:key :0 :modi :shift} []]
+                 ]}
 
-                {:des   "MAC qwerty specific"
-                 :rules [:os-layer
-                         [:a [:!!a ["os-layer" 0]]]
-                         [:s [:!!s ["os-layer" 0]]]
-
-                         [:q [:!CSopen_bracket ["os-layer" 0]]]
-                         [:w [:!CSclose_bracket ["os-layer" 0]]]
-
-                         [:z [:!Cc ["os-layer" 0]]]
-                         [:x [:!Cc ["os-layer" 0]]]
-                         [:c [:!Cc ["os-layer" 0]]]
-                         [:v [:!Cv ["os-layer" 0]]]
-
-
-                         [:f [:!CTO1 ["os-layer" 0]]]
-                         [:d [:!CTO2 ["os-layer" 0]]]
-                         [:e [:!CTO3 ["os-layer" 0]]]
-                         [:g [:!Tq ["os-layer" 0]]]
-                         ]}
-
-
-
-                {:des   "APP ONE SHOT LAYER"
-                 :rules [:intellij
-;                         [:!TSOq nil]
-                         [:!TSOw :!TSr]
-;                         [:!TSOf nil]
-;                         [:!TSOp nil]
-;                         [:!TSOb nil]
-;                         [:!TSOa nil]
-                         [:!TSOr :!Tr]
-;                         [:!TSOs nil]
-                         [:!TSOt :!CSt]
-;                         [:!TSOg nil]
-;                         [:!TSOz nil]
-;                         [:!TSOx nil]
-;                         [:!TSOc nil]
-;                         [:!TSOd nil]
-                         [:!TSOv :!COv]
-;                         [:!TSOj nil]
-;                         [:!TSOl nil]
-                         [:!TSOu :!CSu]
-;                         [:!TSOy nil]
-;                         [:!TSOm nil]
-;                         [:!TSOn nil]
-;                         [:!TSOe nil]
-;                         [:!TSOi nil]
-;                         [:!TSOo nil]
-;                         [:!TSOk nil]
-;                         [:!TSOh nil]
-                         ]}]}
+]}
 
