@@ -71,3 +71,11 @@ t() {
   fi
   z "$passed_dir"
 }
+
+i() {
+  passed_dir=$1
+  if [[ -z $passed_dir ]]; then
+    passed_dir="."
+  fi
+  idea "$passed_dir"
+}
