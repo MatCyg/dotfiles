@@ -60,6 +60,9 @@
     rdi = !$PROJECTS/personal/dotfiles/git_real_diff.sh && idea ./
     clean-branches = !$PROJECTS/personal/dotfiles/git_cleanup_other_branches.sh
     clearlocalbranches = remote prune origin
+    fco = "! bn=${1:-develop}; git fresh && git checkout $bn && git pull #"
+    fcor = "! git fco && git rdi #"
+
     # stash operation
     sl = !git --no-pager stash list
     sa = stash apply
