@@ -13,8 +13,8 @@ plugins=(
   zsh-autosuggestions
   docker
   docker-compose
-  autojump
   extract
+  z
 )
 
 ZSH_THEME="powerlevel10k/powerlevel10k"

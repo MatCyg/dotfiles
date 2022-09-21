@@ -7,6 +7,8 @@ echo_section() {
   echo
 }
 
+export DOTFILES="${HOME}"/Projects/personal/dotfiles
+
 echo_section "[XCODE-TOOLS] Installing..."
 if ! xcode-select --install 2>&1 | grep installed; then
   xcode-select --install
@@ -66,12 +68,8 @@ echo_section "[Oh-My-Zsh] Installation finished"
 
 
 echo_section "[symlinks] Setting up configuration symlinks..."
-# TODO this path should not be hardcoded
-ln -s "$HOME"/Projects/personal/dotfiles/config/karabiner "$HOME"/.config/karabiner
-ln -s "$HOME"/Projects/personal/dotfiles/config/yabai "$HOME"/.config/yabai
-ln -s "$HOME"/Projects/personal/dotfiles/config/skhd "$HOME"/.config/skhd
-ln -s "$HOME"/Projects/personal/dotfiles/.gitconfig "$HOME"/.gitconfig
-ln -s "$HOME"/Projects/personal/dotfiles/.gitignore_global "$HOME"/.gitignore_global
+ln -s "$DOTFILES"/.gitconfig "$HOME"/.gitconfig
+ln -s "$DOTFILES"/Projects/personal/dotfiles/.gitignore_global "$HOME"/.gitignore_global
 echo_section "[symlinks] Symlinks set"
 
 
@@ -92,7 +90,6 @@ brew update
 echo "[brew] Installing command line tools..."
 cmd_tools=(
   jq
-  autojump
   tree
   bat
   unrar
@@ -102,8 +99,8 @@ cmd_tools=(
   httpie
   fzf
   docker
-  font-dejavu-sans-mono-nerd-font
-  yqrashawn/goku/goku
+  font-dejavu-sans-mono-nerd-font  //todo change to firacode
+  blueutil
 )
 for cmd_tool in "${cmd_tools[@]}"; do
   echo "[brew-cmd-tools] Installing '$cmd_tool'"
@@ -113,21 +110,22 @@ done
 echo "[brew] Installing desktop applications..."
 apps=(
   anki
-  fsnotes
   selfcontrol
   vlc
   slack
   microsoft-teams
-  send-to-kindle
   sublime-text
   visual-studio-code
   iterm2
   firefox
-  karabiner-elements
   rectangle
   postman
   spotify
   docker
+  lens
+  drawio
+  logitech-options
+  telegram
 )
 for app in "${apps[@]}"; do
   echo "[brew-apps] Installing '$app'"
@@ -138,12 +136,6 @@ echo "[brew] Cleaning up..."
 brew cleanup
 
 echo_section "[brew] Installation finished"
-
-
-
-echo "[FONTS] - Start installing fonts"
-"$(dirname "$0")"/fonts.sh
-echo "[FONTS] - Completed fonts installation"
 
 
 

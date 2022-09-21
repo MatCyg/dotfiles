@@ -27,6 +27,8 @@ alias g="git"
 alias dr="docker"
 alias dc="docker-compose"
 alias h="history"
+alias mk="minikube"
+alias kc="kubectl"
 
 alias start_simple_server="python -m SimpleHTTPServer 8000"
 alias copy_last_command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
@@ -42,7 +44,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias brew_update_all='brew update && brew upgrade && brew upgrade --casks && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias brew_update_all='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
 
 refresh () {
 	command=$*;
@@ -61,5 +63,21 @@ refresh () {
 
 alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
 alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
+alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
 
 
+t() {
+  passed_dir=$1
+  if [[ -z $passed_dir ]]; then
+    passed_dir=$(z | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' | fzf | awk '{print $2}')
+  fi
+  z "$passed_dir"
+}
+
+i() {
+  passed_dir=$1
+  if [[ -z $passed_dir ]]; then
+    passed_dir="."
+  fi
+  idea "$passed_dir"
+}
