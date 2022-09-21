@@ -87,7 +87,12 @@
         :previous-tab {:key :!CSopen_bracket}
         :next-tab {:key :!CSclose_bracket}
 }
- :main         [{:des "missing zmk features" :rules [[:!!t {:pkey :button1}]]}
+ :main         [
+                 {:des "missing zmk features" :rules [
+                     [:!!t {:pkey :button1}]
+                     [:!TOSup_arrow :!TOup_arrow]
+                     [:!!3 :!CSm]
+                 ]}
 
 
 ;                bookmarks
@@ -167,7 +172,7 @@
                          [:!Sdelete_or_backspace :!CSdelete_or_backspace]
 
 
-                         ]}
+                 ]}
 
 
                 {:des   "override option"
@@ -176,8 +181,8 @@
                         ; [:!OOq []]
                           [:!OOw []]
 ;                          [:!OOe []]
-;                          [:!OOr []]
-                          [:!OOt []]
+;                          [:!OOr :!CTO2]
+                          [:!OOt :!CTO1]
 
 ;                          [:!OOa []]
 ;                          [:!OOs []]
@@ -188,8 +193,8 @@
 ;                          [:!OOz []]
 ;                          [:!OOx []]
 ;                          [:!OOc []]
-                          [:!OOv []]
-                          [:!OOb []]
+                          [:!OOv :!COc]
+                          [:!OOb :!!b]
                           ; right hand
                           [:!OOy []]
                           [:!OOu []]
@@ -215,13 +220,34 @@
                           [:!OO1 :!CTO1]
                           [:!OO2 :!CTO2]
                           [:!OO3 :!CTO3]
-                ]}
+                          [:!OO4 :!CTS4]
+                          [:!OO5 :!CS5]
+
+                          [:!OOtab :!CTOs]
+
+                          [:!OOopen_bracket :!!open_bracket]
+                          [:!OOclose_bracket :!!close_bracket]
+                          [:!OObackslash :!TSw]
+
+                          [:!OO9 :!TOright_arrow]
+                          [:!OO0 :!TOup_arrow]
+                          [:!OOhyphen :!TOdown_arrow]
+                          [:!OOequal_sign :!TOleft_arrow]
+
+                          [:!CST4 []]
+                          [:!CT4 []]
+                          [:!CS4 []]
+                          [:!CST5 []]
+                          [:!CT5 []]
+                          [:!CS5 []]
+                          [:!COc []]
+                 ]}
 
                 {:des   "MAC qwerty specific"
                  :rules [:mac
 
                          [:!Tdelete_or_backspace :delete_forward]
-                         [:##caps_lock :##left_control nil {:alone [:escape ["writing_mode" 0]]}]
+                         [:##caps_lock :##left_control nil {:alone :escape}]
                          [:##return_or_enter nil nil {:held :right_control :alone :return_or_enter}]
 
                          [:##left_control :!CTOleft_shift]
@@ -233,6 +259,7 @@
                          [:!!left_arrow :!TOleft_arrow]
                          [:!!right_arrow :!TOright_arrow]
                          [:!!up_arrow :!TOup_arrow]
+                         [:!!down_arrow :!TOdown_arrow]
 
                          [{:key :9 :modi :shift} []]
                          [{:key :0 :modi :shift} []]
