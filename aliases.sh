@@ -27,6 +27,8 @@ alias g="git"
 alias dr="docker"
 alias dc="docker-compose"
 alias h="history"
+alias mk="minikube"
+alias kc="kubectl"
 
 alias start_simple_server="python -m SimpleHTTPServer 8000"
 alias copy_last_command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
@@ -67,7 +69,7 @@ alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
 t() {
   passed_dir=$1
   if [[ -z $passed_dir ]]; then
-    passed_dir=$(z | fzf | awk '{print $2}')
+    passed_dir=$(z | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' | fzf | awk '{print $2}')
   fi
   z "$passed_dir"
 }
