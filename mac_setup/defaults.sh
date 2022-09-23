@@ -125,7 +125,7 @@ defaults write -g com.apple.sound.uiaudio.enabled -int 0
 
 # Keyboard:
 # Set a fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set a fast delay until repeat
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
