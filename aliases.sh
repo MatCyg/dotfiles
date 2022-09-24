@@ -52,9 +52,11 @@ refresh () {
 		command=$(history | tail -1 | head -1 | cut -c8-999)
 	fi
   echo "Executing command: $command"
-  read -r "response?Are you sure? [y/N]" response
+#  read -r -p "Do you want to continue? [y/N] " response # bash version
+  read "response?Are you sure? [y/N]" # zsh version
   if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
   then
+    clear;
     while true; do eval "$command"; sleep 1; clear; done;
   else
     echo "Exiting."
