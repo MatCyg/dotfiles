@@ -89,18 +89,20 @@ brew update
 
 echo "[brew] Installing command line tools..."
 cmd_tools=(
-  jq
-  tree
   bat
+  blueutil
+  docker
+  font-fira-code
+  fzf
+  goku
+  htop
+  httpie
+  jq
+  kubernetes-cli
+  tree
   unrar
   watch
   wget
-  htop
-  httpie
-  fzf
-  docker
-  font-dejavu-sans-mono-nerd-font  //todo change to firacode
-  blueutil
 )
 for cmd_tool in "${cmd_tools[@]}"; do
   echo "[brew-cmd-tools] Installing '$cmd_tool'"
@@ -109,23 +111,24 @@ done
 
 echo "[brew] Installing desktop applications..."
 apps=(
+  alt-tab
   anki
-  selfcontrol
-  vlc
-  slack
+  docker
+  drawio
+  firefox
+  iterm2
+  karabiner-elements
+  lens
+  logitech-options
   microsoft-teams
+  postman
+  rectangle
+  selfcontrol
+  slack
+  spotify
   sublime-text
   visual-studio-code
-  iterm2
-  firefox
-  rectangle
-  postman
-  spotify
-  docker
-  lens
-  drawio
-  logitech-options
-  telegram
+  vlc
 )
 for app in "${apps[@]}"; do
   echo "[brew-apps] Installing '$app'"
