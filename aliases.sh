@@ -30,8 +30,8 @@ alias h="history"
 alias mk="minikube"
 alias kc="kubectl"
 
-alias start_simple_server="python -m SimpleHTTPServer 8000"
-alias copy_last_command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
+alias start-simple-server="python -m SimpleHTTPServer 8000"
+alias copy-last-command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
@@ -43,9 +43,9 @@ alias sl='ls'
 alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
-alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias upgrade_brew_packages='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
-alias upgrade_java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
+alias current-datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
+alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias upgrade-java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
 
 refresh () {
 	command=$*;
