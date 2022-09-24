@@ -21,7 +21,7 @@ fi
 current_branch="$(git rev-parse --abbrev-ref HEAD)"
 
 if [ "$shouldForce" != "-f" ] && [ "$current_branch" != "master" ] && [ "$current_branch" != "develop" ]; then
-  read -r -p "Current branch is '$current_branch'. Are you sure you want to do the diff against that branch? [y/N] " response
+  read -r -p "Current branch is '$current_branch'. Are you sure you want to do the diff against that branch? [y/n] " response
   case "$response" in
   [yY][eE][sS] | [yY])
     #just continue

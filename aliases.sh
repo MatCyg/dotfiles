@@ -44,7 +44,8 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current_datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias brew_update_all='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias upgrade_brew_packages='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias upgrade_java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
 
 refresh () {
 	command=$*;
@@ -52,8 +53,8 @@ refresh () {
 		command=$(history | tail -1 | head -1 | cut -c8-999)
 	fi
   echo "Executing command: $command"
-#  read -r -p "Do you want to continue? [y/N] " response # bash version
-  read "response?Are you sure? [y/N]" # zsh version
+#  read -r -p "Do you want to continue? [y/n] " response # bash version
+  read "response?Are you sure? [y/n]" # zsh version
   if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
   then
     clear;
@@ -66,7 +67,6 @@ refresh () {
 alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
 alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
-
 
 t() {
   passed_dir=$1
@@ -83,3 +83,4 @@ i() {
   fi
   idea "$passed_dir"
 }
+
