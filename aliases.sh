@@ -22,6 +22,7 @@ alias pdp='cd $PROJECTS/personal'
 # shellcheck disable=SC2139
 # cd to dotfiles project
 alias pdd="cd $(dirname "$0")"
+alias pdm="cd $(dirname "$0")/../monorepo"
 alias tl='cd $TOOLS'
 alias g="git"
 alias dr="docker"
@@ -67,6 +68,7 @@ refresh () {
 alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
 alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
+alias gokus3='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
 
 t() {
   passed_dir=$1
@@ -82,5 +84,15 @@ i() {
     passed_dir="."
   fi
   idea "$passed_dir"
+}
+
+git_open_url() {
+  remoteUrl=$(git ls-remote --get-url origin)
+  if [[ "$remoteUrl" == *"ssh.dev.azure.com"* || "$remoteUrl" == *"ssh.visualstudio.com"* ]]; then
+    url=$(echo $remoteUrl | awk '{split($0,a,"/"); print "https://dev.azure.com/"a[2]"/"a[3]"/_git/"a[4]"/pullrequests?_a=mine"}')
+    open $url
+  else
+    git open
+  fi
 }
 
