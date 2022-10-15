@@ -7,7 +7,9 @@ JAVA_SYMLINKS_DIR="$HOME"/.java
 
 remove_symlinks() {
   for symlink in "$JAVA_SYMLINKS_DIR"/*; do
-    rm $symlink
+    if [ -d "$symlink" ]; then
+      rm $symlink
+    fi
   done
 }
 
@@ -16,7 +18,7 @@ create_symlinks() {
 
   for version in $versions
   do
-    major_version=$(cut -d. -f1 <<< "$version")
+    major_version=$(echo $version | cut -d. -f1 | cut -d- -f1)
     symlink_base_name="java"
     if [[ $version == *"grl"* ]]; then
       graalvm_version=$(cut -d "r" -f2- <<< "$version")
@@ -57,7 +59,6 @@ sdk default java $topVersion
 echo ""
 
 java $SCRIPT_PATH/InstallNewestJavaVersions.java
-
 
 remove_symlinks
 create_symlinks
