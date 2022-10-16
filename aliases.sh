@@ -94,5 +94,35 @@ git_open_url() {
   else
     git open
   fi
+  }
+
+git_open_pipelines() {
+  remoteUrl=$(git ls-remote --get-url origin)
+  if [[ "$remoteUrl" == *"ssh.dev.azure.com"* || "$remoteUrl" == *"ssh.visualstudio.com"* ]]; then
+    url=$(echo $remoteUrl | awk '{split($0,a,"/"); print "https://dev.azure.com/"a[2]"/"a[3]"/_build?pipelineNameFilter="a[4]}')
+    open $url
+  else
+    echo "Not in Azure DevOps repository"
+    exit 1
+  fi
 }
 
+command_not_found_handler() {
+  fullCommand=$@
+
+  fixed=false
+  if [[ "$0" == *"g"* ]]; then
+    git_commands=("gconfig ghelp ginit gclone gadd gstatus gdiff gcommit grestore greset grm gmv gbranch gcheckout gswitch gmerge gmergetool glog gstash gtag gworktree gfetch gpull gpush gremote gsubmodule gshow glog gdiff gdifftool grange-diff gshortlog gdescribe gapply gcherry-pick gdiff grebase grevert gbisect gblame ggrep gapply greflog gcat-file gcheck-ignore gcheckout-index gcommit-tree gcount-objects gdiff-index gfor-each-ref ghash-object gls-files gls-tree gmerge-base gread-tree grev-list grev-parse gshow-ref gsymbolic-ref gupdate-index gupdate-ref gverify-pack gwrite-tree")
+    git_aliases=$(git la | awk -F= '{print "g"$1}')
+    all+=( ${git_commands[@]} "${git_aliases[@]}" )
+    contains=$(echo "$all" | grep -w -q $0)
+    if [ "$?" -eq 0 ]; then
+      fixed=true
+      git "${fullCommand:1}"
+    fi
+  fi
+  if [ "$fixed" = false ] ; then
+    echo "zsh: command not found: $fullCommand"
+    return 127
+  fi
+}
