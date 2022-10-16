@@ -7,7 +7,7 @@ JAVA_SYMLINKS_DIR="$HOME"/.java
 
 remove_symlinks() {
   for symlink in "$JAVA_SYMLINKS_DIR"/*; do
-    if [ -d "$symlink" ]; then
+    if [ -L "$symlink" ]; then
       rm $symlink
     fi
   done

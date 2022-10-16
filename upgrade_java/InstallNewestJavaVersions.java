@@ -25,6 +25,7 @@ class InstallNewestJavaVersions {
                 .flatMap(major -> collect.get("tem")
                         .stream()
                         .filter(v -> major == v.major())
+                        .filter(v -> v.status() != Status.LOCAL_ONLY)
                         .max(SemVersion::compareTo)
                         .stream())
                 .toList();
@@ -36,6 +37,7 @@ class InstallNewestJavaVersions {
                 .mapToObj(major -> collect.get("grl")
                         .stream()
                         .filter(v -> major == v.major())
+                        .filter(v -> v.status() != Status.LOCAL_ONLY)
                         .max(SemVersion::compareTo))
                 .flatMap(Optional::stream)
                 .toList();
