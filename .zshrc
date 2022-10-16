@@ -11,6 +11,7 @@ plugins=(
   mvn
   git-open
   zsh-autosuggestions
+  zsh-fzf-history-search
   docker
   docker-compose
   extract
@@ -23,3 +24,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=129'
 source $ZSH/oh-my-zsh.sh
 source "$DOTFILES"/relay.sh
 source "${HOME}/.sdkman/bin/sdkman-init.sh"
+
+setopt SHARE_HISTORY HIST_IGNORE_DUPS
