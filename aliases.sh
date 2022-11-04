@@ -126,3 +126,12 @@ command_not_found_handler() {
     return 127
   fi
 }
+
+cfp() {
+  file=$1
+  if [[ -z $file ]]; then
+      file="."
+  fi
+  filePath=$(readlink -f $file)
+  echo -n "$filePath" | pbcopy
+}
