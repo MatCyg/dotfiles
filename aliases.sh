@@ -38,7 +38,7 @@ alias ff='find . -type f -name'
 alias fd='find . -type d -name'
 alias k9='kill -9'
 alias c="printf '\e]50;ClearScrollback\a'"
-alias o='less +F'
+alias le='less +F'
 alias sl='ls'
 
 alias listen="lsof -P -i -n"
@@ -134,4 +134,12 @@ cfp() {
   fi
   filePath=$(readlink -f $file)
   echo -n "$filePath" | pbcopy
+}
+
+o() {
+  file=$1
+  if [[ -z $file ]]; then
+      file="."
+  fi
+  open "$file"
 }
