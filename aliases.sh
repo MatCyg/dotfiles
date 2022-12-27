@@ -26,6 +26,7 @@ alias pdm="cd $(dirname "$0")/../monorepo"
 alias tl='cd $TOOLS'
 alias g="git"
 alias dr="docker"
+alias s="subl"
 alias dc="docker-compose"
 alias h="history"
 alias mk="minikube"
@@ -45,7 +46,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias current-datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy && brew cleanup --prune=all && brew cleanup; brew doctor'
+alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
 
 refresh () {
