@@ -2,3 +2,4 @@
 config/karabiner/karabiner.json
 config/karabiner/automatic_backups/*
 out
+*.iml

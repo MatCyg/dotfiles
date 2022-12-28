@@ -1811,13 +1811,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.23781168460845947</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.76959484815597534</real>
+				<real>0.60420781373977661</real>
 				<key>Red Component</key>
-				<real>0.78058648109436035</real>
+				<real>0.74053740501403809</real>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
@@ -3073,6 +3073,8 @@
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.36254054359315335</real>
+	<key>StatusBarIcon</key>
+	<false/>
 	<key>StatusBarPosition</key>
 	<integer>0</integer>
 	<key>TabStyle</key>
