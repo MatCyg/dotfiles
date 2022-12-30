@@ -307,12 +307,12 @@
                          [{:key :9 :modi :shift} []]
                          [{:key :0 :modi :shift} []]
 
-                         [:!Cc [:TURN_OFF_SELECTION_MODE :!Cc]]
-                         [:!Cx [:TURN_OFF_SELECTION_MODE :!Cx]]
-                         [:!Cv [:TURN_OFF_SELECTION_MODE :!Cv]]
-                         [:!Cd [:TURN_OFF_SELECTION_MODE :!Cd]]
+                         [:!CCc [:TURN_OFF_SELECTION_MODE :!CCc]]
+                         [:!CCx [:TURN_OFF_SELECTION_MODE :!CCx]]
+                         [:!CCv [:TURN_OFF_SELECTION_MODE :!CCv]]
+                         [:!CCd [:TURN_OFF_SELECTION_MODE :!CCd]]
                          [:!TTg [:TURN_OFF_SELECTION_MODE :!Tg]]
-                         [:!Cslash [:TURN_OFF_SELECTION_MODE :!Cslash]]
+                         [:!CCslash [:TURN_OFF_SELECTION_MODE :!CCslash]]
                  ]}
 
 
