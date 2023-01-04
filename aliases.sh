@@ -33,7 +33,7 @@ alias mk="minikube"
 alias kc="kubectl"
 
 alias start-simple-server="python -m SimpleHTTPServer 8000"
-alias copy-last-command="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
+alias clc="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias ff='find . -type f -name'
 alias fd='find . -type d -name'
@@ -48,6 +48,13 @@ alias port='netstat -ap tcp'
 alias current-datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
+
+alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
+#alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
+alias gokus='~/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
+
+alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
+alias stop-mongo='killall mongod'
 
 refresh () {
 	command=$*;
@@ -65,11 +72,6 @@ refresh () {
     echo "Exiting."
   fi
 }
-
-alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
-alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
-alias gokus2='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner2.edn'
-alias gokus3='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
 
 t() {
   passed_dir=$1
