@@ -63,6 +63,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_THEMES_DI
 
 cp "$(dirname "$0")"/default_zshrc.sh "$HOME"/.zshrc
 
+# disable last login message
+touch ~/.hushlogin
+
 echo_section "[Oh-My-Zsh] Installation finished"
 
 

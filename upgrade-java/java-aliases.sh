@@ -25,6 +25,8 @@ function set_default_java_and_run_command() {
 }
 
 # shellcheck disable=SC2044
+rm -f "$JAVA_ALIASES_PATH"
+type set_default_java_and_run_command | sed 1d >> "$JAVA_ALIASES_PATH"
 for java_symlink in $(find "$JAVA_SYMLINKS_DIR" -type l); do
     alias_name=$(basename "$java_symlink")
     sdkman_java_version=$(basename "$(readlink "$java_symlink")")
@@ -33,5 +35,8 @@ for java_symlink in $(find "$JAVA_SYMLINKS_DIR" -type l); do
 
     # shellcheck disable=SC2139
     # shellcheck disable=SC2140
-    alias "$alias_name"="set_default_java_and_run_command $sdkman_java_version"
+    echo "alias $alias_name='set_default_java_and_run_command $sdkman_java_version'" >> "$JAVA_ALIASES_PATH"
 done
+
+echo -e "\nCreated the following aliases:"
+grep alias "$JAVA_ALIASES_PATH"

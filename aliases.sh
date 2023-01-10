@@ -12,6 +12,7 @@ export DOWNLOADS=$HOME/Downloads
 export DESKTOP=$HOME/Desktop
 export TOOLS=$HOME/Tools
 export JAVA_SYMLINKS_DIR=$HOME/.java
+export JAVA_ALIASES_PATH=$JAVA_SYMLINKS_DIR/java-aliases.sh
 
 # Shortcuts
 alias dl='cd $DOWNLOADS'
@@ -47,7 +48,7 @@ alias port='netstat -ap tcp'
 
 alias current-datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
-alias upgrade-java='$DOTFILES/upgrade_java/sdkman_upgrade_java.sh'
+alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
 
 alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
 #alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner3.edn'

@@ -30,7 +30,9 @@ create_symlinks() {
 
 display_symlinks() {
   echo -e "\nThe following symlinks exists:"
-  find "$JAVA_SYMLINKS_DIR" -type l -ls | cut -c 91-
+  for java_symlink in $(find "$JAVA_SYMLINKS_DIR" -type l); do
+    echo "$java_symlink -> $(readlink "$java_symlink")"
+  done
 }
 
 sed -i -e 's/sdkman_auto_answer=false/sdkman_auto_answer=true/g' "$HOME"/.sdkman/etc/config
@@ -63,6 +65,8 @@ java $SCRIPT_PATH/InstallNewestJavaVersions.java
 remove_symlinks
 create_symlinks
 display_symlinks
+
+"$SCRIPT_PATH"/java-aliases.sh
 
 sdk flush > /dev/null 2>&1
 
