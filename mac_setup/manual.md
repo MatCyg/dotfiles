@@ -48,8 +48,17 @@ Some things are not yet automated:
 
 # Applications preference:
 
-Alfred
+### Alfred
 Features -> Clipboard History -> Select:
    - Keep Plain Text
    - Keep Images
    - Keep File Lists
+
+### Firefox
+- Set defaults:
+```
+accessibility.typeaheadfind.prefillwithselection true
+browser.compactmode.show true
+devtools.theme	auto
+```
+- Change monospace font.
