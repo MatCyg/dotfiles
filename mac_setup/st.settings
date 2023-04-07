@@ -1,0 +1,14 @@
+{
+	"font_size": 19,
+	"theme": "auto",
+	"dark_theme": "Default Dark.sublime-theme",
+	"light_theme": "Default.sublime-theme",
+	"ignored_packages":
+	[
+		"Vintage",
+		"Markdown",
+	],
+	"color_scheme": "auto",
+	"font_face": "Fira Code",
+	"highlight_line": true,
+}
