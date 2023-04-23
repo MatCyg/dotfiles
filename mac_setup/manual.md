@@ -59,6 +59,6 @@ Features -> Clipboard History -> Select:
 ```
 accessibility.typeaheadfind.prefillwithselection true
 browser.compactmode.show true
-devtools.theme	auto
+toolkit.legacyUserProfileCustomizations.stylesheets true
 ```
 - Change monospace font.

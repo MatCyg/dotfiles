@@ -103,7 +103,7 @@ cmd_tools=(
   jq
   kubernetes-cli
   tree
-  unrar
+  rar
   watch
   wget
 )
