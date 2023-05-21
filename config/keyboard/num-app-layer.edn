@@ -4,7 +4,7 @@
           [:##return_or_enter :!Treturn_or_enter nil]
 
           ; right hand - NUM LAYER
-          [:##j :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
+          [:##j :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:##l :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:##u :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
           [:##y :9 nil {:afterup :TURN_ON_WRITING_LAYER}]

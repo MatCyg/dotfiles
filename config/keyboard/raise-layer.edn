@@ -34,9 +34,9 @@
       [:!Oz :at nil {:afterup :TURN_ON_WRITING_LAYER}]
       [:!Ox :open_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
       [:!Oc :close_bracket nil {:afterup :TURN_ON_WRITING_LAYER}]
-      [:!Ov :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Ov :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
       ; right hand
-      [:!Oj :pipe nil {:afterup :TURN_ON_WRITING_LAYER}]
+      [:!Oj :backslash nil {:afterup :TURN_ON_WRITING_LAYER}]
       [:!O#SSl :7 nil {:afterup :TURN_ON_WRITING_LAYER}]
       [:!O#SSu :8 nil {:afterup :TURN_ON_WRITING_LAYER}]
       [:!O#SSy :9 nil {:afterup :TURN_ON_WRITING_LAYER}]
