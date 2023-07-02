@@ -1577,13 +1577,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.40395939350128174</real>
+				<real>0.2630617618560791</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.98757272958755493</real>
+				<real>0.60452252626419067</real>
 				<key>Red Component</key>
-				<real>0.99950331449508667</real>
+				<real>0.61066627502441406</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
@@ -2875,7 +2875,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>DejaVuSansMonoNerdFontCompleteM-Book 18</string>
+			<string>FiraCodeRoman-Regular 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
