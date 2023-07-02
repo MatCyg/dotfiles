@@ -20,9 +20,8 @@ create_symlinks() {
   do
     major_version=$(echo $version | cut -d. -f1 | cut -d- -f1)
     symlink_base_name="java"
-    if [[ $version == *"grl"* ]]; then
-      graalvm_version=$(cut -d "r" -f2- <<< "$version")
-      symlink_base_name="graalvm-$graalvm_version-"
+    if [[ $version == *"graalce"* ]]; then
+      symlink_base_name="graal"
     fi
     ln -sf "$HOME"/.sdkman/candidates/java/"$version" "$JAVA_SYMLINKS_DIR"/"$symlink_base_name""$major_version"
   done
