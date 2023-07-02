@@ -12,7 +12,7 @@ class InstallNewestJavaVersions {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         Map<String, List<SemVersion>> collect = SdkMan.listJava()
-                .filter(s -> s.contains("-grl") | s.contains("-tem"))
+                .filter(s -> s.contains("-graalce") | s.contains("-tem"))
                 .map(s -> s.replace(" ", ""))
                 .map(p::matcher)
                 .filter(Matcher::find)
@@ -30,11 +30,11 @@ class InstallNewestJavaVersions {
                         .stream())
                 .toList();
 
-        List<SemVersion> grlVersions = collect.get("grl").stream()
+        List<SemVersion> grlVersions = collect.get("graalce").stream()
                 .mapToInt(SemVersion::major)
                 .max()
                 .stream()
-                .mapToObj(major -> collect.get("grl")
+                .mapToObj(major -> collect.get("graalce")
                         .stream()
                         .filter(v -> major == v.major())
                         .filter(v -> v.status() != Status.LOCAL_ONLY)
