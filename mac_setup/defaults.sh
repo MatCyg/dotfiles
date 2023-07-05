@@ -27,7 +27,7 @@ defaults write -g AppleShowAllExtensions -bool true
 
 #Dock:
 # Set dock to size 84
-defaults write com.apple.dock tilesize -int 84
+defaults write com.apple.dock tilesize -int 60
 
 # Speeding up Mission Control animations and grouping windows by application
 defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
