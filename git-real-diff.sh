@@ -39,28 +39,28 @@ test "$commitsBehind" = 0
 shouldMergeBeforeDiff=$?
 if [ "$shouldMergeBeforeDiff" -eq 0 ]; then
   echo "Target branch is up to date with current branch."
-  git diff --binary "$current_branch" "$diff_branch" >/tmp/git_real_diff.patch
+  git diff --binary "$current_branch" "$diff_branch" >/tmp/git-real-diff.patch
 else
   echo "Target branch is not up to date with current branch. Started automatic merge process."
-  git checkout -b git_real_diff_merge_branch "$diff_branch" > /dev/null 2>&1
+  git checkout -b git-real-diff-merge-branch "$diff_branch" > /dev/null 2>&1
   git merge --no-commit --no-ff "$current_branch" > /dev/null 2>&1
   areThereConflicts=$?
   git merge --abort
   if [ $areThereConflicts -eq 0 ]; then
     git merge "$current_branch" --no-edit > /dev/null 2>&1
     git checkout "$current_branch" > /dev/null 2>&1
-    git diff --binary "$current_branch" git_real_diff_merge_branch >/tmp/git_real_diff.patch
-    git branch -D git_real_diff_merge_branch > /dev/null 2>&1
+    git diff --binary "$current_branch" git-real-diff-merge-branch >/tmp/git-real-diff.patch
+    git branch -D git-real-diff-merge-branch > /dev/null 2>&1
     echo "Automatic merge successful."
   else
     git checkout "$current_branch" > /dev/null 2>&1
-    git branch -D git_real_diff_merge_branch > /dev/null 2>&1
+    git branch -D git-real-diff-merge-branch > /dev/null 2>&1
     echo "Automatic merge is impossible because of conflicts. Exiting..."
     exit 1
   fi
 fi
 
-git apply /tmp/git_real_diff.patch
+git apply /tmp/git-real-diff.patch
 git add .
 
 echo "Diff executed from branch $diff_branch onto $current_branch."

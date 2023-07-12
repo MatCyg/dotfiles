@@ -108,6 +108,8 @@ cmd_tools=(
   rar
   watch
   wget
+
+  bash
 )
 for cmd_tool in "${cmd_tools[@]}"; do
   echo "[brew-cmd-tools] Installing '$cmd_tool'"
@@ -116,22 +118,21 @@ done
 
 echo "[brew] Installing desktop applications..."
 apps=(
-  alt-tab
   anki
   docker
   drawio
   firefox
   iterm2
   karabiner-elements
-  lens
   logitech-options
   microsoft-teams
+  mongodb-compass
   postman
   rectangle
   selfcontrol
-  slack
   spotify
   sublime-text
+  telegram
   visual-studio-code
   vlc
 )
