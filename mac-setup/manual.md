@@ -60,5 +60,7 @@ Features -> Clipboard History -> Select:
 accessibility.typeaheadfind.prefillwithselection true
 browser.compactmode.show true
 toolkit.legacyUserProfileCustomizations.stylesheets true
+browser.urlbar.showSearchSuggestionsFirst false
+browser.urlbar.maxRichResults 14
 ```
 - Change monospace font.
