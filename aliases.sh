@@ -90,7 +90,7 @@ i() {
   idea "$passed_dir"
 }
 
-git_open_url() {
+git-open-url() {
   remoteUrl=$(git ls-remote --get-url origin)
   if [[ "$remoteUrl" == *"ssh.dev.azure.com"* || "$remoteUrl" == *"ssh.visualstudio.com"* ]]; then
     url=$(echo $remoteUrl | awk '{split($0,a,"/"); print "https://dev.azure.com/"a[2]"/"a[3]"/_git/"a[4]"/pullrequests?_a=mine"}')
@@ -100,7 +100,7 @@ git_open_url() {
   fi
   }
 
-git_open_pipelines() {
+git-open-pipelines() {
   remoteUrl=$(git ls-remote --get-url origin)
   if [[ "$remoteUrl" == *"ssh.dev.azure.com"* || "$remoteUrl" == *"ssh.visualstudio.com"* ]]; then
     url=$(echo $remoteUrl | awk '{split($0,a,"/"); print "https://dev.azure.com/"a[2]"/"a[3]"/_build?pipelineNameFilter="a[4]}')
