@@ -94,9 +94,9 @@ brew update
 
 echo "[brew] Installing command line tools..."
 cmd_tools=(
+  bash
   bat
   blueutil
-  docker
   font-fira-code
   fzf
   goku
@@ -104,12 +104,11 @@ cmd_tools=(
   httpie
   jq
   kubernetes-cli
+  podman-compose
   tree
   rar
   watch
   wget
-
-  bash
 )
 for cmd_tool in "${cmd_tools[@]}"; do
   echo "[brew-cmd-tools] Installing '$cmd_tool'"
@@ -119,7 +118,6 @@ done
 echo "[brew] Installing desktop applications..."
 apps=(
   anki
-  docker
   drawio
   firefox
   iterm2
@@ -127,6 +125,7 @@ apps=(
   logitech-options
   microsoft-teams
   mongodb-compass
+  podman-desktop
   postman
   rectangle
   selfcontrol
