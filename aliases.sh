@@ -50,9 +50,8 @@ alias current-datetime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
 
-alias goku='cd $DOTFILES/config/keyboard/; ./build.sh; cd -'
-#alias gokus='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
-alias gokus='~/goku -c $DOTFILES/config/karabiner/karabiner3.edn'
+#alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
+alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
