@@ -122,7 +122,6 @@ apps=(
   firefox
   iterm2
   karabiner-elements
-  logitech-options
   microsoft-teams
   mongodb-compass
   podman-desktop
