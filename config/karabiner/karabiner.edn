@@ -98,6 +98,13 @@
 ;   todo add "hold_down_milliseconds" : 200 - found in karabiner_20230709.json
  }
  :main         [
+
+    {:des "Mouse remap"
+     :rules [
+             [{:pkey :button4} [:vk_mission_control :vk_none]]
+             [{:pkey :button5} [:!Ctab :vk_none]]
+    ]}
+
     {:des "missing zmk features"
      :rules [
              [:!!t {:pkey :button1}]
@@ -220,7 +227,7 @@
             [:!OOj :open_braces]
             [:!OOk :close_braces]
 ;           [:!OOl []]
-            [:!OOsemicolon []]
+;           [:!OOsemicolon []]
 
 ;           [:!OOn []]
 ;           [:!OOm []]
