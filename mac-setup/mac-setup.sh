@@ -97,6 +97,7 @@ cmd_tools=(
   bash
   bat
   blueutil
+  ddcctl
   font-fira-code
   fzf
   goku
