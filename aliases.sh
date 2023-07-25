@@ -51,10 +51,28 @@ alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks
 alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
 
 #alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
-alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn'
+alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHoldDownMilliseconds ~/.config/karabiner/karabiner.json'
 
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
+
+karabinerAddHoldDownMilliseconds() {
+  temp_file=$(mktemp)
+  jq '
+    def addHoldDownMilliseconds:
+      if type == "object" then
+        if .key_code == "vk_none" then . + {"hold_down_milliseconds": 200}
+        else with_entries(.value |= addHoldDownMilliseconds) end
+      elif type == "array" then map(addHoldDownMilliseconds)
+      else . end;
+
+    .profiles |= map(if .name == "Default" then
+      .complex_modifications.rules |= map(if .description == "auto shift" then
+        .manipulators |= map(addHoldDownMilliseconds)
+      else . end)
+    else . end)
+  ' $1 > $temp_file && mv $temp_file $1
+}
 
 refresh () {
 	command=$*;
