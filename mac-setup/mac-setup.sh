@@ -41,7 +41,7 @@ echo_section "[SDKMAN] Installing..."
 curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-"$(dirname "$0")"/../sdkman_upgrade_java.sh
+"$(dirname "$0")"/../upgrade-java/sdkman-upgrade-java.sh
 
 echo_section "[SDKMAN] Installation finished"
 
