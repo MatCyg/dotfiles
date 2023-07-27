@@ -63,7 +63,7 @@ git clone https://github.com/paulirish/git-open.git "$ZSH_PLUGINS_DIR"/git-open
 
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_THEMES_DIR"/powerlevel10k
 
-cp "$(dirname "$0")"/default_zshrc.sh "$HOME"/.zshrc
+cp "$(dirname "$0")"/default-zshrc.sh "$HOME"/.zshrc
 
 # disable last login message
 touch ~/.hushlogin
