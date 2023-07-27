@@ -19,7 +19,7 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 3
 # Show scroll bars when scrolling
 defaults write -g AppleShowScrollBars -string WhenScrolling
 # Prefer tabs -> always (only for big sur)
-defaults write -g AppleWindowTabbingMode -string always
+#defaults write -g AppleWindowTabbingMode -string always
 # Automatic switching oof interface
 defaults write -g AppleInterfaceStyleSwitchesAutomatically -int 1
 # Show all extensions
@@ -27,7 +27,8 @@ defaults write -g AppleShowAllExtensions -bool true
 
 #Dock:
 # Set dock to size 84
-defaults write com.apple.dock tilesize -int 60
+defaults write com.apple.dock tilesize -int 55
+
 
 # Speeding up Mission Control animations and grouping windows by application
 defaults write com.apple.dock workspaces-swoosh-animation-off -bool YES
@@ -35,8 +36,10 @@ defaults write com.apple.dock expose-animation-duration -int 0
 defaults write -g NSWindowResizeTime -float 0.003
 defaults write com.apple.dock expose-group-by-app -bool false
 
+# Set dock position to left
+defaults write com.apple.dock orientation -string left
 # Setting Dock to auto-hide and removing the auto-hiding delay
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool false
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
