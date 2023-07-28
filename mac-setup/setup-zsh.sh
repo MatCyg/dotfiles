@@ -1,4 +1,4 @@
-echo_section "[Oh-My-Zsh] Installing..."
+echo "[Oh-My-Zsh] Installing..."
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -7,7 +7,7 @@ ZSH_PLUGINS_DIR=$ZSH_CUSTOM/plugins
 ZSH_THEMES_DIR=$ZSH_CUSTOM/themes
 
 
-echo_section "[Oh-My-Zsh] Installing custom plugins and themes..."
+echo "[Oh-My-Zsh] Installing custom plugins and themes..."
 
 git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_PLUGINS_DIR"/zsh-autosuggestions
 git clone https://github.com/paulirish/git-open.git "$ZSH_PLUGINS_DIR"/git-open
@@ -20,4 +20,4 @@ cp "$(dirname "$0")"/default-zshrc.sh "$HOME"/.zshrc
 # disable last login message
 touch ~/.hushlogin
 
-echo_section "[Oh-My-Zsh] Installation finished"
+echo "[Oh-My-Zsh] Installation finished"
