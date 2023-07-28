@@ -1,15 +1,9 @@
 #!/usr/bin/env bash
 
 echo_section() {
-  echo "################################################################################"
-  echo "################################################################################"
-  echo "$1"
-  echo "################################################################################"
-  echo "################################################################################"
-  echo
+  local line="################################################################################"
+  echo -e "${line}\n${line}\n$1\n${line}\n${line}\n"
 }
-
-export DOTFILES="${HOME}"/Projects/personal/dotfiles
 
 echo_section "[XCODE-TOOLS] Installing..."
 if ! xcode-select --install 2>&1 | grep installed; then
@@ -17,141 +11,22 @@ if ! xcode-select --install 2>&1 | grep installed; then
 fi
 echo_section "[XCODE-TOOLS] Installation finished"
 
-
-
-echo_section "[ssh-key] Generation..."
-
-email="matcyg@gmail.com"
-
-echo "[ssh-key] Creating an SSH key for '$email'"
-ssh-keygen -t ed25519 -C $email
-
-echo -e "\n[ssh-key] Please add this public key to Github:\n\n"
-cat "$HOME"/.ssh/id_ed25519.pub
-echo -e "\n\n[ssh-key] https://github.com/account/ssh \n"
-read -rp "[ssh-key] Press [Enter] key to continue..."
-
-echo_section "[ssh-key] Generation finished"
-
-
-
 # sdkman must be installed first as it alters .zshrc
-echo_section "[SDKMAN] Installing..."
-
-curl -s "https://get.sdkman.io" | bash
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-"$(dirname "$0")"/../upgrade-java/sdkman-upgrade-java.sh
-
+echo_section "[SDKMAN]SDKMAN Installing..."
+"$(dirname "$0")"/setup-sdkman.sh
 echo_section "[SDKMAN] Installation finished"
 
-
-
-echo_section "[Oh-My-Zsh] Installing..."
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-ZSH_CUSTOM=$HOME/.oh-my-zsh/custom
-ZSH_PLUGINS_DIR=$ZSH_CUSTOM/plugins
-ZSH_THEMES_DIR=$ZSH_CUSTOM/themes
-
-echo_section "[Oh-My-Zsh] Installing custom plugins and themes..."
-
-git clone https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_PLUGINS_DIR"/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_PLUGINS_DIR"/zsh-syntax-highlighting
-git clone https://github.com/paulirish/git-open.git "$ZSH_PLUGINS_DIR"/git-open
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_THEMES_DIR"/powerlevel10k
-
-cp "$(dirname "$0")"/default-zshrc.sh "$HOME"/.zshrc
-
-# disable last login message
-touch ~/.hushlogin
-
-echo_section "[Oh-My-Zsh] Installation finished"
-
-
-
-echo_section "[symlinks] Setting up configuration symlinks..."
-ln -s "$DOTFILES"/.gitconfig "$HOME"/.gitconfig
-ln -s "$DOTFILES"/Projects/personal/dotfiles/.gitignore_global "$HOME"/.gitignore_global
-echo_section "[symlinks] Symlinks set"
-
-
+echo_section "[zsh] Installing..."
+"$(dirname "$0")"/setup-zsh.sh
+echo_section "[zsh] Installation finished"
 
 echo_section "[brew] Installing..."
-
-if test ! "$(which brew)"; then
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
-echo "[brew] Adding taps..."
-brew tap homebrew/cask-fonts
-brew tap homebrew/cask
-
-echo "[brew] Updating recipes..."
-brew update
-
-echo "[brew] Installing command line tools..."
-cmd_tools=(
-  bash
-  bat
-  blueutil
-  ddcctl
-  font-fira-code
-  fzf
-  goku
-  htop
-  httpie
-  jq
-  kubernetes-cli
-  podman-compose
-  tree
-  rar
-  watch
-  wget
-)
-for cmd_tool in "${cmd_tools[@]}"; do
-  echo "[brew-cmd-tools] Installing '$cmd_tool'"
-  brew install "$cmd_tool"
-done
-
-echo "[brew] Installing desktop applications..."
-apps=(
-  anki
-  drawio
-  firefox
-  iterm2
-  karabiner-elements
-  microsoft-teams
-  mongodb-compass
-  podman-desktop
-  postman
-  rectangle
-  selfcontrol
-  spotify
-  sublime-text
-  telegram
-  visual-studio-code
-  vlc
-)
-for app in "${apps[@]}"; do
-  echo "[brew-apps] Installing '$app'"
-  brew install --cask "$app"
-done
-
-echo "[brew] Cleaning up..."
-brew cleanup
-
+"$(dirname "$0")"/setup-brew.sh
 echo_section "[brew] Installation finished"
 
-
-
-# keep in defaults invoke global sudo, remember to run it as the last step
+# remember to run this as the last step
 echo "[defaults] - Setting up macOS defaults"
-"$(dirname "$0")"/defaults.sh
+"$(dirname "$0")"/setup-defaults.sh
 echo "[defaults] - Setting up macOS defaults"
-
-
 
 echo_section "Installation completed"
