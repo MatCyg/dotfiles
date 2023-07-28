@@ -47,7 +47,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 
 alias utctime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
-alias upgrade-brew-packages='brew update && brew upgrade && brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
+alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
 
 #alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
