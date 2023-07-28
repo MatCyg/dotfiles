@@ -22,7 +22,6 @@ cmd_tools=(
   fzf
   git
   goku
-  htop
   httpie
   jq
   kubernetes-cli
