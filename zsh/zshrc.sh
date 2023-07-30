@@ -18,3 +18,10 @@ export SDKMAN_OFFLINE_MODE=true
 source ${zsh_plugins_zsh}
 
 unset SDKMAN_OFFLINE_MODE
+
+# Enable the "new" completion system (compsys).
+autoload -Uz compinit
+compinit
+if [[ ! ~/.zcompdump.zwc -nt ~/.zcompdump ]]; then
+  zcompile -R -- ~/.zcompdump.zwc ~/.zcompdump
+fi
