@@ -14,6 +14,7 @@ brew update
 
 echo "[brew] Installing command line tools..."
 cmd_tools=(
+  antidote
   bash
   bat
   blueutil
