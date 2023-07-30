@@ -49,6 +49,8 @@ alias port='netstat -ap tcp'
 alias utctime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
+alias upgrade-antidote='source /usr/local/opt/antidote/share/antidote/antidote.zsh && antidote update'
+alias upgrade-all='upgrade-brew-packages; upgrade-java; upgrade-antidote'
 
 #alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHoldDownMilliseconds ~/.config/karabiner/karabiner.json'
