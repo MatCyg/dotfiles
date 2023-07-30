@@ -27,3 +27,6 @@ if [[ ! ~/.zcompdump.zwc -nt ~/.zcompdump ]]; then
 fi
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+autoload -U select-word-style
+select-word-style bash
