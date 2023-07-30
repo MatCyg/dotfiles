@@ -33,6 +33,11 @@ alias h="history"
 alias mk="minikube"
 alias kc="kubectl"
 
+alias sl='ls -hG'
+alias ls='ls -hG'
+alias l='ls -lhG'
+alias ll='ls -lahG'
+
 alias start-simple-server="python -m SimpleHTTPServer 8000"
 alias clc="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
@@ -41,12 +46,20 @@ alias fd='find . -type d -name'
 alias k9='kill -9'
 alias c="printf '\e]50;ClearScrollback\a'"
 alias le='less +F'
-alias sl='ls'
+
+if command -v bat &> /dev/null; then
+  alias cat="bat -pp"
+  alias catt="bat"
+fi
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
-
 alias utctime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
+
 alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/upgrade-java/sdkman-upgrade-java.sh && exec $SHELL'
 alias upgrade-antidote='source /usr/local/opt/antidote/share/antidote/antidote.zsh && antidote update'
@@ -58,14 +71,6 @@ alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHold
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
 
-if command -v bat &> /dev/null; then
-  alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
-  alias catt="bat --theme \"Visual Studio Dark+\"" 
-fi
-
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
 
 
 
