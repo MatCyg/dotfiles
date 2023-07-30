@@ -46,6 +46,17 @@ Some things are not yet automated:
 2. Check details of installed profiles by running `sudo /usr/bin/profiles show`
 3. Check defaults preferences for third parties by verifying `sudo defaults read`
 
+# Shell
+1. Run `env` and see the default env variables. Especially look for stuff loaded in `PATH`.
+2. Run `zsh -xl` and analyze the output
+3. Analyze `/etc/paths.d/`
+4. Analyze `/Library/LaunchAgents/`
+5. Analyze `/Library/LaunchDaemons/`
+6. Analyze `/Library/StartupItems/`
+
+### Link Sublime settings
+`ln -sF $DOTFILES/config/st.settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings`
+
 # Applications preference:
 
 ### Alfred
