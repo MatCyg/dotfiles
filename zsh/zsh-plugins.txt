@@ -1,0 +1,11 @@
+romkatv/powerlevel10k
+$DOTFILES/zsh/p10k.zsh
+$DOTFILES/zsh/aliases.sh kind:defer
+$HOME/.java/java-aliases.sh kind:defer
+# zdharma-continuum/fast-syntax-highlighting kind:defer
+zsh-users/zsh-autosuggestions kind:defer
+joshskidmore/zsh-fzf-history-search kind:defer
+paulirish/git-open kind:defer
+ohmyzsh/ohmyzsh path:plugins/extract kind:defer
+ohmyzsh/ohmyzsh path:plugins/z kind:defer
+$HOME/.sdkman/bin/sdkman-init.sh kind:defer

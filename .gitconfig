@@ -67,8 +67,8 @@
     sl = !git --no-pager stash list
     sa = stash apply
     sp = stash pop
-    o = "!bash -c 'source $DOTFILES/aliases.sh && git-open-url'"
-    op = "!bash -c 'source $DOTFILES/aliases.sh && git-open-pipelines'"
+    o = "!bash -c 'source $DOTFILES/zsh/aliases.sh && git-open-url'"
+    op = "!bash -c 'source $DOTFILES/zsh/aliases.sh && git-open-pipelines'"
 
     # List all aliases
     la = !git config -l | grep --color=auto alias | cut -c 7-

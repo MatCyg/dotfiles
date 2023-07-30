@@ -56,6 +56,17 @@ alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHold
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
 
+if command -v bat &> /dev/null; then
+  alias cat="bat -pp --theme \"Visual Studio Dark+\"" 
+  alias catt="bat --theme \"Visual Studio Dark+\"" 
+fi
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+
+
 karabinerAddHoldDownMilliseconds() {
   temp_file=$(mktemp)
   jq '
