@@ -53,6 +53,7 @@ Features -> Clipboard History -> Select:
    - Keep Plain Text
    - Keep Images
    - Keep File Lists
+Features -> Snippets -> Select 'Automatically expand snippets by keyword'
 
 ### Firefox
 - Set defaults:
