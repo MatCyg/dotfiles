@@ -118,7 +118,7 @@ t() {
   if [[ -z $passed_dir ]]; then
     passed_dir=$(z | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' | fzf | awk '{print $2}')
   fi
-  z "$passed_dir"
+  zshz 2>&1 "$passed_dir"
 }
 
 i() {
