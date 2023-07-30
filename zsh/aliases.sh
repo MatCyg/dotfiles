@@ -22,8 +22,8 @@ alias pdf='cd $PROJECTS/finastra'
 alias pdp='cd $PROJECTS/personal'
 # shellcheck disable=SC2139
 # cd to dotfiles project
-alias pdd="cd $(dirname "$0")"
-alias pdm="cd $(dirname "$0")/../monorepo"
+alias pdd="cd $(dirname "$0")/.."
+alias pdm="cd $(dirname "$0")/../../monorepo"
 alias tl='cd $TOOLS'
 alias g="git"
 alias dr="docker"
