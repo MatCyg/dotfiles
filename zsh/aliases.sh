@@ -38,6 +38,10 @@ alias ls='ls -hG'
 alias l='ls -lhG'
 alias ll='ls -lahG'
 
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
 alias start-simple-server="python -m SimpleHTTPServer 8000"
 alias clc="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
