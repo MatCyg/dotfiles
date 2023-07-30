@@ -25,3 +25,5 @@ compinit
 if [[ ! ~/.zcompdump.zwc -nt ~/.zcompdump ]]; then
   zcompile -R -- ~/.zcompdump.zwc ~/.zcompdump
 fi
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
