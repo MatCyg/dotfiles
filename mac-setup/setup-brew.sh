@@ -43,14 +43,12 @@ apps=(
   drawio
   firefox
   iterm2
-  karabiner-elements
   mongodb-compass
   podman-desktop
   postman
   rectangle
   spotify
   sublime-text
-  telegram
   visual-studio-code
   vlc
 )
