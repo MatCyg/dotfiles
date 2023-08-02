@@ -111,6 +111,7 @@
              [:!!t {:pkey :button1}]
              [:!TOSup_arrow :!TOup_arrow]
              [:!!3 :!CSm]
+             [:!OOtab :!Tup_arrow]
     ]}
 
     {:des "APP SHORTCUT LAYER"

@@ -118,6 +118,25 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "tab",
+                  "modifiers": {
+                    "mandatory": [
+                      "option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  }
+                ],
+                "type": "basic"
               }
             ]
           },
