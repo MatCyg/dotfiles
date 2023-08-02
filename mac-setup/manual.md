@@ -40,6 +40,8 @@ Some things are not yet automated:
 2. Display
    - `Reduce motion`
    - `Reduce transparency`
+3. Pointer control -> Trackpad options
+   - Use trackpad for dragging with Three-Finger Drag
 
 ### Sharing
 1. Verify sharing option and disable remote login
