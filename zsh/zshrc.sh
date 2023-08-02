@@ -1,4 +1,3 @@
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=129'
 export LANG="en_US.UTF-8"
 
 setopt SHARE_HISTORY HIST_IGNORE_DUPS
@@ -30,7 +29,9 @@ if [[ ! ${zsh_plugins_zsh} -nt ${zsh_plugins_txt} ]]; then
   antidote bundle <${zsh_plugins_txt} >${zsh_plugins_zsh}
 fi
 
+export HOMEBREW_NO_AUTO_UPDATE=1
 export SDKMAN_OFFLINE_MODE=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=129'
 
 source ${zsh_plugins_zsh}
 
