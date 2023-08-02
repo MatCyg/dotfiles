@@ -2486,6 +2486,9 @@
                       "left_command",
                       "left_shift"
                     ]
+                  },
+                  {
+                    "key_code": "vk_none"
                   }
                 ],
                 "conditions": [
@@ -2529,6 +2532,9 @@
                       "left_command",
                       "left_shift"
                     ]
+                  },
+                  {
+                    "key_code": "vk_none"
                   }
                 ],
                 "conditions": [
