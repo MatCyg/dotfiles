@@ -5,10 +5,12 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
+unsetopt listambiguous
 
 autoload -U select-word-style
 select-word-style bash
 
+zstyle ':completion:::::default' menu yes select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Enable the "new" completion system (compsys).
