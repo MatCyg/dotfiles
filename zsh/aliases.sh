@@ -118,7 +118,7 @@ refresh () {
 t() {
   passed_dir=$1
   if [[ -z $passed_dir ]]; then
-    passed_dir=$(z | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' | fzf | awk '{print $2}')
+    passed_dir=$(z | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' | fzf | awk '{$1=""; print $0}' | sed 's/^ *//')
   fi
   zshz 2>&1 "$passed_dir"
 }
