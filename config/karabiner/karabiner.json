@@ -2169,6 +2169,12 @@
                 },
                 "to": [
                   {
+                    "set_variable": {
+                      "name": "selection-mode",
+                      "value": 0
+                    }
+                  },
+                  {
                     "key_code": "c",
                     "modifiers": [
                       "left_command",

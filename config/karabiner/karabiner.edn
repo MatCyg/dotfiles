@@ -216,7 +216,7 @@
 ;           [:!OOz []]
 ;           [:!OOx []]
 ;           [:!OOc []]
-            [:!OOv :!COc]
+            [:!OOv [:TURN_OFF_SELECTION_MODE :!COc]]
             [:!OOb :!!b]
 ;           right hand
             [:!OOy []]
