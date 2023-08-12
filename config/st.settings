@@ -3,12 +3,15 @@
 	"theme": "auto",
 	"dark_theme": "Default Dark.sublime-theme",
 	"light_theme": "Default.sublime-theme",
+	"color_scheme": "auto",
+	"dark_color_scheme": "flat-and-minimalistic-dark.sublime-color-scheme",
+	"light_color_scheme": "flat-and-minimalistic.sublime-color-scheme",
+	
 	"ignored_packages":
 	[
-		"Vintage",
-		"Markdown",
+		"Vintage"
 	],
-	"color_scheme": "auto",
 	"font_face": "Fira Code-Retina",
 	"highlight_line": true,
+	"caret_extra_width": 3
 }
