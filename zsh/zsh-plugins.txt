@@ -9,8 +9,10 @@ zsh-users/zsh-autosuggestions kind:defer
 joshskidmore/zsh-fzf-history-search kind:defer
 paulirish/git-open kind:defer
 
+ohmyzsh/ohmyzsh path:plugins/mvn
 ohmyzsh/ohmyzsh path:plugins/extract kind:defer
 ohmyzsh/ohmyzsh path:plugins/z kind:defer
+Aloxaf/fzf-tab kind:defer
 
 $HOME/.sdkman/bin/sdkman-init.sh kind:defer
 

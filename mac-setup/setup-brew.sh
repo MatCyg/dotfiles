@@ -27,8 +27,9 @@ cmd_tools=(
   jq
   kubernetes-cli
   podman-compose
-  tree
   rar
+  switchaudio-osx
+  tree
   watch
   wget
 )
