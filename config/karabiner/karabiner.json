@@ -1313,9 +1313,6 @@
                   "modifiers": {
                     "mandatory": [
                       "shift"
-                    ],
-                    "optional": [
-                      "any"
                     ]
                   }
                 },
@@ -1369,9 +1366,6 @@
                   "modifiers": {
                     "mandatory": [
                       "shift"
-                    ],
-                    "optional": [
-                      "any"
                     ]
                   }
                 },
@@ -1425,9 +1419,6 @@
                   "modifiers": {
                     "mandatory": [
                       "shift"
-                    ],
-                    "optional": [
-                      "any"
                     ]
                   }
                 },
@@ -1481,9 +1472,6 @@
                   "modifiers": {
                     "mandatory": [
                       "shift"
-                    ],
-                    "optional": [
-                      "any"
                     ]
                   }
                 },
@@ -1497,6 +1485,226 @@
                   {
                     "key_code": "up_arrow",
                     "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "selection-mode",
+                    "value": 1,
+                    "type": "variable_unless"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "selection-mode",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_command",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "selection-mode",
+                    "value": 1,
+                    "type": "variable_unless"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "selection-mode",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "left_command",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "selection-mode",
+                    "value": 1,
+                    "type": "variable_unless"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_option",
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "selection-mode",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_option",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "name": "selection-mode",
+                    "value": 1,
+                    "type": "variable_unless"
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_option",
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "selection-mode",
+                      "value": 1
+                    }
+                  },
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "left_option",
                       "left_shift"
                     ]
                   }

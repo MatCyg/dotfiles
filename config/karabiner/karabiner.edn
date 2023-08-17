@@ -178,11 +178,16 @@
     :rules [
             [:condi :mac :!selection-mode]
 
-            [:!SS#C#Oleft_arrow [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
-            [:!SS#C#Odown_arrow [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
-            [:!SS#C#Oright_arrow [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
-            [:!SS#C#Oup_arrow [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+            [:!SSup_arrow [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+            [:!SSdown_arrow [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
+            [:!SSleft_arrow [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
+            [:!SSright_arrow [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
 
+            [:!SSCleft_arrow [:TURN_ON_SELECTION_MODE :!SCleft_arrow]]
+            [:!SSCright_arrow [:TURN_ON_SELECTION_MODE :!SCright_arrow]]
+
+            [:!SSOleft_arrow [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
+            [:!SSOright_arrow [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
 
             [:condi :mac :selection-mode]
 
