@@ -15,6 +15,6 @@ read -rp "[ssh-key] Press [Enter] key to continue..."
 echo "[ssh-key] Generation finished"
 
 echo "[symlinks] Setting up configuration symlinks..."
-ln -s "$DOTFILES"/.gitconfig "$HOME"/.gitconfig
-ln -s "$DOTFILES"/Projects/personal/dotfiles/.gitignore_global "$HOME"/.gitignore_global
+ln -s "$DOTFILES"/git/.gitconfig "$HOME"/.gitconfig
+ln -s "$DOTFILES"/git/.gitignore_global "$HOME"/.gitignore_global
 echo "[symlinks] Symlinks set"

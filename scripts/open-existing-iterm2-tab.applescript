@@ -25,15 +25,14 @@ on send_text(custom_text)
   tell application "iTerm" to tell the first window to tell current session to write text custom_text
 end send_text
 
--- set printString to ""       
--- set printString to printString & tabPath & "\n"
--- copy printString to stdout
--- copy "new window" to stdout
+
 on run argv
-    set expectedPath to item 1 of argv    
-    -- set expectedPath to "/Users/mateuszcygert/Projects/finastra/app-management"
+    -- set printString to ""
+    set expectedPath to item 1 of argv
     set cmd to "cd " & expectedPath & "; clear;"
-    copy expectedPath to stdout
+
+    -- set printString to "expectedPath=" & printString & expectedPath & "\n"
+
     tell application "iTerm"
         activate
         if my has_windows() then
@@ -42,10 +41,15 @@ on run argv
                 repeat with aTab in tabs
                     tell current session of aTab
                         set tabPath to (variable named "session.path")
-        
+
+                        -- set printString to printString & "tabPath=" & tabPath & "\n"
+
                         if tabPath is expectedPath then
+                                -- set printString to printString & "Found!" & "\n"
                                 set isAtPrompt to is at shell prompt
+                                -- set printString to printString & "isAtPrompt=" & isAtPrompt & "\n"
                                 if isAtPrompt then
+                                    -- set printString to printString & "Selecting!" & "\n"
                                     select aTab
                                     set foundTab to true
                                     exit repeat
@@ -70,5 +74,5 @@ on run argv
             end repeat
         end if
     end tell
-
+    -- return printString
 end run

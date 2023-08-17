@@ -7,4 +7,4 @@ fi
 
 TARGET_DIR="$HOME"/Projects/personal/dotfiles
 git clone https://github.com/MatCyg/dotfiles.git "$TARGET_DIR"
-"$TARGET_DIR"/mac-setup/mac-setup.sh
+"$TARGET_DIR"/setup/setup.sh
