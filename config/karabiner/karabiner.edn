@@ -178,17 +178,19 @@
     :rules [
             [:condi :mac :!selection-mode]
 
-            [:!SSup_arrow [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
-            [:!SSdown_arrow [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
-            [:!SSleft_arrow [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
-            [:!SSright_arrow [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
+            [:##right_shift :##right_shift nil {:alone :TURN_ON_SELECTION_MODE :params {:held 120 :alone 119}}]
 
-            [:!SSCleft_arrow [:TURN_ON_SELECTION_MODE :!SCleft_arrow]]
-            [:!SSCright_arrow [:TURN_ON_SELECTION_MODE :!SCright_arrow]]
-
-            [:!SSOleft_arrow [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
-            [:!SSOright_arrow [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
-
+;;             [:!SSup_arrow [:TURN_ON_SELECTION_MODE :!Sup_arrow]]
+;;             [:!SSdown_arrow [:TURN_ON_SELECTION_MODE :!Sdown_arrow]]
+;;             [:!SSleft_arrow [:TURN_ON_SELECTION_MODE :!Sleft_arrow]]
+;;             [:!SSright_arrow [:TURN_ON_SELECTION_MODE :!Sright_arrow]]
+;;
+;;             [:!SSCleft_arrow [:TURN_ON_SELECTION_MODE :!SCleft_arrow]]
+;;             [:!SSCright_arrow [:TURN_ON_SELECTION_MODE :!SCright_arrow]]
+;;
+;;             [:!SSOleft_arrow [:TURN_ON_SELECTION_MODE :!SOleft_arrow]]
+;;             [:!SSOright_arrow [:TURN_ON_SELECTION_MODE :!SOright_arrow]]
+;;
             [:condi :mac :selection-mode]
 
             [:##left_arrow :!Sleft_arrow]
@@ -290,7 +292,7 @@
 
 ;           [:##left_control :!CTOleft_shift]
 
-            [:##right_shift nil nil {:held :right_shift :alone :!Otab :params {:held 100 :alone 99}}]
+;;             [:##right_shift nil nil {:held :right_shift :alone :!Otab :params {:held 100 :alone 99}}]
             [:##right_command :##right_command nil {:alone [:!Ctab] :params {:held 120 :alone 119}}]
 
 ;           [:!!left_arrow :!TOleft_arrow]
