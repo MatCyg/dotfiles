@@ -15,7 +15,8 @@
     {:vendor_id 1452 :product_id 832}
     {:vendor_id 76 :product_id 668}
     {:vendor_id 1118 :product_id 1957}
-    {:vendor_id 1452 :product_id 636}]
+    {:vendor_id 1452 :product_id 636}],
+    :sweep []
  }
  :froms {
     :gcs-q {:key :!CTSq}
@@ -115,15 +116,14 @@
     ]}
 
     {:des "APP SHORTCUT LAYER"
-    :rules [ :teams
-;           [:!CSopen_bracket [:!T1]]
-            [:!CSclose_bracket [:!CSm]]
-             :firefox
+    :rules [
+            [:condi :firefox :sweep]
             [:gcs-r :!Ct]
             [:gcs-s :!Cw]
             [:gcs-t :!Ct]
             [:gcs-g [:!Ct :previous-tab :!Cw]]
-             :intellij
+
+            [:condi :intellij :sweep]
             [:!CTSx :!CSopen_bracket]
             [:!CTSc :!CSclose_bracket]
 
@@ -248,8 +248,6 @@
 ;           [:!OOslash []]
 
 ;           [:!OO1 :!CTO1]
-            [:!OO2 :!CTO2]
-            [:!OO3 :!CTO3]
             [:!OO4 :!CTS4]
             [:!OO5 :!CS5]
 
@@ -258,13 +256,13 @@
             [:!OOclose_bracket :!!close_bracket]
             [:!OObackslash :!TSw]
 
-            [:!OO8 [:!TOCright_arrow :vk_none :vk_none :!TOup_arrow]]
             [:!OO9 :!TOleft_arrow]
             [:!OO0 :!TOright_arrow]
             [:!OOhyphen :!TOdown_arrow]
             [:!OOequal_sign :!TOup_arrow]
 ;           [:!OOhyphen [:spacebar :hyphen {:key :period :modi :shift :repeat false} {:key :spacebar :repeat false}]]
 
+            [:!Espacebar :spacebar]
             [:!CST4 []]
             [:!CT4 []]
             [:!CS4 []]
@@ -277,12 +275,12 @@
     {:des "MAC qwerty specific"
     :rules [:mac
 
-            [:left_command :left_command ["left_command_pressed" 0]
-             { :alone ["left_command_pressed" 1]
-               :delayed {:invoked  [["left_command_pressed" 0]]}
-               :params {:delay 2000}
-            }]
-            [:left_command [["left_command_pressed" 0] :!SSleft_command] ["left_command_pressed" 1]]
+;;             [:left_command :left_command ["left_command_pressed" 0]
+;;              { :alone ["left_command_pressed" 1]
+;;                :delayed {:invoked  [["left_command_pressed" 0]]}
+;;                :params {:delay 2000}
+;;             }]
+;;             [:left_command [["left_command_pressed" 0] :!SSleft_command] ["left_command_pressed" 1]]
 
             [:!Tdelete_or_backspace [:TURN_OFF_SELECTION_MODE :delete_forward]]
             [:##delete_or_backspace [:TURN_OFF_SELECTION_MODE :delete_or_backspace ]]

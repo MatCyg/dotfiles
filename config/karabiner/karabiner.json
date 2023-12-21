@@ -145,35 +145,6 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "close_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "m",
-                    "modifiers": [
-                      "left_command",
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "frontmost_application_if",
-                    "bundle_identifiers": [
-                      "^com\\.microsoft\\.teams$"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": [
@@ -197,6 +168,10 @@
                     "bundle_identifiers": [
                       "^org\\.mozilla\\.firefox$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -226,6 +201,10 @@
                     "bundle_identifiers": [
                       "^org\\.mozilla\\.firefox$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -255,6 +234,10 @@
                     "bundle_identifiers": [
                       "^org\\.mozilla\\.firefox$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -297,6 +280,10 @@
                     "bundle_identifiers": [
                       "^org\\.mozilla\\.firefox$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -327,6 +314,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -357,6 +348,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -385,6 +380,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -413,6 +412,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -442,6 +445,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -471,6 +478,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -500,6 +511,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -530,6 +545,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -559,6 +578,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -588,6 +611,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -617,6 +644,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -646,6 +677,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -676,6 +711,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -705,6 +744,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -734,6 +777,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -764,6 +811,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -794,6 +845,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -824,6 +879,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -854,6 +913,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -883,6 +946,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -913,6 +980,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -943,6 +1014,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -973,6 +1048,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1002,6 +1081,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1032,6 +1115,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1062,6 +1149,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1092,6 +1183,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1122,6 +1217,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1152,6 +1251,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1182,6 +1285,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1211,6 +1318,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1240,6 +1351,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1270,6 +1385,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1298,6 +1417,10 @@
                     "bundle_identifiers": [
                       "^com\\.jetbrains\\.intellij$"
                     ]
+                  },
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -2488,94 +2611,6 @@
               },
               {
                 "from": {
-                  "key_code": "2",
-                  "modifiers": {
-                    "mandatory": [
-                      "option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "2",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "3",
-                  "modifiers": {
-                    "mandatory": [
-                      "option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "3",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
                   "key_code": "4",
                   "modifiers": {
                     "mandatory": [
@@ -2831,63 +2866,6 @@
               },
               {
                 "from": {
-                  "key_code": "8",
-                  "modifiers": {
-                    "mandatory": [
-                      "option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_arrow",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  },
-                  {
-                    "key_code": "vk_none"
-                  },
-                  {
-                    "key_code": "vk_none"
-                  },
-                  {
-                    "key_code": "up_arrow",
-                    "modifiers": [
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
                   "key_code": "9",
                   "modifiers": {
                     "mandatory": [
@@ -3031,6 +3009,45 @@
                       "left_control",
                       "left_option"
                     ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar"
                   }
                 ],
                 "conditions": [
@@ -3317,114 +3334,6 @@
           {
             "description": "MAC qwerty specific",
             "manipulators": [
-              {
-                "to_if_alone": [
-                  {
-                    "set_variable": {
-                      "name": "left_command_pressed",
-                      "value": 1
-                    }
-                  }
-                ],
-                "to_delayed_action": {
-                  "to_if_invoked": [
-                    {
-                      "set_variable": {
-                        "name": "left_command_pressed",
-                        "value": 0
-                      }
-                    }
-                  ]
-                },
-                "parameters": {
-                  "basic.to_delayed_action_delay_milliseconds": 2000
-                },
-                "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "key_code": "left_command"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "name": "left_command_pressed",
-                    "value": 0,
-                    "type": "variable_if"
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "left_command"
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "left_command_pressed",
-                      "value": 0
-                    }
-                  },
-                  {
-                    "key_code": "left_command",
-                    "modifiers": [
-                      "shift"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "name": "left_command_pressed",
-                    "value": 1,
-                    "type": "variable_if"
-                  },
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
               {
                 "from": {
                   "key_code": "delete_or_backspace",
