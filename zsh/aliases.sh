@@ -109,7 +109,12 @@ refresh () {
   if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
   then
     clear;
-    while true; do eval "$command"; sleep 1; clear; done;
+    while true; do
+      local result=$(eval "$command");
+      clear;
+      echo "$result";
+      sleep 2;
+    done;
   else
     echo "Exiting."
   fi
