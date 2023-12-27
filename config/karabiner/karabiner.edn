@@ -99,7 +99,7 @@
 ;   todo double cmd/alt fo shift with arrows
 ;   todo add "hold_down_milliseconds" : 200 - found in karabiner_20230709.json
  }
- :main         [
+ :main [
 
     {:des "Mouse remap"
      :rules [
@@ -108,7 +108,7 @@
     ]}
 
     {:des "missing zmk features"
-     :rules [
+     :rules [ :sweep
              [:!!t {:pkey :button1}]
              [:!TOSup_arrow :!TOup_arrow]
              [:!!3 :!CSm]
@@ -201,21 +201,27 @@
 
     {:des "override option"
     :rules [
+            [:condi :mac :intellij]
+            [:!Ea :!TSd]
+            [:!Es :!TSr]
+;;             [:!Ee :!TOr]
+            [:!Ex :!Td]
+            [:!Ec :!Tr]
              :mac
-            [:!Os :!CTO1] ; sculpt
-            [:!Oa :!CTO2] ; sculpt
-            [:!Wspacebar :right_option] ; sculpt
-;           [:!Espacebar :dquote]
+;;             [:!Os :!CTO1] ; sculpt
+;;             [:!Oa :!CTO2] ; sculpt
+;;             [:!Wspacebar :right_option] ; sculpt
+
             [:!OOgrave_accent_and_tilde [:TURN_OFF_SELECTION_MODE :!!a]]
             [:!OO1 [:TURN_OFF_SELECTION_MODE :!!s]]
 ;           [:!OOq []]
-            [:!OOw []]
+            [:!OOw :!CTO1]
 ;           [:!OOe []]
-;           [:!OOr :!CTO2]
-            [:!OOt :!CTO1]
+            [:!OOr :!CTO2 :!intellij]
+            [:!OOt :!!f8]
 
-;           [:!OOs []]
 ;           [:!OOa []]
+;           [:!OOs []]
             [:!OOd :open_parenthesis]
             [:!OOf :close_parenthesis]
             [:!OOg :!Tq]

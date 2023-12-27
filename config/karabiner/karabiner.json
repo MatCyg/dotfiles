@@ -72,6 +72,12 @@
                     "pointing_button": "button1"
                   }
                 ],
+                "conditions": [
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
+                  }
+                ],
                 "type": "basic"
               },
               {
@@ -92,6 +98,12 @@
                       "left_control",
                       "left_option"
                     ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -117,6 +129,12 @@
                     ]
                   }
                 ],
+                "conditions": [
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
+                  }
+                ],
                 "type": "basic"
               },
               {
@@ -134,6 +152,12 @@
                     "modifiers": [
                       "left_control"
                     ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "identifiers": [],
+                    "type": "device_if"
                   }
                 ],
                 "type": "basic"
@@ -1681,68 +1705,29 @@
             "manipulators": [
               {
                 "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "1",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "conditions": [
-                  {
-                    "identifiers": [
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 832
-                      },
-                      {
-                        "vendor_id": 76,
-                        "product_id": 668
-                      },
-                      {
-                        "vendor_id": 1118,
-                        "product_id": 1957
-                      },
-                      {
-                        "vendor_id": 1452,
-                        "product_id": 636
-                      }
-                    ],
-                    "type": "device_if"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
                   "key_code": "a",
                   "modifiers": {
                     "mandatory": [
-                      "left_option"
+                      "right_option"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "2",
+                    "key_code": "d",
                     "modifiers": [
-                      "left_command",
                       "left_control",
-                      "left_option"
+                      "left_shift"
                     ]
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.jetbrains\\.intellij$"
+                    ]
+                  },
                   {
                     "identifiers": [
                       {
@@ -1769,19 +1754,125 @@
               },
               {
                 "from": {
-                  "key_code": "spacebar",
+                  "key_code": "s",
                   "modifiers": {
                     "mandatory": [
-                      "right_control"
+                      "right_option"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "right_option"
+                    "key_code": "r",
+                    "modifiers": [
+                      "left_control",
+                      "left_shift"
+                    ]
                   }
                 ],
                 "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.jetbrains\\.intellij$"
+                    ]
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "d",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.jetbrains\\.intellij$"
+                    ]
+                  },
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "r",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                      "^com\\.jetbrains\\.intellij$"
+                    ]
+                  },
                   {
                     "identifiers": [
                       {
@@ -1917,8 +2008,67 @@
                     ]
                   }
                 },
-                "to": [],
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": [
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
                 "conditions": [
+                  {
+                    "identifiers": [
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 832
+                      },
+                      {
+                        "vendor_id": 76,
+                        "product_id": 668
+                      },
+                      {
+                        "vendor_id": 1118,
+                        "product_id": 1957
+                      },
+                      {
+                        "vendor_id": 1452,
+                        "product_id": 636
+                      }
+                    ],
+                    "type": "device_if"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "modifiers": [
+                      "left_command",
+                      "left_control",
+                      "left_option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                      "^com\\.jetbrains\\.intellij$"
+                    ]
+                  },
                   {
                     "identifiers": [
                       {
@@ -1954,11 +2104,12 @@
                 },
                 "to": [
                   {
-                    "key_code": "1",
+                    "key_code": "f8",
                     "modifiers": [
                       "left_command",
                       "left_control",
-                      "left_option"
+                      "left_option",
+                      "left_shift"
                     ]
                   }
                 ],
