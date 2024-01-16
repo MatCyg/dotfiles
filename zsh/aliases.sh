@@ -69,7 +69,7 @@ alias utctime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/setup/setup-java/setup-java.sh && exec $SHELL'
 alias upgrade-antidote='source /usr/local/opt/antidote/share/antidote/antidote.zsh && antidote update'
-alias upgrade-all='upgrade-brew-packages; upgrade-java; upgrade-antidote'
+alias upgrade-all='upgrade-antidote; upgrade-brew-packages; upgrade-java'
 
 #alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
 alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHoldDownMilliseconds ~/.config/karabiner/karabiner.json'
