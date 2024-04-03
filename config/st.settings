@@ -1,5 +1,5 @@
 {
-	"font_size": 16,
+	"font_size": 15,
 	"theme": "auto",
 	"dark_theme": "Default Dark.sublime-theme",
 	"light_theme": "Default.sublime-theme",
@@ -14,4 +14,5 @@
 	"font_face": "Fira Code-Retina",
 	"highlight_line": true,
 	"caret_extra_width": 3,
+ 	"ui_scale": 1.1
 }
