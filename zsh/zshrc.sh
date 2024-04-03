@@ -45,3 +45,17 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=129'
 source ${zsh_plugins_zsh}
 
 unset SDKMAN_OFFLINE_MODE
+
+mvn-set-java() {
+  if [[ -f "pom.xml" ]]; then
+    local java_version=$(awk -F'[><]' '!/<!--/ && /<java.version>/ && !seen {print $3; seen=1; exit} !/<!--/ && /<maven.compiler.source>/ && !seen {print $3; seen=1; exit} !/<!--/ && /<maven.compiler.target>/ && !seen {print $3; seen=1; exit}' pom.xml)
+    local java_alias="java$java_version"
+    if alias "$java_alias" >/dev/null 2>&1; then
+      eval "$java_alias"
+    fi
+  fi
+
+  mvn-or-mvnw "$@"
+}
+alias mvn="mvn-set-java"
+alias mvns="mvn-or-mvnw"
