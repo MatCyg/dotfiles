@@ -125,7 +125,7 @@ class InstallNewestJavaVersions {
         public static Status from(String s) {
             return switch (s) {
                 case "installed" -> INSTALLED;
-                case "localonly" -> LOCAL_ONLY;
+                case " localonly" -> LOCAL_ONLY;
                 default -> REMOTE;
             };
         }
