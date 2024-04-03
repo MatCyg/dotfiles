@@ -66,7 +66,7 @@ alias listen="lsof -P -i -n"
 alias port='netstat -ap tcp'
 alias utctime='date -u +"%Y-%m-%dT%H:%M:%SZ"'
 
-alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew cleanup; brew cleanup --prune=all; brew doctor'
+alias upgrade-brew-packages='brew update && brew upgrade; brew upgrade --casks --greedy; brew autoremove; brew cleanup; brew cleanup --prune=all; brew doctor'
 alias upgrade-java='$DOTFILES/setup/setup-java/setup-java.sh && exec $SHELL'
 alias upgrade-antidote='source /usr/local/opt/antidote/share/antidote/antidote.zsh && antidote update'
 alias upgrade-all='upgrade-antidote; upgrade-brew-packages; upgrade-java'
