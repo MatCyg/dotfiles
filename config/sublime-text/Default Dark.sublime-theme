@@ -1,0 +1,26 @@
+{
+	"variables":
+	{
+		"base_hue": "#ffffff",
+		"ui_bg": "#1E1E1E",
+
+		"tabset_medium_bg": "#1E1E1E",
+		"tabset_medium_dark_bg": "#1E1E1E",
+		"tabset_light_bg": "#1E1E1E",
+
+		"tabset_medium_bg": "#151515",
+		"tabset_medium_dark_bg": "#151515",
+		"tabset_light_bg": "#151515",
+		
+		"file_tab_selected_label_color": "#D2D2D2",
+		"file_tab_unselected_label_color": "#9C9C9C",
+	},
+	"rules":
+	[
+		{
+			"class": "tab_control",
+			"attributes": ["selected"],
+			"tint_modifier": [38,38,38],
+		},
+	]
+}

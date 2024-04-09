@@ -57,7 +57,7 @@ Some things are not yet automated:
 6. Analyze `/Library/StartupItems/`
 
 ### Link Sublime settings
-`ln -sF $DOTFILES/config/st.settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings`
+`$DOTFILES/config/sublime-text/create-symlinks.sh`
 
 # Applications preference:
 

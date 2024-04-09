@@ -1,0 +1,19 @@
+{
+	"variables":
+	{
+		"base_hue": "#e8e8e8",
+
+		"tabset_medium_bg": "#F2F2F2",
+		"tabset_medium_dark_bg": "#F2F2F2",
+		"tabset_light_bg": "#F2F2F2",
+	},
+	"rules":
+	[
+		{
+			"class": "tab_control",
+			"attributes": ["selected"],
+			"tint_modifier": [255,255,255],
+		},
+	]
+}
+

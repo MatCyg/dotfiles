@@ -1,0 +1,433 @@
+{
+    "name": "FlatAndMinimalistic - gray",
+    "author": "Mat Cygert",
+	"variables":
+	{
+		"background": "#e8e8e8",
+		"black": "#000000",
+        "comment-gray": "#808080",
+        "string-green": "#008000",
+        "number-strongblue": "#0000FF",
+        "keyword-blue": "#000080",
+        "field-purple": "#660E7A",
+        "annotation-darkyellow": "#808000",
+        "parameter-red": "#AB2727",
+        "error-strongred": "#FF0000",
+        "lightblue": "#0073BF",
+
+        "diff-added": "#C5E5C1",
+        "diff-removed": "#D6D6D6",
+        "diff-changed": "#CDD8F7"
+	},
+	"globals": {
+		"foreground": "var(black)",
+		"background": "var(background)",
+		"accent": "var(lightblue)",
+		"caret": "#F62F77",
+		"block_caret": "#F62F77",
+		"line_highlight": "#D4D4D4",
+		"selection": "#5974AB",
+		"selection_border": "#5974AB",
+		"selection_foreground": "#FFFFFF",
+		"inactive_selection": "#5974AB",
+		"misspelling": "var(error-strongred)",
+		"shadow": "#bababa",
+		"active_guide": "#5fb4b4",
+		"stack_guide": "#5fb4b480",
+		"highlight": "#FF0000",
+		"find_highlight_foreground": "var(black)",
+		"find_highlight": "#FFFF00",
+		"brackets_options": "underline",
+		"brackets_foreground": "var(diff-changed)",
+		"bracket_contents_options": "underline",
+		"bracket_contents_foreground": "var(lightblue)",
+		"tags_options": "stippled_underline",
+		"tags_foreground": "#FF0000"
+	},
+	"rules":
+	[
+		{
+			"name": "Comment",
+			"scope": "comment, punctuation.definition.comment",
+			"foreground": "var(comment-gray)"
+		},
+		{
+			"name": "String",
+			"scope": "string, meta.string",
+			"foreground": "var(string-green)",
+			"font_style": "bold"
+		},
+		{
+			"name": "Punctuation",
+			"scope": "punctuation.definition - punctuation.definition.numeric.base",
+			"foreground": "var(black)"
+		},
+		{
+			"name": "Number",
+			"scope": "constant.numeric",
+			"foreground": "var(number-strongblue)"
+		},
+		{
+			"name": "Number suffix",
+			"scope": "storage.type.numeric",
+			"foreground": "var(number-strongblue)",
+			"font_style": "italic"
+		},
+		{
+			"name": "User-defined constant",
+			"scope": "constant.character, constant.other",
+			"foreground": "#660E7A"
+		},
+		{
+			"name": "Member Variable",
+			"scope": "variable.member, variable.other.member.java, meta.mapping.key.js",
+			"foreground": "#660E7A",
+			"font_style": "bold"
+		},
+		{
+			"name": "Keyword",
+			"scope": "keyword - keyword.operator, keyword.operator.word, constant.language, keyword.declaration.js, keyword.declaration.import.java",
+			"foreground": "#000080",
+
+			"font_style": "bold"
+		},
+		{
+			"name": "Operators",
+			"scope": "keyword.operator",
+			"foreground": "var(black)"
+		},
+		{
+			"name": "Punctuation",
+			"scope": "punctuation.separator, punctuation.terminator",
+			"foreground": "var(black)"
+		},
+		{
+			"name": "Accessor",
+			"scope": "punctuation.accessor",
+			"foreground": "var(black)"
+		},
+		{
+			"name": "Annotation",
+			"scope": "variable.annotation",
+			"foreground": "var(annotation-darkyellow)"
+		},
+		{
+			"name": "Annotation Punctuation",
+			"scope": "punctuation.definition.annotation",
+			"foreground": "var(annotation-darkyellow)"
+		},
+		{
+			"name": "JavaScript Dollar",
+			"scope": "variable.other.dollar.only.js, variable.other.object.dollar.only.js, variable.type.dollar.only.js, support.class.dollar.only.js",
+			"foreground": "var(number-strongblue)"
+		},
+		{
+			"name": "Storage",
+			"scope": "storage, storage.type.primitive",
+			"foreground": "#000080",
+
+			"font_style": "bold"
+		},
+		{
+			"name": "Storage type",
+			"scope": "storage.type",
+			"foreground": "var(black)",
+			"font_style": ""
+		},
+		{
+			"name": "Entity name",
+			"scope": "entity.name.function, entity.name.function.python, support.function.magic.python",
+			"foreground": "var(black)",
+			"font_style": ""
+		},
+        { //might get removed or extended
+        	"name": "Entity name",
+        	"scope": "entity.name - (entity.name.section | entity.name.tag | entity.name.label)",
+        	"foreground": "var(black)"
+        },
+        {
+        	"name": "Inherited class",
+        	"scope": "entity.other.inherited-class",
+        	"foreground": "var(black)"
+        },
+        {
+        	"name": "Function argument",
+        	"scope": "variable.parameter, meta.parameter",
+        	"foreground": "var(parameter-red)"
+        },
+        {
+        	"name": "Function argument 2",
+        	"scope": "entity.name.variable.local.cs",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "Language variable",
+        	"scope": "variable.language",
+        	"foreground": "#000080",
+
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Tag name",
+        	"scope": "entity.name.tag",
+        	"foreground": "#000080",
+
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Tag attribute",
+        	"scope": "entity.other.attribute-name",
+        	"foreground": "var(comment-gray)",
+        	"font_style": "bold italic underline"
+        },
+        {
+        	"name": "Tag definition",
+        	"scope": "entity.other.attribute-name.localname, meta.tag.xml, entity.other.attribute-name.namespace.xml, punctuation.separator.namespace.xml",
+        	"foreground": "var(number-strongblue)",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Function call",
+        	"scope": "variable.function",
+        	"foreground": "var(black)"
+        },
+        {
+        	"name": "Library function",
+        	"scope": "support.function, support.macro",
+        	"foreground": "var(lightblue)"
+        },
+        {
+        	"name": "Library constant",
+        	"scope": "support.constant, support.type.object",
+        	"foreground": "#660E7A",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Library class/type",
+        	"scope": "support.type, support.class",
+        	"foreground": "var(black)",
+        	"font_style": ""
+        },
+        {
+        	"name": "Invalid",
+        	"scope": "invalid",
+        	"foreground": "#FF0000",
+        	"background": "#e8e8e8"
+        },
+        {
+        	"name": "Invalid deprecated",
+        	"scope": "invalid.deprecated",
+        	"foreground": "#FF0000",
+        	"background": "#e8e8e8"
+        },
+        {
+        	"name": "YAML Key",
+        	"scope": "entity.name.tag.yaml",
+        	"foreground": "#000080",
+
+        	"font_style": "bold"
+        },
+        {
+        	"name": "YAML String",
+        	"scope": "source.yaml string.unquoted",
+        	"foreground": "var(black)",
+        	"font_style": ""
+        },
+        {
+        	"name": "markup headings",
+        	"scope": "markup.heading",
+        	"font_style": "#FF0000"
+        },
+        {
+        	"name": "markup headings",
+        	"scope": "markup.heading punctuation.definition.heading",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "markup h1",
+        	"scope": "markup.heading.1 punctuation.definition.heading",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "markup links",
+        	"scope": "string.other.link, markup.underline.link",
+        	"foreground": "var(black)",
+        	"font_style": "italic"
+        },
+        {
+        	"name": "markup bold",
+        	"scope": "markup.bold",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "markup italic",
+        	"scope": "markup.italic",
+        	"font_style": "italic"
+        },
+        {
+        	"name": "markup underline",
+        	"scope": "markup.underline",
+        	"font_style": "underline"
+        },
+        {
+        	"name": "markup bold/italic",
+        	"scope": "markup.italic markup.bold | markup.bold markup.italic",
+        	"font_style": "bold italic"
+        },
+        {
+        	"name": "markup bold/underline",
+        	"scope": "markup.underline markup.bold | markup.bold markup.underline",
+        	"font_style": "bold underline"
+        },
+        {
+        	"name": "markup italic/underline",
+        	"scope": "markup.underline markup.italic | markup.italic markup.underline",
+        	"font_style": "italic underline"
+        },
+        {
+        	"name": "markup bold/italic/underline",
+        	"scope": "markup.bold markup.italic markup.underline | markup.bold markup.underline markup.italic | markup.italic markup.bold markup.underline | markup.italic markup.underline markup.bold | markup.underline markup.bold markup.italic | markup.underline markup.italic markup.bold",
+        	"font_style": "bold italic underline"
+        },
+        {
+        	"name": "markup hr",
+        	"scope": "punctuation.definition.thematic-break",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "markup numbered list bullet",
+        	"scope": "markup.list.numbered.bullet",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "markup blockquote",
+        	"scope": "markup.quote punctuation.definition.blockquote, markup.list punctuation.definition.list_item",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "markup code",
+        	"scope": "markup.raw",
+        	"background": "#FF0000"
+        },
+        {
+        	"name": "markup code",
+        	"scope": "markup.raw.inline",
+        	"background": "#FF0000"
+        },
+        {
+        	"name": "markup punctuation",
+        	"scope": "(text punctuation.definition.italic | text punctuation.definition.bold)",
+        	"foreground": "#FF0000"
+        },
+        {
+        	"name": "diff.header",
+        	"scope": "meta.diff, meta.diff.header",
+        	"foreground": "var(black)"
+        },
+        {
+        	"name": "diff.deleted",
+        	"scope": "markup.deleted",
+        	"background": "var(diff-removed)"
+        },
+        {
+        	"name": "diff.inserted",
+        	"scope": "markup.inserted",
+        	"background": "var(diff-added)"
+        },
+        {
+        	"name": "diff.changed",
+        	"scope": "markup.changed",
+        	"foreground": "var(diff-changed)"
+        },
+        {
+        	"name": "CSS Properties",
+        	"scope": "support.type.property-name",
+        	"foreground": "var(number-strongblue)",
+        	"font_style": "bold"
+        },
+        {
+        	"scope": "constant.numeric.line-number.match",
+        	"foreground": "var(error-strongred)"
+        },
+        {
+        	"scope": "message.error",
+        	"foreground": "var(error-strongred)"
+        },
+
+        {
+        	"scope": "diff.deleted",
+        	"background": "hsl(0, 60%, 93%)",
+        	"foreground_adjust": "l(- 20%)"
+        },
+        {
+        	"scope": "diff.deleted.char",
+        	"background": "hsl(0, 60%, 85%)",
+        	"foreground_adjust": "l(- 30%)"
+        },
+        {
+        	"scope": "diff.inserted",
+        	"background": "hsl(114, 60%, 93%)",
+        	"foreground_adjust": "l(- 20%)"
+        },
+        {
+        	"scope": "diff.inserted.char",
+        	"background": "hsl(114, 60%, 85%)",
+        	"foreground_adjust": "l(- 30%)"
+        },
+        {
+        	"name": "Class constant",
+        	"scope": "entity.name.constant, constant.other",
+        	"foreground": "#660E7A",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Constant string",
+        	"scope": "constant.character.literal",
+        	"foreground": "var(string-green)",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Constant string",
+        	"scope": "punctuation.definition.string.begin, punctuation.definition.string.end, meta.string.shell",
+        	"foreground": "var(string-green)",
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Shell variable",
+        	"scope": "variable.function.shell, meta.declaration.alias.shell, keyword.declaration.alias.shell, meta.interpolation.command.shell",
+        	"foreground": "var(lightblue)",
+        	"font_style": ""
+        },
+        {
+        	"name": "Shell variable definition dollar",
+        	"scope": "punctuation.definition.variable.shell, meta.conditional.shell, support.function.test.begin, support.function.test.end",
+        	"foreground": "#000080",
+
+        	"font_style": "bold"
+        },
+        {
+        	"name": "Shell interpolation",
+        	"scope": "meta.interpolation.parameter.shell, string.unquoted.shell",
+        	"foreground": "var(black)",
+        	"font_style": ""
+        },
+        {
+        	"name": "Git ignore",
+        	"scope": "text.git.ignore string.unquoted.git.ignore entity.name.pattern.git.ignore",
+        	"foreground": "var(black)",
+        	"font_style": ""
+        },
+		{
+        	"name": "Funciton call",
+        	"scope": "variable.function.java",
+        	"foreground": "#000080",
+
+        	"font_style": ""
+        },
+        {
+        	"name": "Local variable definition",
+        	"scope": "variable.other.java",
+        	"foreground": "var(black)"
+        },
+    ]
+}
