@@ -111,10 +111,12 @@ refresh () {
   then
     clear;
     while true; do
-      local result=$(eval "$command");
+#      the issue is with a long running command we don't see any output until it finishes, need a fix to to
+#      local result=$(eval "$command");
+      eval "$command"
+#      echo "$result";
+      sleep 15;
       clear;
-      echo "$result";
-      sleep 2;
     done;
   else
     echo "Exiting."
