@@ -76,7 +76,8 @@ alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHold
 
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
-
+alias start-podman='podman machine start'
+alias stop-podman='podman machine stop'
 
 
 
