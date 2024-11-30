@@ -302,17 +302,17 @@
         {
         	"name": "markup blockquote",
         	"scope": "markup.quote punctuation.definition.blockquote, markup.list punctuation.definition.list_item",
-        	"foreground": "#FF0000"
+        	"foreground": "var(black)"
         },
         {
         	"name": "markup code",
         	"scope": "markup.raw",
-        	"background": "#FF0000"
+        	"background": "#f0fbee"
         },
         {
         	"name": "markup code",
         	"scope": "markup.raw.inline",
-        	"background": "#FF0000"
+        	"background": "#f0fbee"
         },
         {
         	"name": "markup punctuation",

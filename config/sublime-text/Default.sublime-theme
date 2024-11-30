@@ -1,19 +1,19 @@
 {
 	"variables":
 	{
-		"base_hue": "#e8e8e8",
+		"base_hue": "#E8E8E8",
 
-		"tabset_medium_bg": "#F2F2F2",
-		"tabset_medium_dark_bg": "#F2F2F2",
-		"tabset_light_bg": "#F2F2F2",
+		"tabset_medium_bg": "#E8E8E8",
+		"tabset_medium_dark_bg": "#E8E8E8",
+		"tabset_light_bg": "#E8E8E8",
 	},
 	"rules":
 	[
 		{
 			"class": "tab_control",
 			"attributes": ["selected"],
-			"tint_modifier": [255,255,255],
-		},
+			"tint_modifier": "#FFFFFF",
+		}
 	]
 }
 
