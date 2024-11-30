@@ -1,5 +1,5 @@
 {
-	"font_size": 15,
+	"font_size": 16,
 	"theme": "auto",
 	"dark_theme": "Default Dark.sublime-theme",
 	"light_theme": "Default.sublime-theme",
@@ -24,4 +24,5 @@
 	"hide_tab_scrolling_buttons": true,
 	"hide_new_tab_button": true,
 	"enable_tab_scrolling": false,
+	"scroll_past_end": 0.8,
 }
