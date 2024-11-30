@@ -61,20 +61,15 @@ Some things are not yet automated:
 
 # Applications preference:
 
+### App Store
+
+Settings 
+- Turn off Automatic Updates
+- Turn off In-App Ratings & Reviews
+
 ### Alfred
 Features -> Clipboard History -> Select:
    - Keep Plain Text
    - Keep Images
    - Keep File Lists
 Features -> Snippets -> Select 'Automatically expand snippets by keyword'
-
-### Firefox
-- Set defaults:
-```
-accessibility.typeaheadfind.prefillwithselection true
-browser.compactmode.show true
-toolkit.legacyUserProfileCustomizations.stylesheets true
-browser.urlbar.showSearchSuggestionsFirst false
-browser.urlbar.maxRichResults 14
-```
-- Change monospace font.
