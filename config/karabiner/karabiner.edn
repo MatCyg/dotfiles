@@ -16,7 +16,7 @@
     {:vendor_id 76 :product_id 668}
     {:vendor_id 1118 :product_id 1957}
     {:vendor_id 1452 :product_id 636}],
-    :sweep []
+    :sweep [ {:vendor_id 7504 :product_id 24926 } ]
  }
  :froms {
     :gcs-q {:key :!CTSq}
@@ -110,9 +110,9 @@
     {:des "missing zmk features"
      :rules [ :sweep
              [:!!t {:pkey :button1}]
-             [:!TOSup_arrow :!TOup_arrow]
+;;              [:!TOSup_arrow :!TOup_arrow]
              [:!!3 :!CSm]
-             [:!OOtab :!Tup_arrow]
+;;              [:!OOtab :!Tup_arrow]
     ]}
 
     {:des "APP SHORTCUT LAYER"
@@ -201,6 +201,10 @@
 
     {:des "override option"
     :rules [
+            [:condi :mac :firefox]
+            [:!CCs :!CS1]
+            [:!CCe [:!Cl :!S5 :spacebar]]
+            [:!CCu [:!Cl :!S8 :spacebar]]
             [:condi :mac :intellij]
             [:!Ea :!TSd]
             [:!Es :!TSr]
@@ -208,9 +212,9 @@
             [:!Ex :!Td]
             [:!Ec :!Tr]
              :mac
-;;             [:!Os :!CTO1] ; sculpt
-;;             [:!Oa :!CTO2] ; sculpt
-;;             [:!Wspacebar :right_option] ; sculpt
+            [:!Os :!CTO1] ; sculpt
+            [:!Oa :!CTO2] ; sculpt
+            [:!Wspacebar :right_option] ; sculpt
 
             [:!OOgrave_accent_and_tilde [:TURN_OFF_SELECTION_MODE :!!a]]
             [:!OO1 [:TURN_OFF_SELECTION_MODE :!!s]]
@@ -269,13 +273,13 @@
 ;           [:!OOhyphen [:spacebar :hyphen {:key :period :modi :shift :repeat false} {:key :spacebar :repeat false}]]
 
             [:!Espacebar :spacebar]
-            [:!CST4 []]
-            [:!CT4 []]
-            [:!CS4 []]
-            [:!CST5 []]
-            [:!CT5 []]
-            [:!CS5 []]
-            [:!COc []]
+;;             [:!CST4 []]
+;;             [:!CT4 []]
+;;             [:!CS4 []]
+;;             [:!CST5 []]
+;;             [:!CT5 []]
+;;             [:!CS5 []]
+;;             [:!COc []]
     ]}
 
     {:des "MAC qwerty specific"
@@ -304,8 +308,8 @@
 ;           [:!!up_arrow :!TOup_arrow]
 ;           [:!!down_arrow :!TOdown_arrow]
 
-            [{:key :9 :modi :shift} []]
-            [{:key :0 :modi :shift} []]
+;;             [{:key :9 :modi :shift} []]
+;;             [{:key :0 :modi :shift} []]
 
             [:!CCc [:TURN_OFF_SELECTION_MODE :!CCc]]
             [:!CCx [:TURN_OFF_SELECTION_MODE :!CCx]]
