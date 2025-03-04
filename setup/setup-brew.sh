@@ -41,6 +41,7 @@ done
 echo "[brew] Installing desktop applications..."
 apps=(
   anki
+  appcleaner
   drawio
   firefox
   iterm2
