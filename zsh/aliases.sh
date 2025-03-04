@@ -19,6 +19,7 @@ export DESKTOP=$HOME/Desktop
 export TOOLS=$HOME/Tools
 export JAVA_SYMLINKS_DIR=$HOME/.java
 export JAVA_ALIASES_PATH=$JAVA_SYMLINKS_DIR/java-aliases.sh
+source $JAVA_ALIASES_PATH
 
 # Shortcuts
 alias dl='cd $DOWNLOADS'
@@ -44,7 +45,7 @@ alias ls='ls -hG'
 alias l='ls -lhG'
 alias ll='ls -lahG'
 
-alias start-simple-server="python -m SimpleHTTPServer 8000"
+alias start-simple-server="python3 -m http.server 8000"
 alias clc="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias ff='find . -type f -name'
