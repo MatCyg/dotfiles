@@ -51,7 +51,7 @@ class InstallNewestJavaVersions {
                 .flatMap(List::stream)
                 .filter(v -> v.status() != Status.REMOTE)
                 .filter(v -> !shouldBeInstalled.contains(v))
-                .collect(Collectors.toList());
+                .toList();
 
         List<SemVersion> toInstall = shouldBeInstalled.stream()
                 .filter(v -> v.status() != Status.INSTALLED)
@@ -125,7 +125,7 @@ class InstallNewestJavaVersions {
         public static Status from(String s) {
             return switch (s) {
                 case "installed" -> INSTALLED;
-                case " localonly" -> LOCAL_ONLY;
+                case "localonly" -> LOCAL_ONLY;
                 default -> REMOTE;
             };
         }
