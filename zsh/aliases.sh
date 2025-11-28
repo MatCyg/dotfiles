@@ -73,7 +73,7 @@ alias upgrade-antidote='source /usr/local/opt/antidote/share/antidote/antidote.z
 alias upgrade-all='upgrade-antidote; upgrade-brew-packages; upgrade-java'
 
 #alias goku='/usr/local/bin/goku -c $DOTFILES/config/karabiner/karabiner.edn'
-alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn; karabinerAddHoldDownMilliseconds ~/.config/karabiner/karabiner.json'
+alias goku='~/goku -c $DOTFILES/config/karabiner/karabiner.edn && karabinerAddHoldDownMilliseconds ~/.config/karabiner/karabiner.json && karabinerReplaceWithBuiltInKeyboard ~/.config/karabiner/karabiner.json'
 
 alias start-mongo='rm -rf ~/data;mkdir -p ~/data/db;mongod --fork --syslog --dbpath ~/data/db'
 alias stop-mongo='killall mongod'
@@ -97,6 +97,15 @@ karabinerAddHoldDownMilliseconds() {
         .manipulators |= map(addHoldDownMilliseconds)
       else . end)
     else . end)
+  ' $1 > $temp_file && mv $temp_file $1
+}
+
+karabinerReplaceWithBuiltInKeyboard() {
+  temp_file=$(mktemp)
+  jq '
+    walk(if type == "object" and .vendor_id == 1 and .product_id == 1 then
+      {"is_built_in_keyboard": true}
+      else . end)
   ' $1 > $temp_file && mv $temp_file $1
 }
 
