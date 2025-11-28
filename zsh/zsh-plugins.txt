@@ -1,7 +1,7 @@
 romkatv/powerlevel10k
 
 $DOTFILES/zsh/p10k.zsh
-$DOTFILES/zsh/aliases.sh kind:defer
+$DOTFILES/zsh/aliases.sh
 $HOME/.java/java-aliases.sh kind:defer
 
 # zdharma-continuum/fast-syntax-highlighting kind:defer
