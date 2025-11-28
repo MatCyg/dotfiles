@@ -19,7 +19,7 @@ create_symlinks() {
   for version in $versions
   do
     major_version=$(echo $version | cut -d. -f1 | cut -d- -f1)
-    symlink_base_name="java"
+    symlink_base_name="j"
     if [[ $version == *"graalce"* ]]; then
       symlink_base_name="graal"
     fi
