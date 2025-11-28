@@ -36,7 +36,7 @@ alias g="git"
 alias dr="docker"
 alias s="subl"
 alias dc="docker-compose"
-alias h="history"
+alias h="history -i"
 alias mk="minikube"
 alias kc="kubectl"
 
