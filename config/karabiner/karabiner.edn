@@ -8,14 +8,16 @@
  :applications {
     :intellij ["^com\\.jetbrains\\.intellij$"]
     :teams ["^com\\.microsoft\\.teams$"]
-    :firefox ["^org\\.mozilla\\.firefox$"]
+    :firefox ["^org\\.mozilla\\.firefox$", "^org\\.mozilla\\.firefoxdeveloperedition$"]
     :safari ["^com\\.apple\\.Safari$"]
+    :excel ["^com\\.microsoft\\.Excel$"]
  }
  :devices { :mac [
     {:vendor_id 1452 :product_id 832}
     {:vendor_id 76 :product_id 668}
     {:vendor_id 1118 :product_id 1957}
-    {:vendor_id 1452 :product_id 636}],
+    {:vendor_id 1452 :product_id 636},
+    {:vendor_id 1 :product_id 1}],
     :sweep [ {:vendor_id 7504 :product_id 24926 } ]
  }
  :froms {
@@ -201,6 +203,8 @@
 
     {:des "override option"
     :rules [
+            [:condi :mac :excel]
+            [:!Creturn_or_enter :!Tu]
             [:condi :mac :firefox]
             [:!CCs :!CS1]
             [:!CCe [:!Cl :!S5 :spacebar]]
@@ -228,8 +232,30 @@
 ;           [:!OOs []]
             [:!OOd :open_parenthesis]
             [:!OOf :close_parenthesis]
-            [:!OOg :!Tq]
+;;             [:!OOg :!Tq]
 
+            [:f1 :!Tq]
+            [:f2 :!Tq]
+            ; [:f2 :!CTO2]
+            ; [:f3 :!!f8]
+            [:f3 :!Tq]
+            [:f4 :!Tq]
+;;             [:display_brightness_decrement :!CTO1]
+;;             [:display_brightness_increment :!CTO2]
+
+
+
+            [:f8 :display_brightness_decrement]
+            [:f9 :display_brightness_increment]
+            [:f10 :mute]
+            [:f11 :volume_decrement]
+            [:f12 :volume_increment]
+;;             [:!00spacebar :!Tq]
+            [:!Qspacebar :!Tq]
+
+            [:!Espacebar :!Tq]
+;;             [:!Cspacebar :!CTO1]
+            [:!Ospacebar :!Cspacebar]
 ;           [:!OOz []]
 ;           [:!OOx []]
 ;           [:!OOc []]
@@ -243,8 +269,8 @@
 ;           [:!OOp []]
 
             [:!OOh []]
-            [:!OOj :open_braces]
-            [:!OOk :close_braces]
+            [:!OOj []]
+            [:!OOk :!Tq]
 ;           [:!OOl []]
 ;           [:!OOsemicolon []]
 
@@ -272,7 +298,6 @@
             [:!OOequal_sign :!TOup_arrow]
 ;           [:!OOhyphen [:spacebar :hyphen {:key :period :modi :shift :repeat false} {:key :spacebar :repeat false}]]
 
-            [:!Espacebar :spacebar]
 ;;             [:!CST4 []]
 ;;             [:!CT4 []]
 ;;             [:!CS4 []]

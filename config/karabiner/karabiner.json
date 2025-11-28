@@ -29,17 +29,6 @@
                                     { "key_code": "vk_none" }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "from": { "pointing_button": "button3" },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["left_control"]
-                                    },
-                                    { "key_code": "vk_none" }
-                                ],
-                                "type": "basic"
                             }
                         ]
                     },
@@ -98,7 +87,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -128,7 +118,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -158,7 +149,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -188,7 +180,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -1271,7 +1264,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1319,7 +1313,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1360,7 +1355,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1401,7 +1397,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1442,7 +1439,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1468,7 +1466,7 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^com\\.microsoft\\.Excel$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -1489,7 +1487,52 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": { "mandatory": ["left_command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "u",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1510,7 +1553,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -1531,49 +1575,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "d",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "2",
-                                        "modifiers": ["left_command", "left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    },
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "product_id": 832,
-                                                "vendor_id": 1452
                                             },
-                                            {
-                                                "product_id": 668,
-                                                "vendor_id": 76
-                                            },
-                                            {
-                                                "product_id": 1957,
-                                                "vendor_id": 1118
-                                            },
-                                            {
-                                                "product_id": 636,
-                                                "vendor_id": 1452
-                                            }
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1599,7 +1602,8 @@
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^org\\.mozilla\\.firefox$"
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.mozilla\\.firefoxdeveloperedition$"
                                         ],
                                         "type": "frontmost_application_if"
                                     },
@@ -1620,7 +1624,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1667,7 +1672,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1709,7 +1715,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1751,7 +1758,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1793,7 +1801,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1829,7 +1838,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1865,7 +1875,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1901,7 +1912,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1932,7 +1944,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -1974,7 +1987,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2016,7 +2030,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2058,7 +2073,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2094,7 +2110,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2130,7 +2147,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2166,7 +2184,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2202,14 +2221,296 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f1" },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f2" },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f3" },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f4" },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f8" },
+                                "to": [{ "consumer_key_code": "display_brightness_decrement" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f9" },
+                                "to": [{ "consumer_key_code": "display_brightness_increment" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f10" },
+                                "to": [{ "consumer_key_code": "mute" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f11" },
+                                "to": [{ "consumer_key_code": "volume_decrement" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": { "key_code": "f12" },
+                                "to": [{ "consumer_key_code": "volume_increment" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "g",
-                                    "modifiers": { "mandatory": ["option"] }
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["right_command"] }
                                 },
                                 "to": [
                                     {
@@ -2238,7 +2539,82 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["right_option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
+                                        ],
+                                        "type": "device_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["left_option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 832,
+                                                "vendor_id": 1452
+                                            },
+                                            {
+                                                "product_id": 668,
+                                                "vendor_id": 76
+                                            },
+                                            {
+                                                "product_id": 1957,
+                                                "vendor_id": 1118
+                                            },
+                                            {
+                                                "product_id": 636,
+                                                "vendor_id": 1452
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2280,7 +2656,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2316,7 +2693,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2347,7 +2725,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2378,7 +2757,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2409,7 +2789,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2440,7 +2821,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2449,12 +2831,7 @@
                                     "key_code": "j",
                                     "modifiers": { "mandatory": ["option"] }
                                 },
-                                "to": [
-                                    {
-                                        "key_code": "open_bracket",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
+                                "to": [],
                                 "type": "basic"
                             },
                             {
@@ -2476,7 +2853,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2487,8 +2865,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "close_bracket",
-                                        "modifiers": ["shift"]
+                                        "key_code": "q",
+                                        "modifiers": ["left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -2512,7 +2890,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2549,7 +2928,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2586,7 +2966,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2622,7 +3003,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2658,7 +3040,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2694,7 +3077,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2730,7 +3114,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2761,7 +3146,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2797,7 +3183,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2833,7 +3220,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2869,7 +3257,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2905,7 +3294,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2941,7 +3331,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2977,7 +3368,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -2992,37 +3384,6 @@
                                         "modifiers": ["left_control", "left_option"]
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "product_id": 832,
-                                                "vendor_id": 1452
-                                            },
-                                            {
-                                                "product_id": 668,
-                                                "vendor_id": 76
-                                            },
-                                            {
-                                                "product_id": 1957,
-                                                "vendor_id": 1118
-                                            },
-                                            {
-                                                "product_id": 636,
-                                                "vendor_id": 1452
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["right_option"] }
-                                },
-                                "to": [{ "key_code": "spacebar" }],
                                 "type": "basic"
                             }
                         ]
@@ -3049,7 +3410,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3088,7 +3450,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3127,7 +3490,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3167,7 +3531,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3206,7 +3571,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3246,7 +3612,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3287,7 +3654,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3329,7 +3697,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3371,7 +3740,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3413,7 +3783,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3455,7 +3826,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -3497,7 +3869,8 @@
                                             {
                                                 "product_id": 636,
                                                 "vendor_id": 1452
-                                            }
+                                            },
+                                            { "is_built_in_keyboard": true }
                                         ],
                                         "type": "device_if"
                                     }
@@ -5820,6 +6193,27 @@
                         "vendor_id": 1133
                     },
                     "ignore": false
+                },
+                {
+                    "identifiers": { "is_keyboard": true },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "grave_accent_and_tilde" },
+                            "to": [{ "key_code": "left_shift" }]
+                        },
+                        {
+                            "from": { "key_code": "non_us_backslash" },
+                            "to": [{ "key_code": "grave_accent_and_tilde" }]
+                        },
+                        {
+                            "from": { "key_code": "right_command" },
+                            "to": [{ "key_code": "right_option" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
                 }
             ],
             "name": "Default",
